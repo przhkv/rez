@@ -1,0 +1,50 @@
+{
+  "name": "rez",
+  "version": "0.1.0",
+  "description": "ウェブシーケンサの試み",
+  "scripts": {
+    "start": "npm-run-all --parallel server lint:watch",
+    "server": "babel-node tools/server.js",
+    "lint:watch": "npm run lint -- --watch",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/przhkv/rez.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/przhkv/rez/issues"
+  },
+  "homepage": "https://przhkv.github.io/rez",
+  "dependencies": {
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
+    "react-redux": "4.4.5",
+    "react-router": "2.8.1",
+    "redux": "3.6.0",
+    "redux-saga": "0.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.16.0",
+    "babel-core": "6.16.0",
+    "babel-loader": "6.2.5",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-es2015": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-react-hmre": "1.1.1",
+    "babel-preset-stage-2": "6.17.0",
+    "babel-register": "6.16.3",
+    "eslint": "3.7.1",
+    "eslint-plugin-import": "2.0.0",
+    "eslint-plugin-react": "6.3.0",
+    "eslint-watch": "2.1.14",
+    "express": "4.14.0",
+    "node-sass": "3.10.1",
+    "npm-run-all": "3.1.0",
+    "redux-immutable-state-invariant": "1.2.4",
+    "webpack": "1.13.2",
+    "webpack-dev-middleware": "1.8.2",
+    "webpack-hot-middleware": "2.12.2"
+  }
+}
