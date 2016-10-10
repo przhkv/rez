@@ -4,16 +4,19 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { Router, createMemoryHistory } from 'react-router';
-
 import routes from './routes';
 import configureStore from './store/configureStore';
 import rootSaga from './sagas';
-import {loadProjectList} from './actions/projectActions';
+import * as projectListActions from './actions/projectListActions';
+import * as settingsActions from './actions/settingsActions';
+import './assets/styles/main.scss';
 
 const history = createMemoryHistory('/');
+
 const store = configureStore();
 store.runSaga(rootSaga);
-store.dispatch(loadProjectList());
+store.dispatch(settingsActions.load());
+store.dispatch(projectListActions.load());
 
 render(
   <Provider store={store}>

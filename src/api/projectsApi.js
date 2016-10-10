@@ -1,9 +1,5 @@
-import delay from '../constants/mock/delay';
-import _mockProjectListData from '../constants/mock/projectListData';
-
-export const fetchProjectList = () =>
-    new Promise(resolve => {
-      setTimeout(() => {
-        resolve(Object.assign([], _mockProjectListData));
-      }, delay);
-    });
+//if (process.env.NODE_ENV === 'production') {
+//  module.exports = require('./projectsApi.prod');
+//} else {
+module.exports = require('./mock/mockProjectsApi');
+//}
