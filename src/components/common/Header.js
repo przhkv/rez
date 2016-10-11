@@ -43,10 +43,10 @@ class Header extends React.Component {
           <div className={'navbar-collapse ' + navClass}>
             <ul>
               <li id={pages.HOME} className={getClass(pages.HOME)}>
-                <IndexLink to="/" onClick={setPage}>Projects</IndexLink>
+                <IndexLink to="/" onClick={setPage}>{i18n.headNav.projects}</IndexLink>
               </li>
               <li id={pages.SETTINGS} className={getClass(pages.SETTINGS)}>
-                <Link to="/settings" onClick={setPage}>Settings</Link>
+                <Link to="/settings" onClick={setPage}>{i18n.headNav.settings}</Link>
               </li>
             </ul>
           </div>

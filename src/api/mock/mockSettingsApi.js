@@ -1,5 +1,5 @@
-import delay from '../../constants/mock/delay';
-import _mockSettingsData from '../../constants/mock/settingsData';
+import delay from './delay';
+import _mockSettingsData from './data/settingsData';
 
 const USERNAME_MIN_LENGTH = 3;
 

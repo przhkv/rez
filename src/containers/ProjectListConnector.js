@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import version from '../constants/version';
 import { load } from '../actions/projectListActions';
+import { projectListSelector } from '../selectors';
 import ProjectListPage from '../components/project-list/ProjectListPage';
 
 const ProjectListConnector = props => (
@@ -19,7 +20,7 @@ ProjectListConnector.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  projectList: state.projectList
+  projectList: projectListSelector(state)
 });
 
 export default connect(mapStateToProps, {load})(ProjectListConnector);

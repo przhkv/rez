@@ -1,5 +1,5 @@
-import delay from '../../constants/mock/delay';
-import _mockProjectListData from '../../constants/mock/projectListData';
+import delay from './delay';
+import _mockProjectListData from './data/projectListData';
 
 export const fetchList = () =>
   new Promise(resolve => {

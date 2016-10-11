@@ -35,6 +35,7 @@ class SettingsPage extends Component {
       this.setState({saving: true});
       props.updateSettings(settings);
     };
+
     return (
       <div>
         <h3>settings</h3>
@@ -50,7 +51,11 @@ class SettingsPage extends Component {
         <p>
           general > Enable Keyboard Shortcut: {settings.general.enableKeyboardShortcut.toString()}
         </p>
-        <input type="button" value="save" onClick={save}/>
+        <input
+          type="button"
+          value={props.i18n.controls.save}
+          onClick={save}
+        />
       </div>
     );
   }

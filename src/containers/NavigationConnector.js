@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { navigate } from '../actions/navigationActions';
+import { i18nSelector, pageSelector } from '../selectors';
 import Header from '../components/common/Header';
 
 const NavigationConnector = props => {
@@ -22,9 +23,9 @@ NavigationConnector.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  i18n: state.i18n,
+  i18n: i18nSelector(state),
   loading: false,//todo state.ajaxCallsInProgress > 0,
-  page: state.page
+  page: pageSelector(state)
 });
 
 export default connect(mapStateToProps, {navigate})(NavigationConnector);

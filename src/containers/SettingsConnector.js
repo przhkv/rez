@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { updateRequest } from '../actions/settingsActions';
+import { i18nSelector, settingsSelector } from '../selectors';
 import SettingsPage from '../components/settings/SettingsPage';
 
 const SettingsConnector = props => {
@@ -20,8 +21,8 @@ SettingsConnector.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  i18n: state.i18n,
-  settings: state.settings
+  i18n: i18nSelector(state),
+  settings: settingsSelector(state)
 });
 
 export default connect(mapStateToProps, {updateRequest})(SettingsConnector);
