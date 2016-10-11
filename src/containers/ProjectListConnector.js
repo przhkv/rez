@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import version from '../constants/version';
 import { load } from '../actions/projectListActions';
@@ -10,12 +9,12 @@ const ProjectListConnector = props => (
     <i>{'v. ' + version}</i>
     <ProjectListPage
       projectList={props.projectList}
-      loadProjectList={props.actions.load}/>
+      loadProjectList={props.load}/>
   </div>
 );
 
 ProjectListConnector.propTypes = {
-  actions: PropTypes.object.isRequired,
+  load: PropTypes.func.isRequired,
   projectList: PropTypes.array.isRequired
 };
 
@@ -23,8 +22,4 @@ const mapStateToProps = state => ({
   projectList: state.projectList
 });
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({load}, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectListConnector);
+export default connect(mapStateToProps, {load})(ProjectListConnector);

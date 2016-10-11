@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as navigationActions from '../actions/navigationActions';
+import { navigate } from '../actions/navigationActions';
 import Header from '../components/common/Header';
 
 const NavigationConnector = props => {
@@ -9,31 +8,23 @@ const NavigationConnector = props => {
     <Header
       i18n={props.i18n}
       loading={props.loading}
-      navigate={props.actions.navigate}
+      navigate={props.navigate}
       page={props.page}
     />
   );
 };
 
 NavigationConnector.propTypes = {
-  actions: PropTypes.object.isRequired,
   i18n: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
+  navigate: PropTypes.func.isRequired,
   page: PropTypes.string.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    i18n: state.i18n,
-    loading: false,//todo state.ajaxCallsInProgress > 0,
-    page: state.page
-  };
-}
+const mapStateToProps = state => ({
+  i18n: state.i18n,
+  loading: false,//todo state.ajaxCallsInProgress > 0,
+  page: state.page
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(navigationActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationConnector);
+export default connect(mapStateToProps, {navigate})(NavigationConnector);
