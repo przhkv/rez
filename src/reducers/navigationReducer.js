@@ -1,11 +1,9 @@
+import _reducerConstructor from './_reducerConstructor';
 import { NAVIGATION_UPDATE } from '../constants/actionTypes';
-import * as pages from '../constants/pages';
+import { HOME } from '../constants/pages';
 
-export default (state = pages.HOME, action) => {
-  switch (action.type) {
-    case NAVIGATION_UPDATE:
-      return action.page;
-    default:
-      return state;
-  }
+const reducers = {
+  [NAVIGATION_UPDATE]: (currentState, action) => action.page,
 };
+
+export default _reducerConstructor(HOME, reducers);
