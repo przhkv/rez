@@ -1,24 +1,40 @@
 import React, { Component, PropTypes } from 'react';
 
-const ProjectListPage = props => {
+const ProjectListPage = (props, context) => {
 
-  const click = e => {
+  const reload = e => {
     e.preventDefault();
     props.loadProjectList();
   };
 
+  const open = e => {
+    e.preventDefault();
+
+    const innerId = e.currentTarget.id;
+    console.log(innerId);
+    const payload = {projectId: innerId};
+    //todo titleID
+    const meta = {redirect: () => context.router.push('/seq/' + innerId)};
+    props.openProject(payload, meta);
+  };
+
   return (
     <div>
-      <a href="#" onClick={click}>Reload</a>
-        {props.projectList.map(p => (
-          <h5 key={p.id}>{p.title}</h5>
-        ))}
+      <a href="#" onClick={reload}>Reload</a>
+      {props.projectList.map(p => (
+        <h5 key={p.id}><a href="#" id={p.id} onClick={open}>{p.title}</a></h5>
+      ))}
     </div>
   );
 };
 
+ProjectListPage.contextTypes = {
+  router: PropTypes.object
+};
+
 ProjectListPage.propTypes = {
   loadProjectList: PropTypes.func.isRequired,
+  openProject: PropTypes.func.isRequired,
   projectList: PropTypes.array.isRequired
 };
 

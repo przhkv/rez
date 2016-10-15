@@ -11,6 +11,7 @@ export default [
   },
   {
     id: "55343f67-cdec-4417-9d1d-1444ca5bb9f6",
+    idTitle: "no-guts-no-galaxy",
     title: "No Guts No Galaxy",
     credits: {
       originalArtist: "Material"

@@ -1,6 +1,6 @@
-import _jp from './i18n/JP';
-import _en from './i18n/EN';
-import _fr from './i18n/FR';
+import _jp from './dictionaries/JP';
+import _en from './dictionaries/EN';
+import _fr from './dictionaries/FR';
 
 export default {
   JP: _jp,
