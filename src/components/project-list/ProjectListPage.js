@@ -11,7 +11,6 @@ const ProjectListPage = (props, context) => {
     e.preventDefault();
 
     const innerId = e.currentTarget.id;
-    console.log(innerId);
     const payload = {projectId: innerId};
     //todo titleID
     const meta = {redirect: () => context.router.push('/seq/' + innerId)};
@@ -22,7 +21,10 @@ const ProjectListPage = (props, context) => {
     <div>
       <a href="#" onClick={reload}>Reload</a>
       {props.projectList.map(p => (
-        <h5 key={p.id}><a href="#" id={p.id} onClick={open}>{p.title}</a></h5>
+        <h5 key={p.id}>
+          <a href="#" id={p.id} onClick={open}>{p.title}</a>
+          {props.loadedProjectsIds.find(id => id === p.id) && <i>{' ' + props.i18n.controls.opened}</i>}
+        </h5>
       ))}
     </div>
   );
@@ -33,6 +35,8 @@ ProjectListPage.contextTypes = {
 };
 
 ProjectListPage.propTypes = {
+  i18n: PropTypes.object.isRequired,
+  loadedProjectsIds: PropTypes.array.isRequired,
   loadProjectList: PropTypes.func.isRequired,
   openProject: PropTypes.func.isRequired,
   projectList: PropTypes.array.isRequired

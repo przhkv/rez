@@ -29,7 +29,7 @@ const makeMapStateToProps = () => {
   const getSelectedProject = makeGetSelectedProject();
   const mapStateToProps = (state, props) => {
     return {
-      l18n: i18nSelector(state),i18n: i18nSelector(state),
+      i18n: i18nSelector(state),
       project: props.params.id ? getSelectedProject(state, props) : defaultProject,
       settings: settingsSelector(state)
     };
