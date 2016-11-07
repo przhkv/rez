@@ -11,7 +11,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { i18n, loading, navigate } = this.props;
+    const { i18n, loadedProjectsLinks, loading, navigate } = this.props;
     const { collapsed } = this.state;
 
     const getClass = page =>
@@ -45,6 +45,11 @@ class Header extends React.Component {
               <li id={pages.HOME} className={getClass(pages.HOME)}>
                 <IndexLink to="/" onClick={setPage}>{i18n.headNav.projects}</IndexLink>
               </li>
+              {loadedProjectsLinks.map((linkData, i) => (
+                <li key={i} id={linkData.idTitle} className={getClass(linkData.idTitle)}>
+                  <Link to={'/seq/' + linkData.idTitle} onClick={setPage}>{linkData.title}</Link>
+                </li>
+              ))}
               <li id={pages.SETTINGS} className={getClass(pages.SETTINGS)}>
                 <Link to="/settings" onClick={setPage}>{i18n.headNav.settings}</Link>
               </li>
@@ -58,6 +63,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   i18n: PropTypes.object.isRequired,
+  loadedProjectsLinks: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   page: PropTypes.string.isRequired,
   navigate: PropTypes.func.isRequired

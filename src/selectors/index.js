@@ -5,10 +5,11 @@ export const
   pageSelector = state => state.page,
   projectListSelector = state => state.projectList,
   loadedProjectsIdsSelector = state => state.projects.map(p => p.id),
+  loadedProjectsLinksSelector = state => state.projects.map(p => ({idTitle: p.idTitle, title: p.title})),
   projectByIdSelector = (state, id) => state.projects.filter(p => p.id === id),
   settingsSelector = state => state.settings;
 
-const getSelectedProjectSelector = (state, props) => state.projects.find(p => p.id === props.params.id); //todo idTitle
+const getSelectedProjectSelector = (state, props) => state.projects.find(p => p.idTitle === props.params.id);
 
 export const makeGetSelectedProject = () => {
   return createSelector(

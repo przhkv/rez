@@ -10,10 +10,9 @@ const ProjectListPage = (props, context) => {
   const open = e => {
     e.preventDefault();
 
-    const innerId = e.currentTarget.id;
-    const payload = {projectId: innerId};
-    //todo titleID
-    const meta = {redirect: () => context.router.push('/seq/' + innerId)};
+    const {id, title} = e.currentTarget;
+    const payload = {projectId: id};
+    const meta = {redirect: () => context.router.push('/seq/' + title)};
     props.openProject(payload, meta);
   };
 
@@ -22,7 +21,7 @@ const ProjectListPage = (props, context) => {
       <a href="#" onClick={reload}>Reload</a>
       {props.projectList.map(p => (
         <h5 key={p.id}>
-          <a href="#" id={p.id} onClick={open}>{p.title}</a>
+          <a href="#" id={p.id} title={p.idTitle} onClick={open}>{p.title}</a>
           {props.loadedProjectsIds.find(id => id === p.id) && <i>{' ' + props.i18n.controls.opened}</i>}
         </h5>
       ))}
