@@ -4,15 +4,13 @@ import { updateRequest } from '../actions/settingsActions';
 import { i18nSelector, settingsSelector } from '../selectors';
 import SettingsPage from '../components/settings/SettingsPage';
 
-const SettingsConnector = props => {
-  return (
-    <SettingsPage
-      i18n={props.i18n}
-      settings={props.settings}
-      updateSettings={props.updateRequest}
-    />
-  );
-};
+const SettingsConnector = props => (
+  <SettingsPage
+    i18n={props.i18n}
+    settings={props.settings}
+    updateSettings={props.updateRequest}
+  />
+);
 
 SettingsConnector.propTypes = {
   i18n: PropTypes.object.isRequired,

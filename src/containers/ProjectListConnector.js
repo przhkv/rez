@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import version from '../constants/version';
+import { navigate } from '../actions/navigationActions';
 import { load } from '../actions/projectListActions';
 import { open } from '../actions/projectActions';
 import { i18nSelector, loadedProjectsIdsSelector, projectListSelector } from '../selectors';
@@ -13,6 +14,7 @@ const ProjectListConnector = props => (
       i18n={props.i18n}
       loadedProjectsIds={props.loadedProjectsIds}
       loadProjectList={props.load}
+      navigate={props.navigate}
       openProject={props.open}
       projectList={props.projectList}
     />
@@ -23,6 +25,7 @@ ProjectListConnector.propTypes = {
   i18n: PropTypes.object.isRequired,
   load: PropTypes.func.isRequired,
   loadedProjectsIds: PropTypes.array.isRequired,
+  navigate: PropTypes.func.isRequired,
   open: PropTypes.func.isRequired,
   projectList: PropTypes.array.isRequired
 };
@@ -33,4 +36,4 @@ const mapStateToProps = state => ({
   projectList: projectListSelector(state)
 });
 
-export default connect(mapStateToProps, {load, open})(ProjectListConnector);
+export default connect(mapStateToProps, {load, navigate, open})(ProjectListConnector);

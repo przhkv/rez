@@ -12,7 +12,10 @@ const ProjectListPage = (props, context) => {
 
     const {id, title} = e.currentTarget;
     const payload = {projectId: id};
-    const meta = {redirect: () => context.router.push('/seq/' + title)};
+    const meta = {redirect: () => {
+      context.router.push('/seq/' + title);
+      props.navigate(title);
+    }};
     props.openProject(payload, meta);
   };
 
@@ -37,6 +40,7 @@ ProjectListPage.propTypes = {
   i18n: PropTypes.object.isRequired,
   loadedProjectsIds: PropTypes.array.isRequired,
   loadProjectList: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
   openProject: PropTypes.func.isRequired,
   projectList: PropTypes.array.isRequired
 };

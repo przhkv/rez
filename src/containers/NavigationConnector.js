@@ -4,17 +4,15 @@ import { navigate } from '../actions/navigationActions';
 import { i18nSelector, loadedProjectsLinksSelector, pageSelector } from '../selectors';
 import Header from '../components/common/Header';
 
-const NavigationConnector = props => {
-  return (
-    <Header
-      i18n={props.i18n}
-      loadedProjectsLinks={props.loadedProjectsLinks}
-      loading={props.loading}
-      navigate={props.navigate}
-      page={props.page}
-    />
-  );
-};
+const NavigationConnector = props => (
+  <Header
+    i18n={props.i18n}
+    loadedProjectsLinks={props.loadedProjectsLinks}
+    loading={props.loading}
+    navigate={props.navigate}
+    page={props.page}
+  />
+);
 
 NavigationConnector.propTypes = {
   i18n: PropTypes.object.isRequired,

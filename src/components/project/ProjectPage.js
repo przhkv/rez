@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import * as pages from '../../constants/pages';
 
 class ProjectPage extends Component {
   constructor(props) {
@@ -10,7 +11,10 @@ class ProjectPage extends Component {
       e.preventDefault();
 
       const payload = {projectId: props.project.id};
-      const meta = {redirect: () => context.router.push('/')};
+      const meta = {redirect: () => {
+        context.router.push('/');
+        props.navigate(pages.HOME);
+      }};
       props.closeProject(payload, meta);
     };
 
@@ -35,6 +39,7 @@ ProjectPage.propTypes = {
   closeProject: PropTypes.func.isRequired,
   deleteProject: PropTypes.func.isRequired,
   i18n: PropTypes.object.isRequired,
+  navigate: PropTypes.func.isRequired,
   project: PropTypes.object.isRequired,
   saveProject: PropTypes.func.isRequired
 };
