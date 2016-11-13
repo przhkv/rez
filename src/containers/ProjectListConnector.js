@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import version from '../constants/version';
 import { navigate } from '../actions/navigationActions';
 import { load } from '../actions/projectListActions';
 import { open } from '../actions/projectActions';
@@ -9,7 +8,6 @@ import ProjectListPage from '../components/project-list/ProjectListPage';
 
 const ProjectListConnector = props => (
   <div>
-    <i>{'v. ' + version}</i>
     <ProjectListPage
       i18n={props.i18n}
       loadedProjectsIds={props.loadedProjectsIds}
