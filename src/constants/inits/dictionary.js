@@ -1,12 +1,15 @@
 export default {
-  headNav: {
-    projects: '',
-    settings: ''
-  },
   controls: {
     close: '',
     opened: '',
     save: '',
     saving: '',
+  },
+  footer: {
+    copyright: ''
+  },
+  headNav: {
+    projects: '',
+    settings: ''
   }
 };
