@@ -19,16 +19,37 @@ const ProjectListPage = (props, context) => {
     props.openProject(payload, meta);
   };
 
+  const create = e => {
+    e.preventDefault();
+  };
+
   return (
-    <div>
-      <a href="#" onClick={reload}>Reload</a>
+    <article className="pa3 pv5-ns ph6-ns">
+      <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70">{props.i18n.home.demo}</h3>
       {props.projectList.map(p => (
-        <h5 key={p.id}>
-          <a href="#" id={p.id} title={p.idTitle} onClick={open}>{p.title}</a>
-          {props.loadedProjectsIds.find(id => id === p.id) && <i>{' ' + props.i18n.controls.opened}</i>}
-        </h5>
+      <article key={p.id}>
+        <a
+          className="link dt w-100 bb b--black-10 mt2 dim"
+          href="#"
+          id={p.id}
+          title={p.idTitle}
+          onClick={open}
+        >
+          <div className="dtc v-top pl2">
+            <h1 className="f6 f5-ns fw6 lh-title black-70 mv0">{p.title}</h1>
+            <dd className="f6 lh-title black-60 ml0">{props.i18n.project.created + ': ' + p.created}</dd>
+            <dl className="mt0 f6">
+              <dt className="clip">Status</dt>
+              <dd className="dark-green ml0">
+                {props.loadedProjectsIds.find(id => id === p.id) && props.i18n.controls.opened}
+              </dd>
+            </dl>
+          </div>
+        </a>
+      </article>
       ))}
-    </div>
+      <a className="f6 link dim br-pill ph3 pv2 mb2 dib white bg-dark-green mt3" href="#0" onClick={create}>{props.i18n.controls.create}</a>
+    </article>
   );
 };
 

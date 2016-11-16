@@ -4,7 +4,7 @@ import NavigationConnector from '../containers/NavigationConnector';
 const App = props => (
   <div className="w-100 flex flex-column min-vh-100">
     <NavigationConnector />
-    <main className="db w-100 bt b--black-10 flex-auto">
+    <main className="w-100 flex-auto">
       {props.children}
     </main>
     <FooterConnector />

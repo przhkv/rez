@@ -10,15 +10,15 @@ class Header extends React.Component {
   render() {
     const {i18n, loadedProjectsLinks, loading, navigate} = this.props;
     const
-      linkClasses = 'no-underline hover-washed-yellow f5 f4-ns dib ',
-      getClass = page => (this.props.page === page) ? 'washed-yellow' : 'green',
+      linkClasses = 'no-underline hover-dark-green f5 f4-ns dib ',
+      getClass = page => (this.props.page === page) ? 'dark-green' : 'light-silver',
       setHome = () => navigate(pages.HOME),
       setSettings = () => navigate(pages.SETTINGS);
 
     return (
-      <header className="db bg-black-90 w-100">
-        <nav className="db dt-ns w-100 border-box pa2 ph4-m ph5-l" role="navigation">
-          <div className="db dtc-ns v-mid w-100 w-25-ns tc tl-ns">
+      <header className="w-100 db bb b--black-10">
+        <nav className="w-100 db dt-ns border-box pa2 ph4-m ph5-l" role="navigation">
+          <div className="w-100 w-25-ns db dtc-ns v-mid tc tl-ns">
             <IndexLink
               className={linkClasses + getClass(pages.HOME)}
               onClick={setHome}
@@ -28,7 +28,7 @@ class Header extends React.Component {
               {i18n.headNav.projects}
             </IndexLink>
           </div>
-          <div className="db dtc-ns v-mid w-100 w-50-ns tc">
+          <div className="w-100 w-50-ns db dtc-ns v-mid tc">
             {loadedProjectsLinks.map((linkData, i) => {
               const setPage = () => navigate(linkData.idTitle);
               return (
@@ -43,7 +43,7 @@ class Header extends React.Component {
                 </Link>
             );})}
           </div>
-          <div className="db dtc-ns v-mid w-100 w-25-ns tc tr-ns">
+          <div className="w-100 w-25-ns db dtc-ns v-mid tc tr-ns">
             <Link
               className={linkClasses + getClass(pages.SETTINGS)}
               onClick={setSettings}

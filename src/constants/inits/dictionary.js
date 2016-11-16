@@ -1,6 +1,7 @@
 export default {
   controls: {
     close: '',
+    create: '',
     opened: '',
     save: '',
     saving: '',
@@ -11,5 +12,12 @@ export default {
   headNav: {
     projects: '',
     settings: ''
+  },
+  home: {
+    demo: ''
+  },
+  project: {
+    created: '',
+    updated: ''
   }
 };
