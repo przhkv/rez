@@ -10,7 +10,7 @@ class Header extends React.Component {
   render() {
     const {i18n, loadedProjectsLinks, loading, navigate} = this.props;
     const
-      linkClasses = 'no-underline hover-dark-green f5 f4-ns dib ',
+      linkClasses = 'no-underline hover-dark-green f4 dib ',
       getClass = page => (this.props.page === page) ? 'dark-green' : 'light-silver',
       setHome = () => navigate(pages.HOME),
       setSettings = () => navigate(pages.SETTINGS);

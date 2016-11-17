@@ -14,7 +14,8 @@ export default {
     settings: ''
   },
   home: {
-    demo: ''
+    demo: '',
+    status: ''
   },
   project: {
     created: '',

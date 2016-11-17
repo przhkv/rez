@@ -14,7 +14,8 @@ export default {
     settings: '設定'
   },
   home: {
-    demo: 'デモ'
+    demo: 'デモ',
+    status: '状態'
   },
   project: {
     created: '作成した',

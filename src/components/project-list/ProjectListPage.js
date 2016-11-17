@@ -21,6 +21,8 @@ const ProjectListPage = (props, context) => {
 
   const create = e => {
     e.preventDefault();
+    context.router.push('/seq/');
+    props.navigate('default');
   };
 
   return (
@@ -39,8 +41,8 @@ const ProjectListPage = (props, context) => {
             <h1 className="f6 f5-ns fw6 lh-title black-70 mv0">{p.title}</h1>
             <dd className="f6 lh-title black-60 ml0">{props.i18n.project.created + ': ' + p.created}</dd>
             <dl className="mt0 f6">
-              <dt className="clip">Status</dt>
-              <dd className="dark-green ml0">
+              <dt className="clip">{props.i18n.home.status}</dt>
+              <dd className="dark-green ml0 fw6">
                 {props.loadedProjectsIds.find(id => id === p.id) && props.i18n.controls.opened}
               </dd>
             </dl>

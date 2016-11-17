@@ -14,7 +14,8 @@ export default {
     settings: 'Settings'
   },
   home: {
-    demo: 'demo'
+    demo: 'demo',
+    status: 'Status'
   },
   project: {
     created: 'Created',
