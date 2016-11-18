@@ -52,6 +52,14 @@ class SettingsPage extends Component {
           general > Enable Keyboard Shortcut: {settings.general.enableKeyboardShortcut.toString()}
         </p>
         <input
+          label={'seqDefaultBPM'}
+          name={'seqDefaultBPM'}
+          onChange={updateSettingsState}
+          type="text"
+          value={settings.seqDefaultBPM}
+        />
+        <hr />
+        <input
           type="button"
           value={props.i18n.controls.save}
           onClick={save}
