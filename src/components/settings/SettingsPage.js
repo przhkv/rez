@@ -7,13 +7,22 @@ import { extractInputData } from '../../utils/mapUtils';
 
 class SettingsPage extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       errors: {},
-      modified: props.settings.get('modified'),
-      saving: props.settings.get('saving'),
+      modified: false,
+      saving: false,
       settings: props.settings
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!Immutable.is(this.props.settings, nextProps.settings))
+      this.setState({
+        modified: false,
+        saving: false,
+        settings: nextProps.settings
+      });
   }
 
   render() {
