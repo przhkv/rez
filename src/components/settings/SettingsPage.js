@@ -1,33 +1,30 @@
 import React, { Component, PropTypes } from 'react';
+import Immutable from 'immutable';
+import CheckboxInput from '../common/inputs/CheckboxInput';
 import SelectInput from '../common/inputs/SelectInput';
 import { langs } from '../../constants/optionLists';
+import { extractInputData } from '../../utils/mapUtils';
 
 class SettingsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      settings: Object.assign({}, props.settings),
+      settings: props.settings,
       errors: {},
       saving: false,
-      modified: props.settings.modified
+      modified: props.settings.get('modified')
     };
   }
 
   render() {
     const {props} = this;
-    const {settings} = this.state;
+    const {modified, settings} = this.state;
 
-    const updateSettingsState = e => {
-      if (!this.state.modified)
+    const updateSettingsState = ({field, val}, group) => {
+      if (!modified)
         this.setState({modified: true});
 
-      const field = e.target.name;
-      const val = (e.target.type === 'checkbox') ? e.target.checked.toString() : e.target.value;
-
-      let {settings} = this.state;
-      settings[field] = val;
-
-      return this.setState({settings});
+      return this.setState({settings: settings.updateIn([group, field], () => val)});
     };
 
     const save = e => {
@@ -36,27 +33,33 @@ class SettingsPage extends Component {
       props.updateSettings(settings);
     };
 
+    const changeGeneralSettings = e => updateSettingsState(extractInputData(e), 'general');
+    const changeSeqSettings = e => updateSettingsState(extractInputData(e), 'seq');
+
     return (
       <div>
         <h3>settings</h3>
         <p>
-          account > Language: {settings.accountLang}
+          account > Language: {settings.getIn(['general', 'accountLang'])}
         </p>
         <SelectInput
           label={'accountLang'}
           name={'accountLang'}
-          onChange={updateSettingsState}
+          onChange={changeGeneralSettings}
           options={langs.map(l => ({text: l, value: l}))}
-          value={settings.accountLang}/>
-        <p>
-          general > Enable Keyboard Shortcut: {settings.general.enableKeyboardShortcut.toString()}
-        </p>
+          value={settings.getIn(['general', 'accountLang'])}/>
+        <CheckboxInput
+          label={'general > Enable Keyboard Shortcut'}
+          name={'enableKeyboardShortcut'}
+          onChange={changeSeqSettings}
+          value={settings.getIn(['seq', 'enableKeyboardShortcut'])}
+        />
         <input
-          label={'seqDefaultBPM'}
-          name={'seqDefaultBPM'}
-          onChange={updateSettingsState}
+          label={'defaultBPM'}
+          name={'defaultBPM'}
+          onChange={changeSeqSettings}
           type="text"
-          value={settings.seqDefaultBPM}
+          value={settings.getIn(['seq', 'defaultBPM'])}
         />
         <hr />
         <input
@@ -71,7 +74,7 @@ class SettingsPage extends Component {
 
 SettingsPage.propTypes = {
   i18n: PropTypes.object.isRequired,
-  settings: PropTypes.object.isRequired,
+  settings: PropTypes.instanceOf(Immutable.Map).isRequired,
   updateSettings: PropTypes.func.isRequired
 };
 

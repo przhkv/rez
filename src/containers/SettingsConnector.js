@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { updateRequest } from '../actions/settingsActions';
@@ -14,7 +15,7 @@ const SettingsConnector = props => (
 
 SettingsConnector.propTypes = {
   i18n: PropTypes.object.isRequired,
-  settings: PropTypes.object.isRequired,
+  settings: PropTypes.instanceOf(Immutable.Map).isRequired,
   updateRequest: PropTypes.func.isRequired
 };
 

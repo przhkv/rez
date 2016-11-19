@@ -1,14 +1,17 @@
+import { fromJS } from 'immutable';
 import _reducerConstructor from './_reducerConstructor';
 import { SETTINGS_RECEIVE, SETTINGS_UPDATE } from '../constants/actionTypes';
 import initSettings from '../constants/inits/settings';
 
+const initState = fromJS(initSettings);
+
 const reducers = {
   [SETTINGS_RECEIVE]:
-    (currentState, action) => Object.assign({}, currentState, action.settings),
+    (currentState, action) => currentState.merge(action.settings),//Object.assign({}, currentState, action.settings),//
   [SETTINGS_UPDATE.SUCCESS]:
-    (currentState, action) => Object.assign({}, currentState, action.settings, {modified: false}),
+    (currentState, action) => currentState.merge(action.settings, {modified: false}),//Object.assign({}, currentState, action.settings, {modified: false}),
   [SETTINGS_UPDATE.ERROR]:
-    (currentState, error) => Object.assign({}, currentState, {error})
+    (currentState, error) => currentState.merge(currentState, {error})//Object.assign({}, currentState, {error})
 };
 
-export default _reducerConstructor(initSettings, reducers);
+export default _reducerConstructor(initState, reducers);

@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { navigate } from '../actions/navigationActions';
@@ -23,7 +24,8 @@ ProjectConnector.propTypes = {
   navigate: PropTypes.func.isRequired,
   project: PropTypes.object.isRequired,
   purge: PropTypes.func.isRequired,
-  save: PropTypes.func.isRequired
+  save: PropTypes.func.isRequired,
+  settings: PropTypes.instanceOf(Immutable.Map).isRequired
 };
 
 const makeMapStateToProps = () => {

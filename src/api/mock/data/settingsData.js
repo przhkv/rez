@@ -1,7 +1,9 @@
 export default {
-  accountLang: 'EN',
   general: {
-    enableKeyboardShortcut: false
+    accountLang: 'EN'
   },
-  seqDefaultBPM: '125'
+  seq: {
+    defaultBPM: '125',
+    enableKeyboardShortcut: 'true'
+  }
 };
