@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const SelectInput = ({name, label, onChange, defaultOption, value, error, options}) => {
   return (
-    <div className="">
+    <div className="mt3 mw5">
       <label className="" htmlFor={name}>{label}</label>
       <div className="">
         <select

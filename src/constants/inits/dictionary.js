@@ -20,5 +20,9 @@ export default {
   project: {
     created: '',
     updated: ''
+  },
+  settings: {
+    general: '',
+    sequencer: ''
   }
 };

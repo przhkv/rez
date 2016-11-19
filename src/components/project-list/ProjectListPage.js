@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import SubmitButton from '../common/buttons/SubmitButton';
 
 const ProjectListPage = (props, context) => {
 
@@ -50,7 +51,10 @@ const ProjectListPage = (props, context) => {
         </a>
       </article>
       ))}
-      <a className="f6 link dim br-pill ph3 pv2 mb2 dib white bg-dark-green mt3" href="#0" onClick={create}>{props.i18n.controls.create}</a>
+      <SubmitButton
+        text={props.i18n.controls.create}
+        onClick={create}
+      />
     </article>
   );
 };

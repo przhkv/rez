@@ -20,5 +20,9 @@ export default {
   project: {
     created: '作成した',
     updated: '更新しました'
+  },
+  settings: {
+    general: '一般',
+    sequencer: 'シーケンサー'
   }
 };
