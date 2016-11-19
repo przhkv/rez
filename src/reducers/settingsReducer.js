@@ -7,11 +7,11 @@ const initState = fromJS(initSettings);
 
 const reducers = {
   [SETTINGS_RECEIVE]:
-    (currentState, action) => currentState.merge(action.settings),//Object.assign({}, currentState, action.settings),//
+    (currentState, action) => currentState.merge(action.settings),
   [SETTINGS_UPDATE.SUCCESS]:
-    (currentState, action) => currentState.merge(action.settings, {modified: false}),//Object.assign({}, currentState, action.settings, {modified: false}),
+    (currentState, action) => currentState.merge(action.settings.merge({modified: false, saving: false})),
   [SETTINGS_UPDATE.ERROR]:
-    (currentState, error) => currentState.merge(currentState, {error})//Object.assign({}, currentState, {error})
+    (currentState, error) => currentState.merge(currentState.merge({error}))
 };
 
 export default _reducerConstructor(initState, reducers);

@@ -24,9 +24,9 @@ function* getSettings() {
 
 function* updateSettings(settings) {
   try {
-    const s = yield call(settingsApi.changeSettings, settings.toJS());
+    yield call(settingsApi.changeSettings, settings.toJS());
     yield fork(triggerLangSwitch, settings.getIn(['general', 'accountLang']));
-    yield put(settingsActions.updateSuccess(s));
+    yield put(settingsActions.updateSuccess(settings));
   } catch (e) {
     yield put(settingsActions.updateFailure(e));
   }

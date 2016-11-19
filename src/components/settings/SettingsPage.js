@@ -9,16 +9,16 @@ class SettingsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      settings: props.settings,
       errors: {},
-      saving: false,
-      modified: props.settings.get('modified')
+      modified: props.settings.get('modified'),
+      saving: props.settings.get('saving'),
+      settings: props.settings
     };
   }
 
   render() {
     const {props} = this;
-    const {modified, settings} = this.state;
+    const {modified, saving, settings} = this.state;
 
     const updateSettingsState = ({field, val}, group) => {
       if (!modified)
@@ -63,6 +63,7 @@ class SettingsPage extends Component {
         />
         <hr />
         <input
+          disabled={!modified || saving}
           type="button"
           value={props.i18n.controls.save}
           onClick={save}
