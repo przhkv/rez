@@ -4,8 +4,9 @@ import CheckboxInput from '../common/inputs/CheckboxInput';
 import SelectInput from '../common/inputs/SelectInput';
 import SubmitButton from '../common/buttons/SubmitButton';
 import TextInput  from '../common/inputs/TextInput';
+import inputTypes from '../../constants/components/inputTypes';
 import { langs } from '../../constants/optionLists';
-import { extractInputData } from '../../utils/mapUtils';
+import { extractInputData, formatSelectOptions } from '../../utils/mapUtils';
 
 class SettingsPage extends Component {
   constructor(props) {
@@ -38,8 +39,7 @@ class SettingsPage extends Component {
         settings: settings.updateIn([group, field], () => val)
       });
 
-    const save = e => {
-      e.preventDefault();
+    const save = () => {
       this.setState({saving: true});
       props.updateSettings(settings);
     };
@@ -48,40 +48,41 @@ class SettingsPage extends Component {
     const changeSeqSettings = e => updateSettingsState(extractInputData(e), 'seq');
 
     return (
-      <article className="pa3 pv4-ns ph6-ns">
-        <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">{i18n.settings.general}</h3>
-        <p>
-          account > Language: {settings.getIn(['general', 'accountLang'])}
-        </p>
-        <SelectInput
-          label={'accountLang'}
-          name={'accountLang'}
-          onChange={changeGeneralSettings}
-          options={langs.map(l => ({text: l, value: l}))}
-          value={settings.getIn(['general', 'accountLang'])}
-        />
-
-        <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">
-          {i18n.settings.sequencer}
-        </h3>
-        <CheckboxInput
-          label={'Enable Keyboard Shortcut'}
-          name={'enableKeyboardShortcut'}
-          onChange={changeSeqSettings}
-          value={settings.getIn(['seq', 'enableKeyboardShortcut'])}
-        />
-        <TextInput
-          label={'Default BPM'}
-          onChange={changeSeqSettings}
-          name={'defaultBPM'}
-          value={settings.getIn(['seq', 'defaultBPM'])}
-        />
+      <section className="pa3 pv4-ns ph6-ns">
+        <article className="pb3 ">
+          <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">{i18n.settings.general}</h3>
+          <SelectInput
+            label={i18n.settings.language}
+            name={'accountLang'}
+            onChange={changeGeneralSettings}
+            options={formatSelectOptions(langs, i18n.options.language)}
+            value={settings.getIn(['general', 'accountLang'])}
+          />
+        </article>
+        <article className="pb3">
+          <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">
+            {i18n.settings.sequencer}
+          </h3>
+          <CheckboxInput
+            label={i18n.settings.enableKeyboardShortcut}
+            name={'enableKeyboardShortcut'}
+            onChange={changeSeqSettings}
+            value={settings.getIn(['seq', 'enableKeyboardShortcut'])}
+          />
+          <TextInput
+            label={i18n.settings.defaultBPM}
+            onChange={changeSeqSettings}
+            name={'defaultBPM'}
+            type={inputTypes.NUMBER}
+            value={settings.getIn(['seq', 'defaultBPM'])}
+          />
+        </article>
         <SubmitButton
           disabled={!modified || saving}
           onClick={save}
           text={i18n.controls.save}
         />
-      </article>
+      </section>
     );
   }
 }

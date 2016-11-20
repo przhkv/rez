@@ -1,34 +1,32 @@
 import React, { PropTypes } from 'react';
 
-const SelectInput = ({name, label, onChange, defaultOption, value, error, options}) => {
+const SelectInput = ({defaultOption, disabled, label, name, onChange, options, value}) => {
   return (
-    <div className="mt3 mw5">
-      <label className="" htmlFor={name}>{label}</label>
-      <div className="">
-        <select
-          name={name}
-          value={value}
-          onChange={onChange}
-          className="">
-          {defaultOption && <option value="">{defaultOption}</option>}
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>{option.text}</option>
-          ))}
-        </select>
-        {error && <div className="alert alert-danger">{error}</div>}
-      </div>
+    <div className="mt2 mw5">
+      <label className="db fw6 lh-copy f6 black-70" htmlFor={'selectID' + name}>{label}</label>
+      <select
+        id={'selectID' + name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="pa2 ba b--black-40 bg-transparent hover-bg-near-white w-100">
+        {defaultOption && <option value="">{defaultOption}</option>}
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>{option.text}</option>
+        ))}
+      </select>
     </div>
   );
 };
 
 SelectInput.propTypes = {
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
   defaultOption: PropTypes.string,
-  value: PropTypes.string,
-  error: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.object)
+  disabled: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object),
+  value: PropTypes.string
 };
 
 export default SelectInput;

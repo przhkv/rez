@@ -17,12 +17,22 @@ export default {
     demo: '',
     status: ''
   },
+  options: {
+    language: {
+      EN: '',
+      FR: '',
+      JP: ''
+    }
+  },
   project: {
     created: '',
     updated: ''
   },
   settings: {
+    defaultBPM: '',
+    enableKeyboardShortcut: '',
     general: '',
+    language: '',
     sequencer: ''
   }
 };

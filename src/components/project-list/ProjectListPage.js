@@ -20,8 +20,7 @@ const ProjectListPage = (props, context) => {
     props.openProject(payload, meta);
   };
 
-  const create = e => {
-    e.preventDefault();
+  const create = () => {
     context.router.push('/seq/');
     props.navigate('default');
   };

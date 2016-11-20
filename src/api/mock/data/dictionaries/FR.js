@@ -17,12 +17,22 @@ export default {
     demo: 'démo',
     status: 'Statut'
   },
+  options: {
+    language: {
+      EN: 'Anglaise (English)',
+      FR: 'Français',
+      JP: 'Japonais (日本語)'
+    }
+  },
   project: {
     created: 'Créé',
     updated: 'Actualisé'
   },
   settings: {
+    defaultBPM: 'BPM par défaut',
+    enableKeyboardShortcut: 'Activer le raccourci clavier',
     general: 'Général',
+    language: 'Langue',
     sequencer: 'Séquenceur'
   }
 };
