@@ -10,7 +10,7 @@ import { extractInputData, formatSelectOptions } from '../../utils/mapUtils';
 
 class SettingsPage extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       errors: {},
       modified: false,

@@ -1,3 +1,3 @@
 export const
-  HOME = 'HOME',
+  PROJECTS = 'PROJECTS',
   SETTINGS = 'SETTINGS';

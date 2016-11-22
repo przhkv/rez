@@ -10,6 +10,7 @@ export default {
     copyright: '日本語'
   },
   headNav: {
+    back: '戻る',
     projects: 'プロジェクト',
     settings: '設定'
   },

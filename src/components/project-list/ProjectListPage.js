@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import SubmitButton from '../common/buttons/SubmitButton';
+import { NEUTRAL_LIGHT_PILL } from '../../constants/components/buttonStyles';
 
 const ProjectListPage = (props, context) => {
 
@@ -50,10 +51,19 @@ const ProjectListPage = (props, context) => {
         </a>
       </article>
       ))}
-      <SubmitButton
-        text={props.i18n.controls.create}
-        onClick={create}
-      />
+      <section className="db">
+        <SubmitButton
+          text={props.i18n.controls.create}
+          onClick={create}
+        />
+      </section>
+      <section className="db">
+        <SubmitButton
+          buttonStyle={NEUTRAL_LIGHT_PILL}
+          onClick={reload}
+          text="&#8635;"
+        />
+      </section>
     </article>
   );
 };

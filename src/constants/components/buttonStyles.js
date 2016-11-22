@@ -1,0 +1,3 @@
+export const
+  SUBMIT = 'ACCEPT',
+  NEUTRAL_LIGHT_PILL = 'NEUTRAL_LIGHT_PILL';

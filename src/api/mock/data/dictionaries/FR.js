@@ -10,6 +10,7 @@ export default {
     copyright: 'Copyright'
   },
   headNav: {
+    back: 'Retour',
     projects: 'Projets',
     settings: 'Paramètres'
   },

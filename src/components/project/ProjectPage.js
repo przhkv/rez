@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import * as pages from '../../constants/pages';
 
 class ProjectPage extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
   render() {
     const {context, props} = this;
@@ -13,13 +13,14 @@ class ProjectPage extends Component {
       const payload = {projectId: props.project.id};
       const meta = {redirect: () => {
         context.router.push('/');
-        props.navigate(pages.HOME);
+        props.navigate(pages.PROJECTS);
       }};
       props.closeProject(payload, meta);
     };
 
     return (
       <div>
+
         <h5>{'project ' + props.project.title}</h5>
         <input
           type="button"

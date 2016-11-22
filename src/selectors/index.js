@@ -5,7 +5,6 @@ export const
   pageSelector = state => state.page,
   projectListSelector = state => state.projectList,
   loadedProjectsIdsSelector = state => state.projects.map(p => p.id),
-  loadedProjectsLinksSelector = state => state.projects.map(p => ({idTitle: p.idTitle, title: p.title})),
   projectByIdSelector = (state, id) => state.projects.filter(p => p.id === id),
   settingsSelector = state => state.settings;
 
