@@ -49,7 +49,7 @@ class SettingsPage extends Component {
 
     return (
       <section className="pa3 pv4-ns ph6-ns">
-        <article className="pb3 ">
+        <article className="pb3">
           <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">{i18n.settings.general}</h3>
           <SelectInput
             label={i18n.settings.language}

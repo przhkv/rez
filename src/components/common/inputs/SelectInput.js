@@ -9,7 +9,7 @@ const SelectInput = ({defaultOption, disabled, label, name, onChange, options, v
         name={name}
         value={value}
         onChange={onChange}
-        className="pa2 ba b--black-40 bg-transparent hover-bg-near-white w-100">
+        className="pa2 ba b--black-40 bg-transparent hover-bg-near-white w-100 pointer">
         {defaultOption && <option value="">{defaultOption}</option>}
         {options.map((option) => (
           <option key={option.value} value={option.value}>{option.text}</option>

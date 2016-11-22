@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const CheckboxInput = ({disabled, name, label, onChange, value}) => (
-  <div className="mt2 mw5">
+  <div className="mt2">
     <label className="db fw6 lh-copy f6 black-70">
       <input
         className="checkbox"

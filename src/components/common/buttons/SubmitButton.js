@@ -14,11 +14,11 @@ const SubmitButton = ({buttonStyle, disabled, onClick, text}) => {
   const click = e => {e.preventDefault(); onClick();};
 
   const colors = getStyleClasses(buttonStyle);
-  const stateStyles = disabled ? ' o-50' : ' pointer';
+  const stateStyles = disabled ? ' o-50' : ' rez-dim pointer';
 
   return (
     <input
-      className={'f6 rez-dim br-pill ph3 pv2 mb2 dib mt3 outline-0 input-reset ' + colors + stateStyles}
+      className={'f6 br-pill ph3 pv2 mb2 dib mt3 outline-0 input-reset ' + colors + stateStyles}
       disabled={disabled}
       href="#"
       onClick={click}
