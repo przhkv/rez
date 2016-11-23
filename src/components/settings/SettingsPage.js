@@ -4,8 +4,8 @@ import CheckboxInput from '../common/inputs/CheckboxInput';
 import SelectInput from '../common/inputs/SelectInput';
 import SubmitButton from '../common/buttons/SubmitButton';
 import TextInput  from '../common/inputs/TextInput';
-import inputTypes from '../../constants/components/inputTypes';
-import { langs } from '../../constants/optionLists';
+import { NUMBER } from '../../constants/components/inputTypes';
+import { langs, themes } from '../../constants/optionLists';
 import { extractInputData, formatSelectOptions } from '../../utils/mapUtils';
 
 class SettingsPage extends Component {
@@ -30,7 +30,7 @@ class SettingsPage extends Component {
 
   render() {
     const {props, state} = this;
-    const {i18n} = props;
+    const {i18n, theme, updateRequest} = props;
     const {modified, saving, settings} = state;
 
     const updateSettingsState = ({field, val}, group) =>
@@ -41,7 +41,7 @@ class SettingsPage extends Component {
 
     const save = () => {
       this.setState({saving: true});
-      props.updateSettings(settings);
+      updateRequest(settings);
     };
 
     const changeGeneralSettings = e => updateSettingsState(extractInputData(e), 'general');
@@ -50,30 +50,41 @@ class SettingsPage extends Component {
     return (
       <section className="pa3 pv4-ns ph6-ns">
         <article className="pb3">
-          <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">{i18n.settings.general}</h3>
+          <h3 className={'f5 ttu fw6 mt0 mb3 bb pb2 mv3 ' + theme.articleHeader}>{i18n.settings.general}</h3>
           <SelectInput
             label={i18n.settings.language}
-            name={'accountLang'}
+            name={'language'}
             onChange={changeGeneralSettings}
             options={formatSelectOptions(langs, i18n.options.language)}
-            value={settings.getIn(['general', 'accountLang'])}
+            theme={theme}
+            value={settings.getIn(['general', 'language'])}
+          />
+          <SelectInput
+            label={i18n.settings.theme}
+            name={'theme'}
+            onChange={changeGeneralSettings}
+            options={formatSelectOptions(themes, i18n.options.theme)}
+            theme={theme}
+            value={settings.getIn(['general', 'theme'])}
           />
         </article>
         <article className="pb3">
-          <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70 mv3">
+          <h3 className={'f5 ttu fw6 mt0 mb3 bb pb2 mv3 ' + theme.articleHeader}>
             {i18n.settings.sequencer}
           </h3>
           <CheckboxInput
             label={i18n.settings.enableKeyboardShortcut}
             name={'enableKeyboardShortcut'}
             onChange={changeSeqSettings}
+            theme={theme}
             value={settings.getIn(['seq', 'enableKeyboardShortcut'])}
           />
           <TextInput
             label={i18n.settings.defaultBPM}
             onChange={changeSeqSettings}
             name={'defaultBPM'}
-            type={inputTypes.NUMBER}
+            type={NUMBER}
+            theme={theme}
             value={settings.getIn(['seq', 'defaultBPM'])}
           />
         </article>
@@ -81,6 +92,7 @@ class SettingsPage extends Component {
           disabled={!modified || saving}
           onClick={save}
           text={i18n.controls.save}
+          theme={theme}
         />
       </section>
     );
@@ -90,7 +102,8 @@ class SettingsPage extends Component {
 SettingsPage.propTypes = {
   i18n: PropTypes.object.isRequired,
   settings: PropTypes.instanceOf(Immutable.Map).isRequired,
-  updateSettings: PropTypes.func.isRequired
+  updateRequest: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default SettingsPage;

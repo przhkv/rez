@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const CheckboxInput = ({disabled, name, label, onChange, value}) => (
+const CheckboxInput = ({disabled, name, label, onChange, theme, value}) => (
   <div className="mt2">
-    <label className="db fw6 lh-copy f6 black-70">
+    <label className={'db fw6 lh-copy f6 ' + theme.commonText}>
       <input
         className="checkbox"
         disabled={disabled}
@@ -21,6 +21,7 @@ CheckboxInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired,
   value: PropTypes.string
 };
 

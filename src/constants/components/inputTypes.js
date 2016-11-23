@@ -1,4 +1,3 @@
-export default {
-  NUMBER: 'number',
-  TEXT: 'text'
-};
+export const
+  NUMBER = 'number',
+  TEXT ='text';

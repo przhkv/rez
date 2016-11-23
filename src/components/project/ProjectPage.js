@@ -42,7 +42,8 @@ ProjectPage.propTypes = {
   i18n: PropTypes.object.isRequired,
   navigate: PropTypes.func.isRequired,
   project: PropTypes.object.isRequired,
-  saveProject: PropTypes.func.isRequired
+  saveProject: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default ProjectPage;

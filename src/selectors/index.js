@@ -6,7 +6,8 @@ export const
   projectListSelector = state => state.projectList,
   loadedProjectsIdsSelector = state => state.projects.map(p => p.id),
   projectByIdSelector = (state, id) => state.projects.filter(p => p.id === id),
-  settingsSelector = state => state.settings;
+  settingsSelector = state => state.settings,
+  themeSelector = state => state.theme;
 
 const getSelectedProjectSelector = (state, props) => state.projects.find(p => p.idTitle === props.params.id);
 

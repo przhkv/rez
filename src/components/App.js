@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
 import FooterConnector from '../containers/FooterConnector';
 import NavigationConnector from '../containers/NavigationConnector';
-const App = props => (
+
+const App = ({children}) => (
   <div className="w-100 flex flex-column min-vh-100">
     <NavigationConnector />
-    <main className="w-100 flex-auto">
-      {props.children}
-    </main>
+    {children}
     <FooterConnector />
   </div>
 );

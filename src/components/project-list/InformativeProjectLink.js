@@ -9,18 +9,22 @@ const InformativeProjectLink = ({i18n, loadedProjectsIds, openProject, projectLi
 
   return (
     <a
-      className="link dt w-100 bb b--black-10 mt2 dim"
+      className={'link dt w-100 bb mt2 dim ' + theme.sectionBorder}
       href="#"
       id={projectListItem.id}
       title={projectListItem.idTitle}
       onClick={click}
     >
       <div className="dtc v-top pl2">
-        <h1 className="f6 f5-ns fw6 lh-title black-70 mv0">{projectListItem.title}</h1>
-        <dd className="f6 lh-title black-60 ml0">{i18n.project.created + ': ' + projectListItem.created}</dd>
+        <h1 className={'f6 f5-ns fw6 lh-title mv0 ' + theme.commonText}>
+          {projectListItem.title}
+        </h1>
+        <dd className={'f6 lh-title ml0 ' + theme.informativeProjectLinkInfo}>
+          {i18n.project.created + ': ' + projectListItem.created}
+        </dd>
         <dl className="mt0 f6">
           <dt className="clip">{i18n.home.status}</dt>
-          <dd className="dark-green ml0 fw6">
+          <dd className={'ml0 fw6 ' + theme.informativeProjectLinkStatus}>
             {loadedProjectsIds.find(id => id === projectListItem.id) && i18n.controls.opened}
           </dd>
         </dl>

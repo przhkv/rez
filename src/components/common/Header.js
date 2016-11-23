@@ -2,15 +2,15 @@ import React, { PropTypes } from 'react';
 import { IndexLink, Link } from 'react-router';
 import { PROJECTS, SETTINGS } from '../../constants/pages';
 
-const Header = ({i18n, loading, navigate, page}) => {
+const Header = ({i18n, loading, navigate, page, theme}) => {
   const
-    linkClasses = 'no-underline hover-dark-green f4 dib ',
-    getLinkHighlightClass = (pageName) => (page === pageName) ? 'dark-green' : 'light-silver',
+    linkClasses = 'no-underline ' + theme.linkHover + ' f4 dib ',
+    getLinkHighlightClass = (pageName) => (page === pageName) ? theme.linkActive : theme.linkInactive,
     navigateToProjects = () => navigate(PROJECTS),
     navigateToSettings = () => navigate(SETTINGS);
 
   return (
-    <header className="w-100 bb b--black-10 db">
+    <header className={'w-100 bb db ' + theme.sectionBorder + ' ' + theme.bg}>
       <nav className="w-100 db dt-ns border-box pa2 ph4-m ph5-l" role="navigation">
         <div className="w-100 w-50-ns db dtc-ns v-mid tc tl-ns">
           <IndexLink
@@ -41,7 +41,8 @@ Header.propTypes = {
   i18n: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   page: PropTypes.string.isRequired,
-  navigate: PropTypes.func.isRequired
+  navigate: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default Header;

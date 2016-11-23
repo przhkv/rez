@@ -23,6 +23,10 @@ export default {
       EN: '',
       FR: '',
       JP: ''
+    },
+    theme: {
+      DEFAULT: '',
+      VESPERTINE: ''
     }
   },
   project: {
@@ -34,6 +38,7 @@ export default {
     enableKeyboardShortcut: '',
     general: '',
     language: '',
-    sequencer: ''
+    sequencer: '',
+    theme: ''
   }
 };

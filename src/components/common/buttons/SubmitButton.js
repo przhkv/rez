@@ -1,26 +1,24 @@
 import React, { PropTypes } from 'react';
-import { NEUTRAL_LIGHT_PILL, SUBMIT } from '../../../constants/components/buttonStyles';
+import { NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/buttonStyles';
 
-const getStyleClasses = buttonStyle => {
+const getStyleClasses = (buttonStyle, theme) => {
   switch(buttonStyle) {
-    case NEUTRAL_LIGHT_PILL:
-      return 'ba bg-white mid-gray';
+    case NEUTRAL_LIGHT:
+      return 'ba ' + theme.buttonNeutralLight;
     default:
-      return 'bn bg-dark-green white';
+      return 'bn ' + theme.buttonSuccess;
   }
 };
 
-const SubmitButton = ({buttonStyle, disabled, onClick, text}) => {
+const SubmitButton = ({buttonStyle, disabled, onClick, text, theme}) => {
   const click = e => {e.preventDefault(); onClick();};
-
-  const colors = getStyleClasses(buttonStyle);
+  const colors = getStyleClasses(buttonStyle, theme);
   const stateStyles = disabled ? ' o-50' : ' rez-dim pointer';
 
   return (
     <input
       className={'f6 br-pill ph3 pv2 mb2 dib mt3 outline-0 input-reset ' + colors + stateStyles}
       disabled={disabled}
-      href="#"
       onClick={click}
       type="submit"
       value={text}
@@ -29,10 +27,11 @@ const SubmitButton = ({buttonStyle, disabled, onClick, text}) => {
 };
 
 SubmitButton.propTypes = {
-  buttonStyle: PropTypes.string,
+  buttonStyle: PropTypes.oneOf([NEUTRAL_LIGHT, SUBMIT]),
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default SubmitButton;

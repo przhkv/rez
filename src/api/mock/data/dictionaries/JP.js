@@ -23,6 +23,10 @@ export default {
       EN: '英語 (English)',
       FR: 'フランス語 (Français)',
       JP: '日本語'
+    },
+    theme: {
+      DEFAULT: 'デフォルトで',
+      VESPERTINE: 'Vespertine'
     }
   },
   project: {
@@ -34,6 +38,7 @@ export default {
     enableKeyboardShortcut: 'キーボードショートカットを有効にする',
     general: '一般',
     language: '言語',
-    sequencer: 'シーケンサー'
+    sequencer: 'シーケンサー',
+    theme: 'テーマ'
   }
 };

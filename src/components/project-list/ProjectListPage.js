@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { NEUTRAL_LIGHT_PILL } from '../../constants/components/buttonStyles';
 import SubmitButton from '../common/buttons/SubmitButton';
 import InformativeProjectLink from './InformativeProjectLink';
+import { NEUTRAL_LIGHT } from '../../constants/components/buttonStyles';
 
-const ProjectListPage = ({i18n, loadedProjectsIds, loadProjectList, navigate, openProject, projectList}, context) => {
-  const open = (id, idTitle) => {
+const ProjectListPage = ({i18n, loadedProjectsIds, load, navigate, open, projectList, theme}, context) => {
+  const openProject = (id, idTitle) => {
     const payload = {
       projectId: id
     };
@@ -14,7 +14,7 @@ const ProjectListPage = ({i18n, loadedProjectsIds, loadProjectList, navigate, op
         navigate(idTitle);
       }
     };
-    openProject(payload, meta);
+    open(payload, meta);
   };
 
   const create = () => {
@@ -24,27 +24,30 @@ const ProjectListPage = ({i18n, loadedProjectsIds, loadProjectList, navigate, op
 
   return (
     <article className="pa3 pv5-ns ph6-ns">
-      <h3 className="f5 ttu fw6 mt0 mb3 bb b--black-70 pb2 black-70">{i18n.home.demo}</h3>
+      <h3 className={'f5 ttu fw6 mt0 mb3 bb pb2 ' + theme.articleHeader}>{i18n.home.demo}</h3>
       {projectList.map(p => (
         <InformativeProjectLink
           key={p.id}
           i18n={i18n}
           loadedProjectsIds={loadedProjectsIds}
-          openProject={open}
-          projectListItem={p} theme={{}}
+          openProject={openProject}
+          projectListItem={p}
+          theme={theme}
         />
       ))}
       <section className="db">
         <SubmitButton
           text={i18n.controls.create}
           onClick={create}
+          theme={theme}
         />
       </section>
       <section className="db">
         <SubmitButton
-          buttonStyle={NEUTRAL_LIGHT_PILL}
-          onClick={loadProjectList}
+          buttonStyle={NEUTRAL_LIGHT}
+          onClick={load}
           text="&#8635;"
+          theme={theme}
         />
       </section>
     </article>
@@ -58,10 +61,11 @@ ProjectListPage.contextTypes = {
 ProjectListPage.propTypes = {
   i18n: PropTypes.object.isRequired,
   loadedProjectsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-  loadProjectList: PropTypes.func.isRequired,
+  load: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
-  openProject: PropTypes.func.isRequired,
-  projectList: PropTypes.arrayOf(PropTypes.object).isRequired
+  open: PropTypes.func.isRequired,
+  projectList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  theme: PropTypes.object.isRequired
 };
 
 export default ProjectListPage;

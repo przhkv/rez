@@ -1,0 +1,16 @@
+export default {
+  articleHeader: '',
+  articleInput: '',
+  bg: '',
+  buttonNeutralLight: '',
+  buttonSuccess: '',
+  commonText: '',
+  footerLink: '',
+  footerText: '',
+  informativeProjectLinkInfo: '',
+  informativeProjectLinkStatus: '',
+  linkActive: '',
+  linkInactive: '',
+  linkHover: '',
+  sectionBorder: '',
+};

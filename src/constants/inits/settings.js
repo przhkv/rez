@@ -1,6 +1,7 @@
 export default {
   general: {
-    accountLang: ''
+    language: '',
+    theme: ''
   },
   seq: {
     defaultBPM: '',
