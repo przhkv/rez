@@ -3,8 +3,8 @@
 import { call, fork, put, select, take } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
 import * as projectActions from '../actions/projectActions';
-import * as actionTypes from '../constants/actionTypes';
 import * as projectsApi from '../api/projectsApi';
+import { PROJECT_CLOSE, PROJECT_LOAD, PROJECT_OPEN } from '../constants/actionTypes';
 import { projectByIdSelector } from '../selectors';
 
 function* closeProject(payload, meta) {
@@ -28,21 +28,21 @@ function* resolveProject(payload, meta) {
 
 function* watchCloseProject() {
   while(true) {
-    const {payload, meta} = yield take(actionTypes.PROJECT_CLOSE);
+    const {payload, meta} = yield take(PROJECT_CLOSE);
     yield fork(closeProject, payload, meta);
   }
 }
 
 function* watchLoadProjectById() {
   while(true) {
-    const {payload, meta} = yield take(actionTypes.PROJECT_LOAD);
+    const {payload, meta} = yield take(PROJECT_LOAD);
     yield fork(loadById, payload, meta);
   }
 }
 
 function* watchOpenProject() {
   while(true) {
-    const {payload, meta} = yield take(actionTypes.PROJECT_OPEN);
+    const {payload, meta} = yield take(PROJECT_OPEN);
     yield fork(resolveProject, payload, meta);
   }
 }
