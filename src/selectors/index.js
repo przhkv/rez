@@ -4,12 +4,12 @@ export const
   i18nSelector = state => state.i18n,
   pageSelector = state => state.page,
   projectListSelector = state => state.projectList,
-  loadedProjectsIdsSelector = state => state.projects.map(p => p.id),
-  projectByIdSelector = (state, id) => state.projects.filter(p => p.id === id),
+  loadedProjectsIdsSelector = state => state.projects.map(p => p.get('id')),
+  projectByIdSelector = (state, id) => state.projects.filter(p => p.get('id') === id),
   settingsSelector = state => state.settings,
   themeSelector = state => state.theme;
 
-const getSelectedProjectSelector = (state, props) => state.projects.find(p => p.idTitle === props.params.id);
+const getSelectedProjectSelector = (state, props) => state.projects.find(p => p.get('idTitle') === props.params.id);
 
 export const makeGetSelectedProject = () => {
   return createSelector(

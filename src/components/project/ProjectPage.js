@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import * as pages from '../../constants/pages';
 
@@ -10,7 +11,7 @@ class ProjectPage extends Component {
     const closeProject = e => {
       e.preventDefault();
 
-      const payload = {projectId: props.project.id};
+      const payload = {projectId: props.project.get('id')};
       const meta = {redirect: () => {
         context.router.push('/');
         props.navigate(pages.PROJECTS);
@@ -21,7 +22,7 @@ class ProjectPage extends Component {
     return (
       <div>
 
-        <h5>{'project ' + props.project.title}</h5>
+        <h5>{'project ' + props.project.get('title')}</h5>
         <input
           type="button"
           value={props.i18n.controls.close}
@@ -41,7 +42,7 @@ ProjectPage.propTypes = {
   deleteProject: PropTypes.func.isRequired,
   i18n: PropTypes.object.isRequired,
   navigate: PropTypes.func.isRequired,
-  project: PropTypes.object.isRequired,
+  project: PropTypes.instanceOf(Immutable.Map).isRequired,
   saveProject: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired
 };

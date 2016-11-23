@@ -1,6 +1,7 @@
 /* eslint-disable import/default */
 /* eslint-disable no-constant-condition */
 import { call, fork, put, select, take } from 'redux-saga/effects';
+import { fromJS } from 'immutable';
 import * as projectActions from '../actions/projectActions';
 import * as actionTypes from '../constants/actionTypes';
 import * as projectsApi from '../api/projectsApi';
@@ -13,7 +14,7 @@ function* closeProject(payload, meta) {
 
 function* loadById(payload, meta) {
   const project = yield call(projectsApi.fetchById, payload.projectId);
-  yield put(projectActions.receive(project));
+  yield put(projectActions.receive(fromJS(project)));
   meta.redirect();
 }
 

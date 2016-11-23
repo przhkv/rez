@@ -26,7 +26,7 @@ ProjectConnector.propTypes = {
   close: PropTypes.func.isRequired,
   i18n: PropTypes.object.isRequired,
   navigate: PropTypes.func.isRequired,
-  project: PropTypes.object.isRequired,
+  project: PropTypes.instanceOf(Immutable.Map).isRequired,
   purge: PropTypes.func.isRequired,
   save: PropTypes.func.isRequired,
   settings: PropTypes.instanceOf(Immutable.Map).isRequired,
@@ -38,7 +38,7 @@ const makeMapStateToProps = () => {
   const mapStateToProps = (state, props) => {
     return {
       i18n: i18nSelector(state),
-      project: props.params.id ? getSelectedProject(state, props) : defaultProject,
+      project: props.params.id ? getSelectedProject(state, props) : Immutable.fromJS(defaultProject),
       settings: settingsSelector(state),
       theme: themeSelector(state)
     };
