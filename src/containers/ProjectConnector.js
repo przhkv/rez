@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { navigate } from '../actions/navigationActions';
 import { close, purge, save } from '../actions/projectActions';
 import { i18nSelector, settingsSelector, themeSelector, makeGetSelectedProject } from '../selectors';
-import defaultProject from '../constants/inits/project';
 import MainSection from '../components/common/MainSection';
 import ProjectPage from '../components/project/ProjectPage';
 
@@ -38,7 +37,7 @@ const makeMapStateToProps = () => {
   const mapStateToProps = (state, props) => {
     return {
       i18n: i18nSelector(state),
-      project: props.params.id ? getSelectedProject(state, props) : Immutable.fromJS(defaultProject),
+      project: getSelectedProject(state, props),
       settings: settingsSelector(state),
       theme: themeSelector(state)
     };

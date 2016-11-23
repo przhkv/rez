@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { createDefaultProject } from '../utils/projects/defaults';
 
 export const
   i18nSelector = state => state.i18n,
@@ -9,7 +10,8 @@ export const
   settingsSelector = state => state.settings,
   themeSelector = state => state.theme;
 
-const getSelectedProjectSelector = (state, props) => state.projects.find(p => p.get('idTitle') === props.params.id);
+const getSelectedProjectSelector = (state, props) =>
+  state.projects.find(p => p.get('idTitle') === props.params.id) || createDefaultProject(state.settings);
 
 export const makeGetSelectedProject = () => {
   return createSelector(
