@@ -1,7 +1,17 @@
-import Immutable from 'immutable';
-import defaultProject from '../../constants/inits/project';
+import { fromJS } from 'immutable';
 
-export const createDefaultProject = (settings) => {
-  const project = Object.assign(defaultProject, {bpm: settings.getIn(['general', 'defaultBPM'])});
-  return Immutable.fromJS(project);
+const createDefaultProject = settings => fromJS({
+  id: '',
+  idTitle: '',
+  title: 'Untitled',
+  credits: {
+    originalArtists: []
+  },
+  common: {
+    bpm: settings.getIn(['seq', 'defaultBPM'])
+  }
+});
+
+export {
+  createDefaultProject
 };

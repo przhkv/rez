@@ -23,7 +23,7 @@ const ProjectListPage = ({i18n, loadedProjectsIds, load, loading, navigate, open
 
   const create = () => {
     context.router.push('/seq/');
-    navigate('default'); //fixme
+    navigate('Untitled'); //fixme
   };
 
   return (

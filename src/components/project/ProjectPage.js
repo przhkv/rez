@@ -2,48 +2,49 @@ import Immutable from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import * as pages from '../../constants/pages';
 import Footer from '../common/Footer';
-import MainSection from '../common/MainSection';
-import Wrapping from '../common/Wrapping';
 import HeaderControls from './header/HeaderControls';
+import MainSection from '../common/MainSection';
+import Project from './Project';
+import Wrapping from '../common/Wrapping';
 
 class ProjectPage extends Component {
   constructor() {
     super();
   }
   render() {
-    const {context, props} = this;
-    const closeProject = e => {
-      e.preventDefault();
+    const {close, purge, i18n, loading, navigate, project, save, settings, theme} = this.props;
+    const {router} = this.context;
 
-      const payload = {projectId: props.project.get('id')};
-      const meta = {redirect: () => {
-        context.router.push('/');
-        props.navigate(pages.PROJECTS);
-      }};
-      props.close(payload, meta);
+    const redirectToProjects = () => {
+      router.push('/');
+      navigate(pages.PROJECTS);
+    };
+
+    const closeProject = () => {
+      const payload = {projectId: project.get('id')};
+      const meta = {redirect: redirectToProjects};
+      close(payload, meta);
     };
 
     return (
       <Wrapping>
         <HeaderControls
-          i18n={props.i18n}
-          loading={props.loading}
-          navigate={props.navigate}
-          project={props.project}
-          theme={props.theme}
+          i18n={i18n}
+          loading={loading}
+          navigate={navigate}
+          project={project}
+          theme={theme}
         />
-        <MainSection theme={props.theme}>
-          <div>
-            <h5>{'project ' + props.project.get('title')}</h5>
-            <h5>{'bpm ' + props.project.get('bpm')}</h5>
-            <input
-              type="button"
-              value={props.i18n.controls.close}
-              onClick={closeProject}
-            />
-          </div>
+        <MainSection theme={theme}>
+          <Project
+            closeProject={closeProject}
+            i18n={i18n}
+            project={project}
+            theme={theme}
+            save={save}
+          />
         </MainSection>
-        <Footer i18n={props.i18n} theme={props.theme} />
+        <Footer i18n={i18n} theme={theme} />
       </Wrapping>
     );
   }

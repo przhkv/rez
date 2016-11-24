@@ -1,6 +1,6 @@
 export default {
   articleHeader: 'b--white-70 white-70',
-  articleInput: 'b--white-40 bg-transparent white-90',
+  articleInput: 'b--white-40 bg-transparent white-90 hover-bg-near-black',
   bg: 'bg-dark-gray',
   buttonNeutralLight: 'bg-transparent white-70',
   buttonSuccess: 'bg-light-blue black',
