@@ -4,26 +4,16 @@ import { connect } from 'react-redux';
 import { navigate } from '../actions/navigationActions';
 import { close, purge, save } from '../actions/projectActions';
 import { i18nSelector, settingsSelector, themeSelector, makeGetSelectedProject } from '../selectors';
-import MainSection from '../components/common/MainSection';
 import ProjectPage from '../components/project/ProjectPage';
 
 const ProjectConnector = props => (
-  <MainSection theme={props.theme}>
-    <ProjectPage
-      closeProject={props.close}
-      deleteProject={props.purge}
-      i18n={props.i18n}
-      navigate={props.navigate}
-      project={props.project}
-      saveProject={props.save}
-      theme={props.theme}
-    />
-  </MainSection>
+  <ProjectPage {...props} />
 );
 
 ProjectConnector.propTypes = {
   close: PropTypes.func.isRequired,
   i18n: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
   navigate: PropTypes.func.isRequired,
   project: PropTypes.instanceOf(Immutable.Map).isRequired,
   purge: PropTypes.func.isRequired,
@@ -37,6 +27,7 @@ const makeMapStateToProps = () => {
   const mapStateToProps = (state, props) => {
     return {
       i18n: i18nSelector(state),
+      loading: false, //fixme
       project: getSelectedProject(state, props),
       settings: settingsSelector(state),
       theme: themeSelector(state)

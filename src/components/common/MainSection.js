@@ -7,7 +7,7 @@ const MainSection = ({children, theme}) => (
 );
 
 MainSection.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   theme: PropTypes.object.isRequired
 };
 
