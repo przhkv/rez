@@ -10,7 +10,7 @@ const getStyleClasses = (buttonStyle, theme) => {
   }
 };
 
-const SubmitButton = ({buttonStyle, disabled, onClick, text, theme}) => {
+const SubmitButton = ({buttonStyle, disabled, onClick, onMouseOut, onMouseOver, text, theme}) => {
   const click = e => {e.preventDefault(); onClick();};
   const colors = getStyleClasses(buttonStyle, theme);
   const stateStyles = disabled ? ' o-50' : ' rez-dim pointer';
@@ -20,6 +20,8 @@ const SubmitButton = ({buttonStyle, disabled, onClick, text, theme}) => {
       className={'f6 br-pill ph3 pv2 mb2 dib mt3 outline-0 input-reset ' + colors + stateStyles}
       disabled={disabled}
       onClick={click}
+      onMouseOut={onMouseOut}
+      onMouseOver={onMouseOver}
       type="submit"
       value={text}
     />
@@ -30,6 +32,8 @@ SubmitButton.propTypes = {
   buttonStyle: PropTypes.oneOf([NEUTRAL_LIGHT, SUBMIT]),
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+  onMouseOut: PropTypes.func,
+  onMouseOver: PropTypes.func,
   text: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired
 };
