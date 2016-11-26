@@ -14,6 +14,10 @@ export default {
     projects: '',
     settings: ''
   },
+  helpInfo: {
+    backToProjects: '',
+    closeProject: '',
+  },
   home: {
     demo: '',
     status: ''

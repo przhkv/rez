@@ -14,6 +14,10 @@ export default {
     projects: 'プロジェクト',
     settings: '設定'
   },
+  helpInfo: {
+    backToProjects: 'プロジェクトに戻る',
+    closeProject: '現在のプロジェクトを閉じる',
+  },
   home: {
     demo: 'デモ',
     status: '状態'

@@ -14,6 +14,10 @@ export default {
     projects: 'Projets',
     settings: 'Paramètres'
   },
+  helpInfo: {
+    backToProjects: 'Retourner aux projets',
+    closeProject: 'Fermer le projet actuel',
+  },
   home: {
     demo: 'démo',
     status: 'Statut'

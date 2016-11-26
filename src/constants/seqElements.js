@@ -1,3 +1,3 @@
 export const
-  BACK = 'back',
-  CLOSE = 'closeButton';
+  BACK = 'backToProjects',
+  CLOSE = 'closeProject';
