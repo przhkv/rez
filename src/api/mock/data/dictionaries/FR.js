@@ -17,6 +17,8 @@ export default {
   helpInfo: {
     backToProjects: 'Retourner aux projets',
     closeProject: 'Fermer le projet actuel',
+    decreaseBPM: 'Diminuer la valeur BPM',
+    increaseBPM: 'Augmenter la valeur BPM',
   },
   home: {
     demo: 'démo',

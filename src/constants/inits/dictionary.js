@@ -17,6 +17,8 @@ export default {
   helpInfo: {
     backToProjects: '',
     closeProject: '',
+    decreaseBPM: '',
+    increaseBPM: '',
   },
   home: {
     demo: '',
