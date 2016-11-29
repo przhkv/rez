@@ -4,24 +4,26 @@
 import React, { PropTypes } from 'react';
 import { withRouter } from 'react-router';
 
-const NavigationLink = ({active, onMouseOver, onMouseOut, navigate, router, text, title, theme, url}) => {
+const NavigationLink = ({active, disabled, onMouseOver, onMouseOut, navigate, router, text, title, theme, url}) => {
   const click = () => {
-    router.push(url);
-    navigate();
+    if (!disabled) {
+      router.push(url);
+      navigate();
+    }
   };
   const
-    linkClasses =
-      'no-underline f4 dib pointer '
-      + theme.linkHover + ' '
-      + (active ? theme.linkActive : theme.linkInactive);
+    _activeClass = active ? theme.linkActive : theme.linkInactive,
+    _pointerClass = !disabled ? 'pointer' : '',
+    linkClasses = `no-underline f4 dib ${theme.linkHover} ${_activeClass} ${_pointerClass}`;
 
   return (
     <span
       className={linkClasses}
+      disabled={disabled}
       onClick={click}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
-      title={title || text}
+      title={title}
     >
       {text}
     </span>
@@ -30,6 +32,7 @@ const NavigationLink = ({active, onMouseOver, onMouseOut, navigate, router, text
 
 NavigationLink.propTypes = {
   active: PropTypes.bool,
+  disabled: PropTypes.bool,
   onMouseOver: PropTypes.func,
   onMouseOut: PropTypes.func,
   navigate: PropTypes.func.isRequired,
