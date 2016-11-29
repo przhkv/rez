@@ -9,15 +9,18 @@ import Wrapping from '../common/Wrapping';
 import { PROJECTS } from '../../constants/pages';
 
 class ProjectPage extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      mouseOver: ''
+      modified: false,
+      mouseOver: '',
+      project: props.project
     };
   }
+
   render() {
-    const {mouseOver} = this.state;
-    const {close, purge, i18n, loading, navigate, project, router, save, settings, theme} = this.props;
+    const {mouseOver, project} = this.state;
+    const {close, purge, i18n, loading, navigate, router, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
       router.push(`/`);
@@ -33,10 +36,16 @@ class ProjectPage extends Component {
     const setMouseOut = () => setMouseOver('');
     const setMouseOver = mouseOver => this.setState({mouseOver});
 
+    const updateProjectState = (field, val) =>
+      this.setState({
+        modified: true,
+        project: project.updateIn(field, () => val)
+      });
 
     return (
       <Wrapping>
         <HeaderControls
+          closeProject={closeProject}
           i18n={i18n}
           loading={loading}
           navigate={navigate}
@@ -44,10 +53,10 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
+          updateProject={updateProjectState}
         />
         <MainSection theme={theme}>
           <Project
-            closeProject={closeProject}
             i18n={i18n}
             project={project}
             save={save}
