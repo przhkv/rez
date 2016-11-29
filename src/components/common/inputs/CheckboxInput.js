@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const CheckboxInput = ({disabled, name, label, onChange, theme, value}) => (
   <div className="mt2">
-    <label className={'db fw6 lh-copy f6 ' + theme.commonText}>
+    <label className={`db fw6 lh-copy f6 ${theme.commonText}`}>
       <input
         className="checkbox"
         disabled={disabled}
@@ -11,7 +11,7 @@ const CheckboxInput = ({disabled, name, label, onChange, theme, value}) => (
         checked={value == 'true'}
         onChange={onChange}
       />
-      <span className=" pl2">{label}</span>
+      <span className="pl2">{label}</span>
     </label>
   </div>
 );

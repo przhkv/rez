@@ -5,13 +5,13 @@ const TextInput = ({disabled, error, label, name, onChange, type, theme, value})
   return (
     <div className="mt2 mw5">
       <label
-        className={'db fw6 lh-copy f6 ' + theme.commonText}
+        className={`db fw6 lh-copy f6 ${theme.commonText}`}
         htmlFor={'textID' + name}
       >
         {label}
       </label>
       <input
-        className={'pa2 input-reset ba w-100 ' + theme.articleInput}
+        className={`pa2 input-reset ba w-100 ${theme.articleInput}`}
         id={'textID' + name}
         name={name}
         onChange={onChange}

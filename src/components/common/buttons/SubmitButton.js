@@ -1,23 +1,22 @@
 import React, { PropTypes } from 'react';
 import { NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/buttonStyles';
 
-const getStyleClasses = (buttonStyle, theme) => {
-  switch(buttonStyle) {
-    case NEUTRAL_LIGHT:
-      return 'ba ' + theme.buttonNeutralLight;
-    default:
-      return 'bn ' + theme.buttonSuccess;
-  }
-};
-
 const SubmitButton = ({buttonStyle, disabled, onClick, onMouseOut, onMouseOver, text, theme}) => {
-  const click = e => {e.preventDefault(); onClick();};
-  const colors = getStyleClasses(buttonStyle, theme);
-  const stateStyles = disabled ? ' o-50' : ' rez-dim pointer';
+  const buttonClasses =  {
+    [NEUTRAL_LIGHT]: `ba ${theme.buttonNeutralLight}`,
+    [SUBMIT]: `bn ${theme.buttonSuccess}`
+  };
+
+  const click = e => {
+    e.preventDefault();
+    onClick();
+  };
+  const color = buttonClasses[buttonStyle];
+  const state = disabled ? ' o-50' : ' rez-dim pointer';
 
   return (
     <input
-      className={'f6 br-pill ph3 pv2 mb2 dib mt3 outline-0 input-reset ' + colors + stateStyles}
+      className={`f6 br-pill ph3 pv2 mb2 dib mt3 outline-0 input-reset ${color} ${state}`}
       disabled={disabled}
       onClick={click}
       onMouseOut={onMouseOut}

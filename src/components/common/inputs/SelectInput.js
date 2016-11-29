@@ -4,13 +4,13 @@ const SelectInput = ({defaultOption, disabled, label, name, onChange, options, t
   return (
     <div className="mt2 mw5">
       <label
-        className={'db fw6 lh-copy f6 ' + theme.commonText}
+        className={`db fw6 lh-copy f6 ${theme.commonText}`}
         htmlFor={'selectID' + name}
       >
         {label}
       </label>
       <select
-        className={'pa2 ba w-100 pointer ' + theme.articleInput}
+        className={`pa2 ba w-100 pointer ${theme.articleInput}`}
         id={'selectID' + name}
         name={name}
         value={value}
