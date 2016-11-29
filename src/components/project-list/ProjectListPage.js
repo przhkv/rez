@@ -31,7 +31,7 @@ const ProjectListPage = ({i18n, loadedProjectsIds, load, loading, navigate, open
       <Header theme={theme} i18n={i18n} loading={loading} navigate={navigate} page={page} />
       <MainSection theme={theme}>
         <article className="pa3 pv5-ns ph6-ns">
-          <h3 className={'f5 ttu fw6 mt0 mb3 bb pb2 ' + theme.articleHeader}>{i18n.home.demo}</h3>
+          <h3 className={`f5 ttu fw6 mt0 mb3 bb pb2 ${theme.articleHeader}`}>{i18n.home.demo}</h3>
           {projectList.map(p => (
             <InformativeProjectLink
               key={p.id}

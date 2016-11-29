@@ -57,7 +57,7 @@ class SettingsPage extends Component {
         <MainSection theme={theme}>
           <section className="pa3 pv4-ns ph6-ns">
             <article className="pb3">
-              <h3 className={'f5 ttu fw6 mt0 mb3 bb pb2 mv3 ' + theme.articleHeader}>{i18n.settings.general}</h3>
+              <h3 className={`f5 ttu fw6 mt0 mb3 bb pb2 mv3 ${theme.articleHeader}`}>{i18n.settings.general}</h3>
               <SelectInput
                 label={i18n.settings.language}
                 name={'language'}
@@ -76,7 +76,7 @@ class SettingsPage extends Component {
               />
             </article>
             <article className="pb3">
-              <h3 className={'f5 ttu fw6 mt0 mb3 bb pb2 mv3 ' + theme.articleHeader}>
+              <h3 className={`f5 ttu fw6 mt0 mb3 bb pb2 mv3 ${theme.articleHeader}`}>
                 {i18n.settings.sequencer}
               </h3>
               <CheckboxInput
