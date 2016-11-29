@@ -1,11 +1,12 @@
 import Immutable from 'immutable';
 import React, { Component, PropTypes } from 'react';
-import * as pages from '../../constants/pages';
+import { withRouter } from 'react-router';
 import FooterInfoBar from './footer/FooterInfoBar';
 import HeaderControls from './header/HeaderControls';
 import MainSection from '../common/MainSection';
 import Project from './Project';
 import Wrapping from '../common/Wrapping';
+import { PROJECTS } from '../../constants/pages';
 
 class ProjectPage extends Component {
   constructor() {
@@ -15,13 +16,12 @@ class ProjectPage extends Component {
     };
   }
   render() {
-    const {router} = this.context;
     const {mouseOver} = this.state;
-    const {close, purge, i18n, loading, navigate, project, save, settings, theme} = this.props;
+    const {close, purge, i18n, loading, navigate, project, router, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
-      router.push('/');
-      navigate(pages.PROJECTS);
+      router.push(`/`);
+      navigate(PROJECTS);
     };
 
     const closeProject = () => {
@@ -30,7 +30,7 @@ class ProjectPage extends Component {
       close(payload, meta);
     };
 
-    const setMouseOut = () => this.setState({mouseOver: ''});
+    const setMouseOut = () => setMouseOver('');
     const setMouseOver = mouseOver => this.setState({mouseOver});
 
 
@@ -66,10 +66,6 @@ class ProjectPage extends Component {
   }
 }
 
-ProjectPage.contextTypes = {
-  router: PropTypes.object
-};
-
 ProjectPage.propTypes = {
   close: PropTypes.func.isRequired,
   purge: PropTypes.func.isRequired,
@@ -77,9 +73,10 @@ ProjectPage.propTypes = {
   loading: PropTypes.bool.isRequired,
   navigate: PropTypes.func.isRequired,
   project: PropTypes.instanceOf(Immutable.Map).isRequired,
+  router: PropTypes.shape({push: PropTypes.func.isRequired}).isRequired,
   save: PropTypes.func.isRequired,
   settings: PropTypes.instanceOf(Immutable.Map).isRequired,
   theme: PropTypes.object.isRequired
 };
 
-export default ProjectPage;
+export default withRouter(ProjectPage);
