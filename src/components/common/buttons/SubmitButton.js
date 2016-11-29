@@ -11,7 +11,7 @@ const SubmitButton = ({buttonStyle, disabled, onClick, onMouseOut, onMouseOver, 
     e.preventDefault();
     onClick();
   };
-  const color = buttonClasses[buttonStyle];
+  const color = buttonClasses[buttonStyle || SUBMIT];
   const state = disabled ? ' o-50' : ' rez-dim pointer';
 
   return (
