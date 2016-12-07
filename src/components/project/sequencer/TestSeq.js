@@ -8,7 +8,8 @@ class Demo extends React.Component {
   constructor() {
     super();
     this.state = {
-      muted: false
+      muted: false,
+      volume: .6
     };
     this.audioCtx = initAudioContext();
     this.gainNode = this.audioCtx.createGain();
@@ -63,13 +64,23 @@ class Demo extends React.Component {
         gainNode.gain.value = 1;
     };
 
+    const changeVolume = e => {
+      this.setState({volume: e.target.value});
+      gainNode.gain.value = e.target.value;
+    };
+
+
     return (
       <div id="grid">
+
         <TestSample audioCtx={this.audioCtx} gainNode={this.gainNode} name={'hi hat'} url={urls.atom} />
         <br/>
         <input type="button" onClick={click} value={'play loud noise for 2 seconds'} />
         <br/>
         <input type="button" onClick={mute} value={muted ? 'unmute' : 'mute'} />
+        <div className="w-10">
+          <input type="range" onChange={changeVolume} value={this.state.volume} min="0" max="1" step={.02} />
+        </div>
       </div>
     );
   }
