@@ -9,16 +9,17 @@ class Demo extends React.Component {
     super();
     this.state = {
       muted: false,
-      volume: .6
+      volume: .6//todo use props later
     };
     this.audioCtx = initAudioContext();
     this.gainNode = this.audioCtx.createGain();
     this.gainNode.connect(this.audioCtx.destination);
+    this.gainNode.gain.value = .6;//todo use props later
   }
 
   render() {
     const {i18n, project, theme} = this.props;
-    const {muted} = this.state;
+    const {muted, volume} = this.state;
     const {audioCtx, gainNode} = this;
 
     // Stereo
@@ -57,18 +58,18 @@ class Demo extends React.Component {
     };
 
     const mute = () => {
-      this.setState({muted: !muted});
-      if (gainNode.gain.value == 1)
+      if (!muted)
         gainNode.gain.value = 0;
       else
-        gainNode.gain.value = 1;
+        gainNode.gain.value = volume;
+      this.setState({muted: !muted});
     };
 
     const changeVolume = e => {
       this.setState({volume: e.target.value});
-      gainNode.gain.value = e.target.value;
+      if (!muted)
+        gainNode.gain.value = e.target.value;
     };
-
 
     return (
       <div id="grid">
