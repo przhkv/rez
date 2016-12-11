@@ -47,11 +47,24 @@ class Demo extends React.Component {
       const source = audioCtx.createBufferSource();
       // set the buffer in the AudioBufferSourceNode
       source.buffer = myAudioBuffer;
-      // connect the AudioBufferSourceNode to the
-      // destination so we can hear the sound
 
-      //source.connect(audioCtx.destination); //fixed - connect to gain instead
-      source.connect(gainNode);
+      const splitter = audioCtx.createChannelSplitter(2);
+      source.connect(splitter);
+      const merger = audioCtx.createChannelMerger(2);
+
+      // Reduce the volume of the left channel only
+      const lGainNode = audioCtx.createGain();
+      lGainNode.gain.value = 1;
+      splitter.connect(lGainNode, 0);
+      lGainNode.connect(merger, 0, 0);
+
+      const rGainNode = audioCtx.createGain();
+      rGainNode.gain.value = .1;
+      splitter.connect(rGainNode, 1);
+      rGainNode.connect(merger, 0, 1);
+
+      // connect the AudioBufferSourceNode to the master gainNode
+      merger.connect(gainNode);
 
       // start the source playing
       source.start();

@@ -1,8 +1,8 @@
 // This script copies src/index.html into /static/index.html with simple file transformation.
 /*eslint-disable no-console */
+import 'colors';
 import fs from 'fs';
 import cheerio from 'cheerio';
-import colors from 'colors';
 
 fs.readFile('src/index.html', 'utf8', (err, markup) => {
   if (err) {
