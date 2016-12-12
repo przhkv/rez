@@ -1,6 +1,7 @@
 import Immutable from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
+import { initAudioContext } from '../../utils/audio/inits';
 import FooterInfoBar from './footer/FooterInfoBar';
 import HeaderControls from './header/HeaderControls';
 import MainSection from '../common/MainSection';
@@ -16,6 +17,10 @@ class ProjectPage extends Component {
       mouseOver: '',
       project: props.project
     };
+    this.audioCtx = initAudioContext();
+    this.gainNode = this.audioCtx.createGain();
+    this.gainNode.connect(this.audioCtx.destination);
+    this.gainNode.gain.value = .6;//todo use props later
   }
 
   render() {
@@ -57,6 +62,8 @@ class ProjectPage extends Component {
         />
         <MainSection theme={theme}>
           <Project
+            audioCtx={this.audioCtx}
+            gainNode={this.gainNode}
             i18n={i18n}
             project={project}
             save={save}

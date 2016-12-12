@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import React, { PropTypes } from 'react';
-import { initAudioContext } from '../../../utils/audio/inits';
+
 import TestSample from './TestSample';
 import * as urls from './../../../assets/sounds/soundUrls';
 
@@ -11,16 +11,11 @@ class Demo extends React.Component {
       muted: false,
       volume: .6//todo use props later
     };
-    this.audioCtx = initAudioContext();
-    this.gainNode = this.audioCtx.createGain();
-    this.gainNode.connect(this.audioCtx.destination);
-    this.gainNode.gain.value = .6;//todo use props later
   }
 
   render() {
-    const {i18n, project, theme} = this.props;
+    const {audioCtx, gainNode, i18n, project, theme} = this.props;
     const {muted, volume} = this.state;
-    const {audioCtx, gainNode} = this;
 
     // Stereo
     const channels = 2;
@@ -87,7 +82,7 @@ class Demo extends React.Component {
     return (
       <div id="grid">
 
-        <TestSample audioCtx={this.audioCtx} gainNode={this.gainNode} name={'hi hat'} url={urls.atom} />
+        <TestSample audioCtx={audioCtx} gainNode={gainNode} name={'hi hat'} url={urls.atom} />
         <br/>
         <input type="button" onClick={click} value={'play loud noise for 2 seconds'} />
         <br/>
@@ -101,6 +96,8 @@ class Demo extends React.Component {
 }
 
 Demo.propTypes = {
+  audioCtx: PropTypes.object.isRequired,
+  gainNode: PropTypes.object.isRequired,
   i18n: PropTypes.object.isRequired,
   project: PropTypes.instanceOf(Immutable.Map).isRequired,
   theme: PropTypes.object.isRequired
