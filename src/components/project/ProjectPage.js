@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { initAudioContext } from '../../utils/audio/inits';
 import FooterInfoBar from './footer/FooterInfoBar';
 import HeaderControls from './header/HeaderControls';
+import MainControls from './controls/MainControls';
 import MainSection from '../common/MainSection';
 import Project from './Project';
 import Wrapping from '../common/Wrapping';
@@ -72,6 +73,16 @@ class ProjectPage extends Component {
             theme={theme}
           />
         </MainSection>
+        <MainControls
+          audioCtx={this.audioCtx}
+          gainNode={this.gainNode}
+          i18n={i18n}
+          project={project}
+          save={save}
+          setMouseOut={setMouseOut}
+          setMouseOver={setMouseOver}
+          theme={theme}
+        />
         <FooterInfoBar
           i18n={i18n}
           mouseOver={mouseOver}
