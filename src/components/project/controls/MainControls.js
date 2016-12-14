@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import React, { PropTypes } from 'react';
+import { MUTE, UNMUTE, CHANGE_VOLUME } from '../../../constants/sequencer/elements';
 
 class MainControls extends React.Component {
   constructor() {
@@ -12,6 +13,11 @@ class MainControls extends React.Component {
   render() {
     const {audioCtx, gainNode, i18n, project, setMouseOut, setMouseOver, theme} = this.props;
     const {muted, volume} = this.state;
+
+    const
+      setOnMouseOverMute = () => setMouseOver(MUTE),
+      setOnMouseOverUnMute = () => setMouseOver(UNMUTE),
+      setOnMouseOverChangeVolume = () => setMouseOver(CHANGE_VOLUME);
 
     const mute = () => {
       gainNode.gain.value = !muted ? 0 : volume;
@@ -26,9 +32,23 @@ class MainControls extends React.Component {
 
     return (
       <div>
-        <input type="button" onClick={mute} value={muted ? 'unmute' : 'mute'} />
+        <input
+          onClick={mute}
+          onMouseOver={muted ? setOnMouseOverUnMute : setOnMouseOverMute}
+          onMouseOut={setMouseOut}
+          type="button"
+          value={muted ? 'unmute' : 'mute'}
+        />
         <div className="w-10">
-          <input type="range" onChange={changeVolume} value={volume} min="0" max="1" step={.02} />
+          <input
+            onChange={changeVolume}
+            onMouseOver={setOnMouseOverChangeVolume}
+            onMouseOut={setMouseOut}
+            min="0" max="1"
+            step={.02}
+            type="range"
+            value={volume}
+          />
         </div>
       </div>
     );
