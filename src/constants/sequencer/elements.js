@@ -1,8 +1,8 @@
 export const
   BACK = 'backToProjects',
-  CLOSE = 'closeProject',
-  MUTE = 'mute',
-  UNMUTE = 'unnute',
   CHANGE_VOLUME = 'changeVolume',
+  CLOSE = 'closeProject',
   DECREASE_BPM = 'decreaseBPM',
-  INCREASE_BPM = 'increaseBPM';
+  INCREASE_BPM = 'increaseBPM',
+  MUTE = 'mute',
+  UNMUTE = 'unnute';

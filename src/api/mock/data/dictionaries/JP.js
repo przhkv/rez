@@ -16,9 +16,12 @@ export default {
   },
   helpInfo: {
     backToProjects: 'プロジェクトに戻る',
+    changeVolume: 'ボリュームの変更',
     closeProject: '現在のプロジェクトを閉じる',
     decreaseBPM: 'BPM値を下げる',
     increaseBPM: 'BPM値を上げる',
+    mute: 'ミュートサウンド',
+    unnute: 'サウンドのミュート解除',
   },
   home: {
     demo: 'デモ',

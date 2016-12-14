@@ -16,9 +16,12 @@ export default {
   },
   helpInfo: {
     backToProjects: 'Navigate back to projects',
+    changeVolume: 'Change Volume',
     closeProject: 'Close current project',
     decreaseBPM: 'Decrease BPM value',
     increaseBPM: 'Increase BPM value',
+    mute: 'Mute sound',
+    unnute: 'Unmute sound',
   },
   home: {
     demo: 'demo',

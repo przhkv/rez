@@ -16,9 +16,12 @@ export default {
   },
   helpInfo: {
     backToProjects: 'Retourner aux projets',
+    changeVolume: 'Changer le volume',
     closeProject: 'Fermer le projet actuel',
     decreaseBPM: 'Diminuer la valeur BPM',
     increaseBPM: 'Augmenter la valeur BPM',
+    mute: 'Couper le son',
+    unnute: 'Activer le son',
   },
   home: {
     demo: 'démo',
