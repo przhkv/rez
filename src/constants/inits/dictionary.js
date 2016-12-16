@@ -21,6 +21,8 @@ export default {
     decreaseBPM: '',
     increaseBPM: '',
     mute: '',
+    play: '',
+    stop: '',
     unnute: '',
   },
   home: {
@@ -49,5 +51,11 @@ export default {
     language: '',
     sequencer: '',
     theme: ''
+  },
+  seq: {
+    controls: {
+      mute: '',
+      unmute: ''
+    }
   }
 };

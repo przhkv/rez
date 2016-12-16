@@ -16,6 +16,7 @@ class ProjectPage extends Component {
     this.state = {
       modified: false,
       mouseOver: '',
+      playing: false,
       project: props.project
     };
     this.audioCtx = initAudioContext();
@@ -26,7 +27,7 @@ class ProjectPage extends Component {
   }
 
   render() {
-    const {mouseOver, project} = this.state;
+    const {mouseOver, playing, project} = this.state;
     const {close, purge, i18n, loading, navigate, router, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
@@ -39,6 +40,8 @@ class ProjectPage extends Component {
       const meta = {redirect: redirectToProjects};
       close(payload, meta);
     };
+
+    const clickPlay = () => this.setState({playing: !playing});
 
     const setMouseOut = () => setMouseOver('');
     const setMouseOver = mouseOver => this.setState({mouseOver});
@@ -75,9 +78,10 @@ class ProjectPage extends Component {
           />
         </MainSection>
         <MainControls
-          audioCtx={this.audioCtx}
+          clickPlay={clickPlay}
           gainNode={this.gainNode}
           i18n={i18n}
+          playing={playing}
           project={project}
           save={save}
           setMouseOut={setMouseOut}

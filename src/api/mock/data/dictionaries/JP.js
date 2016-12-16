@@ -21,6 +21,8 @@ export default {
     decreaseBPM: 'BPM値を下げる',
     increaseBPM: 'BPM値を上げる',
     mute: 'ミュートサウンド',
+    play: 'プレーを開始',
+    stop: '演奏を停止する',
     unnute: 'サウンドのミュート解除',
   },
   home: {
@@ -49,5 +51,11 @@ export default {
     language: '言語',
     sequencer: 'シーケンサー',
     theme: 'テーマ'
+  },
+  seq: {
+    controls: {
+      mute: 'ミュート',
+      unmute: 'ミュートを解除する'
+    }
   }
 };

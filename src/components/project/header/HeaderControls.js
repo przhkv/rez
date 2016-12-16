@@ -14,9 +14,9 @@ const HeaderControls = ({closeProject, i18n, loading, navigate, project, setMous
     setOnMouseOverDecreaseBPM = () => setMouseOver(DECREASE_BPM),
     setOnMouseOverIncreaseBPM = () => setMouseOver(INCREASE_BPM);
 
-  const bpm = project.getIn([`common`, `bpm`]);
-  const decreaseBPM = () => Number(bpm) > MIN_BPM ? updateProject([`common`, `bpm`], (Number(bpm) - 1)) : false;
-  const increaseBPM = () => Number(bpm) < MAX_BPM ? updateProject([`common`, `bpm`], (Number(bpm) + 1)) : false;
+  const bpm = project.getIn(['common', 'bpm']);
+  const decreaseBPM = () => Number(bpm) > MIN_BPM ? updateProject(['common', 'bpm'], (Number(bpm) - 1)) : false;
+  const increaseBPM = () => Number(bpm) < MAX_BPM ? updateProject(['common', 'bpm'], (Number(bpm) + 1)) : false;
 
   return (
     <header className={`w-100 bb db ${theme.sectionBorder} ${theme.bg}`}>

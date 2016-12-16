@@ -21,6 +21,8 @@ export default {
     decreaseBPM: 'Diminuer la valeur BPM',
     increaseBPM: 'Augmenter la valeur BPM',
     mute: 'Couper le son',
+    play: 'Commencer à jouer',
+    stop: 'Arrêter de jouer',
     unnute: 'Activer le son',
   },
   home: {
@@ -49,5 +51,11 @@ export default {
     language: 'Langue',
     sequencer: 'Séquenceur',
     theme: 'Thème'
+  },
+  seq: {
+    controls: {
+      mute: 'Muet',
+      unmute: 'Annuler le mute'
+    }
   }
 };
