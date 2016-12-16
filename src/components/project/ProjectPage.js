@@ -21,7 +21,8 @@ class ProjectPage extends Component {
     this.audioCtx = initAudioContext();
     this.gainNode = this.audioCtx.createGain();
     this.gainNode.connect(this.audioCtx.destination);
-    this.gainNode.gain.value = .6;//todo use props later
+    this.gainNode.gain.value =
+      (props.project.getIn(['common', 'muted']) === 'true') ? 0 : props.project.getIn(['common', 'gain']);
   }
 
   render() {
@@ -82,6 +83,7 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
+          updateProject={updateProjectState}
         />
         <FooterInfoBar
           i18n={i18n}

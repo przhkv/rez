@@ -8,7 +8,9 @@ const createDefaultProject = settings => fromJS({
     originalArtists: []
   },
   common: {
-    bpm: settings.getIn(['seq', 'defaultBPM'])
+    bpm: settings.getIn(['seq', 'defaultBPM']),
+    gain: '0.8',
+    muted: 'false'
   }
 });
 

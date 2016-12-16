@@ -8,6 +8,8 @@ export default {
     originalArtists: ['Death Comet Crew']
   },
   common: {
-    bpm: '118'
+    bpm: '118',
+    gain: '0.6',
+    muted: 'false'
   }
 };

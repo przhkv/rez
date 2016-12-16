@@ -8,6 +8,8 @@ export default {
     originalArtists: ['Material']
   },
   common: {
-    bpm: '102'
+    bpm: '102',
+    gain: '0.8',
+    muted: 'true'
   }
 };
