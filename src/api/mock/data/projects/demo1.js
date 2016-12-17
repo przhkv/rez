@@ -7,6 +7,18 @@ export default {
   credits: {
     originalArtists: ['Death Comet Crew']
   },
+  channels: [
+    {
+      i: '0',
+      name: 'hi hat',
+      type: 'aSrc',
+    },
+    {
+      i: '1',
+      name: 'white noise',
+      type: 'aGen'
+    }
+  ],
   common: {
     bpm: '118',
     gain: '0.6',

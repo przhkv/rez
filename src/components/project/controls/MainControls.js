@@ -54,6 +54,7 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
       />
       <div className="w-10">
         <input
+          className="rez-gain-volume"
           onChange={changeVolume}
           onMouseOut={setMouseOut}
           onMouseOver={setOnMouseOverChangeVolume}

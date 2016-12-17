@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
 import { initAudioContext } from '../../utils/audio/inits';
@@ -31,7 +31,7 @@ class ProjectPage extends Component {
     const {close, purge, i18n, loading, navigate, router, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
-      router.push(`/`);
+      router.push('/');
       navigate(PROJECTS);
     };
 
@@ -75,6 +75,7 @@ class ProjectPage extends Component {
             setMouseOut={setMouseOut}
             setMouseOver={setMouseOver}
             theme={theme}
+            updateProject={updateProjectState}
           />
         </MainSection>
         <MainControls
@@ -105,10 +106,10 @@ ProjectPage.propTypes = {
   i18n: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   navigate: PropTypes.func.isRequired,
-  project: PropTypes.instanceOf(Immutable.Map).isRequired,
+  project: PropTypes.instanceOf(Map).isRequired,
   router: PropTypes.shape({push: PropTypes.func.isRequired}).isRequired,
   save: PropTypes.func.isRequired,
-  settings: PropTypes.instanceOf(Immutable.Map).isRequired,
+  settings: PropTypes.instanceOf(Map).isRequired,
   theme: PropTypes.object.isRequired
 };
 

@@ -1,84 +1,84 @@
-input[type=range] {
+input[type=range].rez-gain-volume {
   -webkit-appearance: none;
   width: 100%;
-  margin: -0.5px 0;
+  margin: -0.8px 0;
 }
-input[type=range]:focus {
+input[type=range].rez-gain-volume:focus {
   outline: none;
 }
-input[type=range]::-webkit-slider-runnable-track {
+input[type=range].rez-gain-volume::-webkit-slider-runnable-track {
   width: 100%;
-  height: 21px;
+  height: 23.6px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-  background: rgba(50, 43, 167, 0.32);
-  border-radius: 25px;
-  border: 0px solid #000000;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: rgba(39, 107, 79, 0.69);
+  border-radius: 0px;
+  border: 0px solid #010101;
 }
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px rgba(255, 0, 0, 0.49), 0px 0px 0px rgba(255, 26, 26, 0.49);
-  border: 0px solid #941e00;
-  height: 20px;
-  width: 50px;
-  border-radius: 28px;
-  background: rgba(231, 55, 56, 0.78);
+input[type=range].rez-gain-volume::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0.4px solid rgba(0, 0, 0, 0.4);
+  height: 22px;
+  width: 42px;
+  border-radius: 0px;
+  background: #ffffff;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: 0.5px;
+  margin-top: 0.8px;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(120, 114, 219, 0.32);
+input[type=range].rez-gain-volume:focus::-webkit-slider-runnable-track {
+  background: rgba(39, 107, 79, 0.69);
 }
-input[type=range]::-moz-range-track {
+input[type=range].rez-gain-volume::-moz-range-track {
   width: 100%;
-  height: 21px;
+  height: 23.6px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
-  background: rgba(50, 43, 167, 0.32);
-  border-radius: 25px;
-  border: 0px solid #000000;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: rgba(39, 107, 79, 0.69);
+  border-radius: 0px;
+  border: 0px solid #010101;
 }
-input[type=range]::-moz-range-thumb {
-  box-shadow: 0px 0px 0px rgba(255, 0, 0, 0.49), 0px 0px 0px rgba(255, 26, 26, 0.49);
-  border: 0px solid #941e00;
-  height: 20px;
-  width: 50px;
-  border-radius: 28px;
-  background: rgba(231, 55, 56, 0.78);
+input[type=range].rez-gain-volume::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0.4px solid rgba(0, 0, 0, 0.4);
+  height: 22px;
+  width: 42px;
+  border-radius: 0px;
+  background: #ffffff;
   cursor: pointer;
 }
-input[type=range]::-ms-track {
+input[type=range].rez-gain-volume::-ms-track {
   width: 100%;
-  height: 21px;
+  height: 23.6px;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
   color: transparent;
 }
-input[type=range]::-ms-fill-lower {
-  background: rgba(21, 18, 70, 0.32);
-  border: 0px solid #000000;
-  border-radius: 50px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+input[type=range].rez-gain-volume::-ms-fill-lower {
+  background: rgba(39, 107, 79, 0.69);
+  border: 0px solid #010101;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
 }
-input[type=range]::-ms-fill-upper {
-  background: rgba(50, 43, 167, 0.32);
-  border: 0px solid #000000;
-  border-radius: 50px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+input[type=range].rez-gain-volume::-ms-fill-upper {
+  background: rgba(39, 107, 79, 0.69);
+  border: 0px solid #010101;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
 }
-input[type=range]::-ms-thumb {
-  box-shadow: 0px 0px 0px rgba(255, 0, 0, 0.49), 0px 0px 0px rgba(255, 26, 26, 0.49);
-  border: 0px solid #941e00;
-  width: 50px;
-  border-radius: 28px;
-  background: rgba(231, 55, 56, 0.78);
+input[type=range].rez-gain-volume::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0.4px solid rgba(0, 0, 0, 0.4);
+  width: 42px;
+  border-radius: 0px;
+  background: #ffffff;
   cursor: pointer;
-  height: 20px;
+  height: 22px;
 }
-input[type=range]:focus::-ms-fill-lower {
-  background: rgba(50, 43, 167, 0.32);
+input[type=range].rez-gain-volume:focus::-ms-fill-lower {
+  background: rgba(39, 107, 79, 0.69);
 }
-input[type=range]:focus::-ms-fill-upper {
-  background: rgba(120, 114, 219, 0.32);
+input[type=range].rez-gain-volume:focus::-ms-fill-upper {
+  background: rgba(39, 107, 79, 0.69);
 }

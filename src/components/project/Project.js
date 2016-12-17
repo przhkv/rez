@@ -1,16 +1,21 @@
 import Immutable from 'immutable';
 import React, { PropTypes } from 'react';
-import TestSeq from './sequencer/TestSeq';
+import Seq from './sequencer/Seq';
+import Toolbar from './sequencer/Toolbar';
 
-const Project = ({audioCtx, gainNode, i18n, project, setMouseOut, setMouseOver, theme}) => {
-
-  return (
-    <section>
-      <h5 className={theme.commonText}>{project.get('title')}</h5>
-      <TestSeq audioCtx={audioCtx} gainNode={gainNode} i18n={i18n} project={project} theme={theme} />
-    </section>
-  );
-};
+const Project = props => (
+  <div>
+    <Toolbar
+      channels={props.project.get('channels')}
+      i18n={props.i18n}
+      setMouseOut={props.setMouseOut}
+      setMouseOver={props.setMouseOver}
+      theme={props.theme}
+      updateProject={props.updateProject}
+    />
+    <Seq {...props} />
+  </div>
+);
 
 Project.propTypes = {
   audioCtx: PropTypes.object.isRequired,
@@ -20,7 +25,8 @@ Project.propTypes = {
   save: PropTypes.func.isRequired,
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  updateProject: PropTypes.func.isRequired
 };
 
 export default Project;

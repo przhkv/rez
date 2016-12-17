@@ -7,6 +7,7 @@ export default {
   credits: {
     originalArtists: ['Material']
   },
+  channels: [],
   common: {
     bpm: '102',
     gain: '0.8',

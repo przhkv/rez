@@ -7,6 +7,7 @@ const createDefaultProject = settings => fromJS({
   credits: {
     originalArtists: []
   },
+  channels: [],
   common: {
     bpm: settings.getIn(['seq', 'defaultBPM']),
     gain: '0.8',
