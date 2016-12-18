@@ -1,6 +1,6 @@
 import { List, Map } from 'immutable';
 import React, { PropTypes } from 'react';
-import { BLANK } from '../../../constants/sequencer/channelTypes';
+import { BLANK } from '../../../constants/sequencer/channelLayoutTypes';
 
 const Toolbar = ({channels, i18n, setMouseOut, setMouseOver, theme, updateProject}) => {
   const add = () =>

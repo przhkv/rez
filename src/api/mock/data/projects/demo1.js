@@ -11,12 +11,24 @@ export default {
     {
       i: '0',
       name: 'hi hat',
-      type: 'aSrc',
+      type: 'file',
+      volume: {
+        l: '1',
+        r: '1'
+      },
+      src: {
+        lib: 'def',
+        name: 'atom_hh.wav'
+      },
     },
     {
       i: '1',
       name: 'white noise',
-      type: 'aGen'
+      type: 'noise',
+      volume: {
+        l: '.7',
+        r: '.1'
+      },
     }
   ],
   common: {
