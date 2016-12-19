@@ -1,20 +1,11 @@
 import Immutable from 'immutable';
 import React, { PropTypes } from 'react';
 import Seq from './sequencer/Seq';
-import Toolbar from './sequencer/Toolbar';
 
 const Project = props => (
-  <div>
-    <Toolbar
-      channels={props.project.get('channels')}
-      i18n={props.i18n}
-      setMouseOut={props.setMouseOut}
-      setMouseOver={props.setMouseOver}
-      theme={props.theme}
-      updateProject={props.updateProject}
-    />
+  <main className={'flex-auto order-3 overflow-y-auto w-100 ' + props.theme.bg}>
     <Seq {...props} />
-  </div>
+  </main>
 );
 
 Project.propTypes = {

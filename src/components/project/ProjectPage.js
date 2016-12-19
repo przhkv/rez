@@ -5,8 +5,8 @@ import { initAudioContext } from '../../utils/audio/inits';
 import FooterInfoBar from './footer/FooterInfoBar';
 import HeaderControls from './header/HeaderControls';
 import MainControls from './controls/MainControls';
-import MainSection from '../common/MainSection';
 import Project from './Project';
+import Toolbar from './sequencer/Toolbar';
 import Wrapping from '../common/Wrapping';
 import { PROJECTS } from '../../constants/pages';
 
@@ -53,7 +53,7 @@ class ProjectPage extends Component {
       });
 
     return (
-      <Wrapping>
+      <Wrapping fixedHeight={Boolean(true)}>
         <HeaderControls
           closeProject={closeProject}
           i18n={i18n}
@@ -65,19 +65,25 @@ class ProjectPage extends Component {
           theme={theme}
           updateProject={updateProjectState}
         />
-        <MainSection theme={theme}>
-          <Project
-            audioCtx={this.audioCtx}
-            gainNode={this.gainNode}
-            i18n={i18n}
-            project={project}
-            save={save}
-            setMouseOut={setMouseOut}
-            setMouseOver={setMouseOver}
-            theme={theme}
-            updateProject={updateProjectState}
-          />
-        </MainSection>
+        <Toolbar
+          channels={project.get('channels')}
+          i18n={i18n}
+          setMouseOut={setMouseOut}
+          setMouseOver={setMouseOver}
+          theme={theme}
+          updateProject={updateProjectState}
+        />
+        <Project
+          audioCtx={this.audioCtx}
+          gainNode={this.gainNode}
+          i18n={i18n}
+          project={project}
+          save={save}
+          setMouseOut={setMouseOut}
+          setMouseOver={setMouseOver}
+          theme={theme}
+          updateProject={updateProjectState}
+        />
         <MainControls
           clickPlay={clickPlay}
           gainNode={this.gainNode}

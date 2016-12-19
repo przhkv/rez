@@ -19,7 +19,7 @@ const HeaderControls = ({closeProject, i18n, loading, navigate, project, setMous
   const increaseBPM = () => Number(bpm) < MAX_BPM ? updateProject(['common', 'bpm'], (Number(bpm) + 1)) : false;
 
   return (
-    <header className={`w-100 bb db ${theme.sectionBorder} ${theme.bg}`}>
+    <header className={`flex-none order-1 w-100 bb db ${theme.sectionBorder} ${theme.bg}`}>
       <nav className="w-100 db dt-ns border-box pa2 ph4-ns" role="navigation">
         <div className="w-100 w-25-ns db dtc-ns v-mid tc tl-ns">
           <NavigationLink

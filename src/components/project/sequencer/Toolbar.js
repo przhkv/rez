@@ -11,7 +11,7 @@ const Toolbar = ({channels, i18n, setMouseOut, setMouseOver, theme, updateProjec
     })));
 
   return (
-    <div className={theme.bg}>
+    <div className={`flex-none order-2 ${theme.bg}`}>
       <input type="button" onClick={add} value={'add channel'} />
     </div>
   );

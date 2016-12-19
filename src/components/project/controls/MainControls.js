@@ -37,7 +37,7 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
   };
 
   return (
-    <div className={theme.bg}>
+    <div className={`flex-none order-4 ${theme.bg}`}>
       <input
         onClick={play}
         onMouseOut={setMouseOut}
