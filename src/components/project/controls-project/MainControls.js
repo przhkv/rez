@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { CHANGE_VOLUME, MUTE, PLAY, STOP, UNMUTE } from '../../../constants/sequencer/elements';
 
@@ -37,7 +37,7 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
   };
 
   return (
-    <div className={`flex-none order-4 ${theme.bg}`}>
+    <div className={`flex-none order-5 ${theme.bg}`}>
       <input
         onClick={play}
         onMouseOut={setMouseOut}
@@ -52,7 +52,7 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
         type="button"
         value={muted ? i18n.seq.controls.unmute : i18n.seq.controls.mute}
       />
-      <div className="w-10">
+      <div className="w5">
         <input
           className="rez-gain-volume"
           onChange={changeVolume}
@@ -73,7 +73,7 @@ MainControls.propTypes = {
   gainNode: PropTypes.object.isRequired,
   i18n: PropTypes.object.isRequired,
   playing: PropTypes.bool.isRequired,
-  project: PropTypes.instanceOf(Immutable.Map).isRequired,
+  project: PropTypes.instanceOf(Map).isRequired,
   save: PropTypes.func.isRequired,
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,

@@ -2,15 +2,12 @@ import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import ChannelModule from './ChannelModule';
 
-const Seq = ({audioCtx, gainNode, i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
-  <div>
-    <div className="w5 br b--light-gray">
+const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
+  <div className="w5 fl br b--light-gray">
     {project.get('channels').map((c, i) => (
       <ChannelModule
         key={i}
-        audioCtx={audioCtx}
         channel={c}
-        gainNode={gainNode}
         i18n={i18n}
         theme={theme}
         setMouseOut={setMouseOut}
@@ -18,13 +15,10 @@ const Seq = ({audioCtx, gainNode, i18n, project, setMouseOut, setMouseOver, them
         updateProject={updateProject}
       />
     ))}
-    </div>
   </div>
 );
 
-Seq.propTypes = {
-  audioCtx: PropTypes.object.isRequired,
-  gainNode: PropTypes.object.isRequired,
+ModuleList.propTypes = {
   i18n: PropTypes.object.isRequired,
   project: PropTypes.instanceOf(Map).isRequired,
   setMouseOut: PropTypes.func.isRequired,
@@ -33,4 +27,4 @@ Seq.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default Seq;
+export default ModuleList;

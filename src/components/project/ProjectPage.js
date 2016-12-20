@@ -4,8 +4,9 @@ import { withRouter } from 'react-router';
 import { initAudioContext } from '../../utils/audio/inits';
 import FooterInfoBar from './footer/FooterInfoBar';
 import HeaderControls from './header/HeaderControls';
-import MainControls from './controls/MainControls';
-import Project from './Project';
+import ChannelControls from './controls-channel/ChannelControls';
+import MainControls from './controls-project/MainControls';
+import Sequencer from './sequencer/Sequencer';
 import Toolbar from './sequencer/Toolbar';
 import Wrapping from '../common/Wrapping';
 import { PROJECTS } from '../../constants/pages';
@@ -17,7 +18,8 @@ class ProjectPage extends Component {
       modified: false,
       mouseOver: '',
       playing: false,
-      project: props.project
+      project: props.project,
+      selChannelID: ''
     };
     this.audioCtx = initAudioContext();
     this.gainNode = this.audioCtx.createGain();
@@ -27,7 +29,7 @@ class ProjectPage extends Component {
   }
 
   render() {
-    const {mouseOver, playing, project} = this.state;
+    const {mouseOver, playing, project, selChannelID} = this.state;
     const {close, purge, i18n, loading, navigate, router, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
@@ -73,12 +75,21 @@ class ProjectPage extends Component {
           theme={theme}
           updateProject={updateProjectState}
         />
-        <Project
+        <Sequencer
           audioCtx={this.audioCtx}
           gainNode={this.gainNode}
           i18n={i18n}
           project={project}
           save={save}
+          setMouseOut={setMouseOut}
+          setMouseOver={setMouseOver}
+          theme={theme}
+          updateProject={updateProjectState}
+        />
+        <ChannelControls
+          i18n={i18n}
+          project={project}
+          selChannelID={selChannelID}
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}

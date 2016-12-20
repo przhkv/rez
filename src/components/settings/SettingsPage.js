@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map, is as immIs } from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
@@ -24,7 +24,7 @@ class SettingsPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!Immutable.is(this.props.settings, nextProps.settings))
+    if (!immIs(this.props.settings, nextProps.settings))
       this.setState({
         modified: false,
         saving: false,
@@ -114,7 +114,7 @@ SettingsPage.propTypes = {
   loading: PropTypes.bool.isRequired,
   navigate: PropTypes.func.isRequired,
   page: PropTypes.string.isRequired,
-  settings: PropTypes.instanceOf(Immutable.Map).isRequired,
+  settings: PropTypes.instanceOf(Map).isRequired,
   updateRequest: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired
 };

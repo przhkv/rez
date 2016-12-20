@@ -9,6 +9,7 @@ export default {
   },
   channels: [
     {
+      chID: '2F68DA16B2454A0D866966955F284C73',
       i: '0',
       name: 'hi hat',
       type: 'file',
@@ -16,12 +17,15 @@ export default {
         l: '1',
         r: '1'
       },
-      src: {
-        lib: 'def',
-        name: 'atom_hh.wav'
+      payload: {
+        src: {
+          lib: 'def',
+          name: 'atom_hh.wav'
+        }
       },
     },
     {
+      chID: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
       i: '1',
       name: 'white noise',
       type: 'noise',
