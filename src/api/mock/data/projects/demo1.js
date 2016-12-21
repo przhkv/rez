@@ -13,26 +13,30 @@ export default {
       i: '0',
       name: 'hi hat',
       type: 'file',
-      volume: {
-        l: '1',
-        r: '1'
-      },
       payload: {
+        output: 'master',
         src: {
           lib: 'def',
           name: 'atom_hh.wav'
+        },
+        volume: {
+          l: '1',
+          r: '1'
         }
-      },
+      }
     },
     {
       chID: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
       i: '1',
       name: 'white noise',
       type: 'noise',
-      volume: {
-        l: '.7',
-        r: '.1'
-      },
+      payload: {
+        output: 'master',
+        volume: {
+          l: '.7',
+          r: '.1'
+        }
+      }
     }
   ],
   common: {

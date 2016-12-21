@@ -7,7 +7,7 @@ import HeaderControls from './header/HeaderControls';
 import ChannelControls from './controls-channel/ChannelControls';
 import MainControls from './controls-project/MainControls';
 import Sequencer from './sequencer/Sequencer';
-import Toolbar from './sequencer/Toolbar';
+import Toolbar from './toolbar/Toolbar';
 import Wrapping from '../common/Wrapping';
 import { PROJECTS } from '../../constants/pages';
 
