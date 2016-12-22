@@ -6,7 +6,7 @@ const Toolbar = ({channels, i18n, setMouseOut, setMouseOver, theme, updateProjec
   const add = () =>
     updateProject(['channels'], channels.push(Map({
       i: channels.size,
-      name: `c ${channels.size + 1}`,
+      name: `channel ${channels.size + 1}`,
       type: BLANK
     })));
 
