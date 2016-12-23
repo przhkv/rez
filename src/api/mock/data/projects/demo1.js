@@ -9,7 +9,7 @@ export default {
   },
   channels: [
     {
-      chID: '2F68DA16B2454A0D866966955F284C73',
+      channelId: '2F68DA16B2454A0D866966955F284C73',
       i: '0',
       name: 'hi hat',
       type: 'file',
@@ -21,9 +21,7 @@ export default {
         },
         state: {
           expanded: 'false',
-          edited: 'false',
-          muted: 'false',
-          solo: 'true',
+          muted: 'false'
         },
         volume: {
           l: '1',
@@ -32,7 +30,7 @@ export default {
       }
     },
     {
-      chID: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
+      channelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
       i: '1',
       name: 'white noise',
       type: 'noise',
@@ -40,9 +38,7 @@ export default {
         output: 'master',
         state: {
           expanded: 'true',
-          edited: 'true',
-          muted: 'true',
-          solo: 'false',
+          muted: 'true'
         },
         volume: {
           l: '.7',
@@ -55,5 +51,7 @@ export default {
     bpm: '118',
     gain: '0.6',
     muted: 'false'
-  }
+  },
+  editedChannelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
+  soloChannelId: '2F68DA16B2454A0D866966955F284C73'
 };

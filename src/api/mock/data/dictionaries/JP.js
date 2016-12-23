@@ -23,7 +23,7 @@ export default {
     mute: 'ミュートサウンド',
     play: 'プレーを開始',
     stop: '演奏を停止する',
-    unnute: 'サウンドのミュート解除',
+    unmute: 'サウンドのミュート解除',
   },
   home: {
     demo: 'デモ',

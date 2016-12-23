@@ -3,8 +3,15 @@ export const
   CHANGE_VOLUME = 'changeVolume',
   CLOSE = 'closeProject',
   DECREASE_BPM = 'decreaseBPM',
+  EDIT_CHANNEL = 'editChannel',
+  EXPAND_CHANNEL = 'expandChannel',
   INCREASE_BPM = 'increaseBPM',
+  MINIMIZE_CHANNEL = 'minimizeChannel',
   MUTE = 'mute',
+  MUTE_CHANNEL = 'muteChannel',
   PLAY = 'play',
+  SOLO_OFF = 'soloOff',
+  SOLO_ON = 'soloOn',
   STOP = 'stop',
-  UNMUTE = 'unnute';
+  UNMUTE = 'unmute',
+  UNMUTE_CHANNEL = 'unmuteChannel';

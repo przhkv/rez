@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 
 const ChannelControls = ({i18n, project, selChannelID, setMouseOut, setMouseOver, theme, updateProject}) => {
   const cName = (selChannelID && selChannelID.length > 0) ? '' : 'dn';
-  const indexOfChannel = project.get('channels').findIndex(c => c.chID === selChannelID);
+  const indexOfChannel = project.get('channels').findIndex(c => c.channelId === selChannelID);
   const channel = (indexOfChannel >= 0) ? project.getIn(['channels', indexOfChannel]) : null;
   return (
     <div className={`flex-none order-4 ${cName}`}>

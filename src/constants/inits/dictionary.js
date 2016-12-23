@@ -23,7 +23,7 @@ export default {
     mute: '',
     play: '',
     stop: '',
-    unnute: '',
+    unmute: '',
   },
   home: {
     demo: '',

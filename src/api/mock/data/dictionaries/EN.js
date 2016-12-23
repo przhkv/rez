@@ -23,7 +23,7 @@ export default {
     mute: 'Mute sound',
     play: 'Start playing',
     stop: 'Stop playing',
-    unnute: 'Unmute sound',
+    unmute: 'Unmute sound',
   },
   home: {
     demo: 'demo',
