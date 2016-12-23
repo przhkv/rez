@@ -4,7 +4,7 @@ import { EDIT, EXPAND, MUTE, SOLO } from '../../../constants/sequencer/panelButt
 const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) => {
   const button = {
     [EDIT]: {
-      color: active ? 'bg-purple' : 'bg-light-purple',
+      color: active ? 'bg-dark-pink' : 'bg-pink',
       text: 'e'
     },
     [EXPAND]: {
@@ -21,11 +21,11 @@ const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) =>
     }
   };
 
-  const clear = 'bn outline-0 input-reset rez-dim pointer';
+  const clear = 'bn br-pill outline-0 input-reset rez-weak-dim pointer';
 
   return (
     <input
-      className={`f6 link br4 ph2 dib white ${button[type].color} ${clear}`}
+      className={`f6 br4 ph2 dib white ${button[type].color} ${clear}`}
       onClick={onClick}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
