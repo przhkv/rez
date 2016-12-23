@@ -1,10 +1,10 @@
-/* as tachyons .dim but without transition */
+/* similar to tachyons .dim but without transition */
 .rez-dim {
   opacity: 1;
-  &:hover, &:focus {
-    opacity:.5
-  }
   &:active {
     opacity:.8
+  }
+  &:hover {
+    opacity:.5
   }
 }

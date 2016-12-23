@@ -25,7 +25,7 @@ const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) =>
 
   return (
     <input
-      className={`f6 link dim br4 ph2 dib white ${button[type].color} ${clear}`}
+      className={`f6 link br4 ph2 dib white ${button[type].color} ${clear}`}
       onClick={onClick}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
