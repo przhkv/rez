@@ -1,19 +1,15 @@
 import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
+import PanelModule from './PanelModule';
 import PanelModuleBlank from './PanelModuleBlank';
-import { BLANK, FILE, NOISE, OSCILLATOR, ROUTE } from '../../../../constants/sequencer/channelLayoutTypes';
-
-const _createPanel = (props, type) => {
-  const modules = {
-    [BLANK]: <PanelModuleBlank {...props} />
-  };
-  return modules[type] || modules[BLANK];
-};
+import { BLANK } from '../../../../constants/sequencer/channelLayoutTypes';
 
 const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
   <div className="w5 fl br b--light-gray">
     {project.get('channels').map((channel, key) =>
-      _createPanel({key, channel, i18n, setMouseOut, setMouseOver, theme, updateProject}, channel.get('type'))
+      (channel.get('type') === BLANK) ?
+        (<PanelModuleBlank {...{key, channel, i18n, setMouseOut, setMouseOver, theme, updateProject}} />) :
+        (<PanelModule {...{key, channel, i18n, setMouseOut, setMouseOver, theme, updateProject}} />)
     )}
   </div>
 );

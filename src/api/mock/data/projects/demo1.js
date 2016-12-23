@@ -19,6 +19,12 @@ export default {
           lib: 'def',
           name: 'atom_hh.wav'
         },
+        state: {
+          expanded: 'false',
+          edited: 'false',
+          muted: 'false',
+          solo: 'true',
+        },
         volume: {
           l: '1',
           r: '1'
@@ -32,6 +38,12 @@ export default {
       type: 'noise',
       payload: {
         output: 'master',
+        state: {
+          expanded: 'true',
+          edited: 'true',
+          muted: 'true',
+          solo: 'false',
+        },
         volume: {
           l: '.7',
           r: '.1'
