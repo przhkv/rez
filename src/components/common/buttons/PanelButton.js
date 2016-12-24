@@ -4,19 +4,19 @@ import { EDIT, EXPAND, MUTE, SOLO } from '../../../constants/sequencer/panelButt
 const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) => {
   const button = {
     [EDIT]: {
-      color: active ? 'bg-dark-pink' : 'bg-pink',
+      color: active ? 'washed-red bg-dark-pink' : 'dark-pink bg-washed-red',
       text: 'e'
     },
     [EXPAND]: {
-      color: 'bg-orange',
+      color: 'light-yellow bg-orange',
       text: active ? '-' : '+'
     },
     [MUTE]: {
-      color: active ? 'bg-red' : 'bg-washed-red',
+      color: active ? 'washed-red bg-red' : 'red bg-washed-red',
       text: 'm'
     },
     [SOLO]: {
-      color: active ? 'bg-blue' : 'bg-light-blue',
+      color: active ? 'lightest-blue bg-dark-blue' : 'dark-blue bg-lightest-blue',
       text: 's'
     }
   };
@@ -25,7 +25,7 @@ const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) =>
 
   return (
     <input
-      className={`f6 br4 ph2 dib white ${button[type].color} ${clear}`}
+      className={`f6 br4 ph2 dib ${button[type].color} ${clear}`}
       onClick={onClick}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
