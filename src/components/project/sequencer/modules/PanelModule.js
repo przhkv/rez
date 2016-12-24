@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
-import { EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL, MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
+import { CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL, MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 import PanelButton from '../../../common/buttons/PanelButton';
@@ -13,12 +13,31 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
   const edited = (chId === editedChannelId);
   const solo = (chId === soloChannelId);
 
-  const clickEdited = e =>updateProject(['editedChannelId'], edited ? '': chId);
-  const clickExpanded = () => updateProject(['channels', index, 'payload', 'state', 'expanded'], reverse(expanded));
-  const clickMute = () => updateProject(['channels', index, 'payload', 'state', 'muted'], reverse(muted));
-  const clickSolo = () => updateProject(['soloChannelId'], solo ? '': chId);
+  const clickEdited = e => updateProject(['editedChannelId'], edited ? '': chId);
+  const clickExpanded = () => {
+    if (isTrue(expanded))
+      overExpand();
+    else
+      overMinimize();
+    updateProject(['channels', index, 'payload', 'state', 'expanded'], reverse(expanded));
+  };
+  const clickMute = () => {
+    if (isTrue(muted))
+      overMute();
+    else
+      overUnmute();
+    updateProject(['channels', index, 'payload', 'state', 'muted'], reverse(muted));
+  };
+  const clickSolo = () => {
+    if (solo)
+      overSoloOn();
+    else
+      overSoloOff();
+    updateProject(['soloChannelId'], solo ? '': chId);
+  };
 
   const
+    overChangeVolume = () => setMouseOver(CHANGE_VOLUME),
     overEdit = () => setMouseOver(EDIT_CHANNEL),
     overExpand = () => setMouseOver(EXPAND_CHANNEL),
     overMinimize = () => setMouseOver(MINIMIZE_CHANNEL),
@@ -56,7 +75,12 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
           />
         </div>
         <div className="w-60 ph1">
-          <input className="module-vol v-mid" type="range" />
+          <input
+            className="module-vol v-mid"
+            type="range"
+            onMouseOut={setMouseOut}
+            onMouseOver={overChangeVolume}
+          />
         </div>
         <div className="w-10 tc">
           <PanelButton
