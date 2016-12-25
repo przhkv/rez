@@ -12,7 +12,7 @@ const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, th
       type: BLANK
     })));
 
-  const del = () => false;
+  const del = () => updateProject(['channels'], channels.filter(c => c.get('channelId') !== editedChannelId));
 
   const
     overAdd = () => setMouseOver(ADD_CHANNEL),
