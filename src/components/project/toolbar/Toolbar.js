@@ -1,8 +1,10 @@
 import { List, Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { BLANK } from '../../../constants/sequencer/channelLayoutTypes';
+import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../constants/sequencer/elements';
+import ToolbarButton from '../sequencer/common/ToolbarButton';
 
-const Toolbar = ({channels, i18n, setMouseOut, setMouseOver, theme, updateProject}) => {
+const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, theme, updateProject}) => {
   const add = () =>
     updateProject(['channels'], channels.push(Map({
       i: channels.size,
@@ -10,15 +12,43 @@ const Toolbar = ({channels, i18n, setMouseOut, setMouseOver, theme, updateProjec
       type: BLANK
     })));
 
+  const del = () => false;
+
+  const
+    overAdd = () => setMouseOver(ADD_CHANNEL),
+    overDel = () => setMouseOver(DELETE_CHANNEL);
+
   return (
-    <div className={`flex-none order-2 ${theme.bg}`}>
-      <input type="button" onClick={add} value={'add channel'} />
+    <div className={`flex-none order-2 w-100 bg-near-white ${theme.bg}`}>
+      <div className="w5 fl">
+        <div className="fl w-third tc">
+          <ToolbarButton
+            onClick={add}
+            onMouseOut={setMouseOut}
+            onMouseOver={overAdd}
+            text={'+'}
+            theme={theme}
+          />
+        </div>
+        <div className="fl w-third">&nbsp;</div>
+        <div className="fl w-third tc">
+          <ToolbarButton
+            disabled={editedChannelId.length === 0}
+            onClick={del}
+            onMouseOut={setMouseOut}
+            onMouseOver={overDel}
+            text={'-'}
+            theme={theme}
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
 Toolbar.propTypes = {
   channels: PropTypes.instanceOf(List).isRequired,
+  editedChannelId: PropTypes.string.isRequired,
   i18n: PropTypes.object.isRequired,
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,

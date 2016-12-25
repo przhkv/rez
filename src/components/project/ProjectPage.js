@@ -69,6 +69,7 @@ class ProjectPage extends Component {
         />
         <Toolbar
           channels={project.get('channels')}
+          editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}

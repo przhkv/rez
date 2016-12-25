@@ -4,7 +4,7 @@ import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
 import { CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL, MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
-import PanelButton from '../../../common/buttons/PanelButton';
+import PanelButton from '../common/PanelButton';
 
 
 const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMouseOver, soloChannelId, theme, updateProject}) => {
@@ -13,7 +13,7 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
   const edited = (chId === editedChannelId);
   const solo = (chId === soloChannelId);
 
-  const clickEdited = e => updateProject(['editedChannelId'], edited ? '': chId);
+  const clickEdited = e => updateProject(['editedChannelId'], edited ? '' : chId);
   const clickExpanded = () => {
     if (isTrue(expanded))
       overExpand();
@@ -47,7 +47,7 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
     overUnmute = () => setMouseOver(UNMUTE_CHANNEL);
 
   return (
-    <div className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-black-05'}`}>
+    <div className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}>
       <div className="w-100">
         <div className="ph2 pv1 tc">
           <span className={`i f6 tl ${theme.commonText}`}>{channel.get('name')}</span>

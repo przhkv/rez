@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react';
 import { withRouter } from 'react-router';
 
-const NavigationLink = ({active, disabled, onMouseOver, onMouseOut, navigate, router, text, title, theme, url}) => {
+const NavigationLink = ({active, disabled, onMouseOver, onMouseOut, navigate, router, text, theme, title, url}) => {
   const click = () => {
     if (!disabled) {
       router.push(url);

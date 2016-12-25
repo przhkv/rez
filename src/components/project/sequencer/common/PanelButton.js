@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { EDIT, EXPAND, MUTE, SOLO } from '../../../constants/sequencer/panelButtonTypes';
+import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 
 const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) => {
   const button = {
