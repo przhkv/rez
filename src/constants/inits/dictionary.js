@@ -15,10 +15,12 @@ export default {
     settings: ''
   },
   helpInfo: {
+    addChannel: '',
     backToProjects: '',
     changeVolume: '',
     closeProject: '',
     decreaseBPM: '',
+    deleteChannel: '',
     editChannel: '',
     expandChannel: '',
     increaseBPM: '',

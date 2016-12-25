@@ -15,10 +15,12 @@ export default {
     settings: '設定'
   },
   helpInfo: {
+    addChannel: 'チャンネルを追加',
     backToProjects: 'プロジェクトに戻る',
     changeVolume: 'ボリュームの変更',
     closeProject: '現在のプロジェクトを閉じる',
     decreaseBPM: 'BPM値を下げる',
+    deleteChannel: '編集したチャンネルを削除する',
     editChannel: 'チャンネルを編集',
     expandChannel: 'チャネルを拡張する',
     increaseBPM: 'BPM値を上げる',

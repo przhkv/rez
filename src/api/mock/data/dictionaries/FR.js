@@ -15,10 +15,12 @@ export default {
     settings: 'Paramètres'
   },
   helpInfo: {
+    addChannel: 'Ajouter un canal',
     backToProjects: 'Retourner aux projets',
     changeVolume: 'Changer le volume',
     closeProject: 'Fermer le projet actuel',
     decreaseBPM: 'Diminuer la valeur BPM',
+    deleteChannel: 'Supprimer le canal édité',
     editChannel: 'Modifier le canal',
     expandChannel: 'Etendre le canal',
     increaseBPM: 'Augmenter la valeur BPM',
