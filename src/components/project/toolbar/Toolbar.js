@@ -7,6 +7,7 @@ import ToolbarButton from '../sequencer/common/ToolbarButton';
 const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, theme, updateProject}) => {
   const add = () =>
     updateProject(['channels'], channels.push(Map({
+      channelId: `channel ${channels.size + 1}`,//todo generateId
       i: channels.size,
       name: `channel ${channels.size + 1}`,
       type: BLANK

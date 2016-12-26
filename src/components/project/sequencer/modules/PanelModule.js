@@ -13,7 +13,7 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
   const edited = (chId === editedChannelId);
   const solo = (chId === soloChannelId);
 
-  const clickEdited = e => updateProject(['editedChannelId'], edited ? '' : chId);
+  const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);
   const clickExpanded = () => {
     if (isTrue(expanded))
       overExpand();

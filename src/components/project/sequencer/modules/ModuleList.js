@@ -8,7 +8,16 @@ const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProj
   <div className="w5 fl br b--light-gray">
     {project.get('channels').map((channel, key) =>
       (channel.get('type') === BLANK) ? (
-          <PanelBlank {...{key, channel, i18n, setMouseOut, setMouseOver, theme, updateProject}} />
+          <PanelBlank
+            key={key}
+            channel={channel}
+            editedChannelId={project.get('editedChannelId')}
+            i18n={i18n}
+            setMouseOut={setMouseOut}
+            setMouseOver={setMouseOver}
+            theme={theme}
+            updateProject={updateProject}
+          />
         ) : (
           <PanelModule
             key={key}
