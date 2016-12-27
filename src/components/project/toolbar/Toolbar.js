@@ -1,5 +1,6 @@
 import { List, Map } from 'immutable';
 import React, { PropTypes } from 'react';
+import { uuid } from '../../../utils/generatorUtils';
 import { BLANK } from '../../../constants/sequencer/channelLayoutTypes';
 import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../constants/sequencer/elements';
 import ToolbarButton from '../sequencer/common/ToolbarButton';
@@ -7,7 +8,7 @@ import ToolbarButton from '../sequencer/common/ToolbarButton';
 const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, theme, updateProject}) => {
   const add = () =>
     updateProject(['channels'], channels.push(Map({
-      channelId: `channel ${channels.size + 1}`,//todo generateId
+      channelId: uuid(),
       i: channels.size,
       name: `channel ${channels.size + 1}`,
       type: BLANK
