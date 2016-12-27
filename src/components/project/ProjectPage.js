@@ -18,8 +18,7 @@ class ProjectPage extends Component {
       modified: false,
       mouseOver: '',
       playing: false,
-      project: props.project,
-      selChannelID: ''
+      project: props.project
     };
     this.audioCtx = initAudioContext();
     this.gainNode = this.audioCtx.createGain();
@@ -29,7 +28,7 @@ class ProjectPage extends Component {
   }
 
   render() {
-    const {mouseOver, playing, project, selChannelID} = this.state;
+    const {mouseOver, playing, project} = this.state;
     const {close, purge, i18n, loading, navigate, router, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
@@ -88,9 +87,9 @@ class ProjectPage extends Component {
           updateProject={updateProjectState}
         />
         <ChannelControls
+          editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
           project={project}
-          selChannelID={selChannelID}
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
