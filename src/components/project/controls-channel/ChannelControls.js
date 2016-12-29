@@ -8,7 +8,7 @@ const ChannelControls = ({editedChannelId, i18n, project, setMouseOut, setMouseO
 
   return (
     <div className={`flex-none order-4 ${cName}`}>
-      {channel && <h4>{channel.get('name')}</h4>}
+      {channel && <h4>{channel.get('name') + ' ' + channel.get('pos')}</h4>}
     </div>
   );
 };

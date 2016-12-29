@@ -10,7 +10,7 @@ export default {
   channels: [
     {
       channelId: '2F68DA16B2454A0D866966955F284C73',
-      i: '0',
+      pos: '1',
       name: 'hi hat',
       type: 'file',
       payload: {
@@ -31,7 +31,7 @@ export default {
     },
     {
       channelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
-      i: '1',
+      pos: '2',
       name: 'white noise',
       type: 'noise',
       payload: {

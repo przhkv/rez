@@ -47,10 +47,16 @@ class ProjectPage extends Component {
     const setMouseOut = () => setMouseOver('');
     const setMouseOver = mouseOver => this.setState({mouseOver});
 
-    const updateProjectState = (field, val) =>
+    const updateProjectField = (field, val) =>
       this.setState({
         modified: true,
         project: project.updateIn(field, () => val)
+      });
+
+    const updateProjectFields = map =>
+      this.setState({
+        modified: true,
+        project: project.merge(map)
       });
 
     return (
@@ -64,7 +70,7 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectState}
+          updateProject={updateProjectField}
         />
         <Toolbar
           channels={project.get('channels')}
@@ -73,7 +79,8 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectState}
+          updateProject={updateProjectField}
+          updateProjectFields={updateProjectFields}
         />
         <Sequencer
           audioCtx={this.audioCtx}
@@ -84,7 +91,7 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectState}
+          updateProject={updateProjectField}
         />
         <ChannelControls
           editedChannelId={project.get('editedChannelId')}
@@ -93,7 +100,7 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectState}
+          updateProject={updateProjectField}
         />
         <MainControls
           clickPlay={clickPlay}
@@ -105,7 +112,7 @@ class ProjectPage extends Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectState}
+          updateProject={updateProjectField}
         />
         <FooterInfoBar
           i18n={i18n}
