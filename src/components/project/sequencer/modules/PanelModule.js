@@ -103,6 +103,20 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
           />
         </div>
       </div>
+      {isTrue(expanded) &&
+        <div className="w-100 flex mv1">
+          <div className="w-20 tc f6 i">L</div>
+          <div className="w-60 ph1">
+            <input
+              className="module-pan v-mid"
+              type="range"
+              onMouseOut={setMouseOut}
+              onMouseOver={overChangeVolume}
+            />
+          </div>
+          <div className="w-20 tc f6 i">R</div>
+        </div>
+      }
     </div>
   );
 };
