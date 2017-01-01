@@ -2,12 +2,12 @@ import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 
 const ChannelControls = ({editedChannelId, i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => {
-  const cName = (editedChannelId && editedChannelId.length > 0) ? '' : 'dn';
+  const _display = (editedChannelId && editedChannelId.length > 0) ? '' : 'dn';
   const indexOfChannel = project.get('channels').findIndex(c => c.get('channelId') === editedChannelId);
   const channel = (indexOfChannel >= 0) ? project.getIn(['channels', indexOfChannel]) : null;
 
   return (
-    <div className={`flex-none order-4 ${cName}`}>
+    <div className={`flex-none order-4 ${_display}`}>
       {channel && <h4>{channel.get('name') + ' ' + channel.get('pos')}</h4>}
     </div>
   );
