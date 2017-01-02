@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
-import { NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/buttonStyles';
+import { FILLER, NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/buttonStyles';
 
 const SubmitButton = ({buttonStyle, disabled, inline, onClick, onMouseOut, onMouseOver, text, theme}) => {
   const buttonClasses =  {
-    [NEUTRAL_LIGHT]: `ba ${theme.buttonNeutralLight}`,
-    [SUBMIT]: `bn ${theme.buttonSuccess}`
+    [FILLER]: `f5 i h-100 w-100 bn`,
+    [NEUTRAL_LIGHT]: `f6 ba ${theme.buttonNeutralLight}`,
+    [SUBMIT]: `f6 bn ${theme.buttonSuccess}`
   };
 
   const click = e => {
@@ -14,11 +15,11 @@ const SubmitButton = ({buttonStyle, disabled, inline, onClick, onMouseOut, onMou
   const
     color = buttonClasses[buttonStyle || SUBMIT],
     margin = inline ? 'pv1' : 'pv2 mb2 mt3',
-    state = disabled ? ' o-50' : ' rez-dim pointer';
+    state = disabled ? 'o-50' : 'rez-dim pointer';
 
   return (
     <input
-      className={`f6 br-pill dib outline-0 input-reset ph3 ${color} ${margin} ${state}`}
+      className={`br-pill dib outline-0 input-reset ph3 ${color} ${margin} ${state}`}
       disabled={disabled}
       onClick={click}
       onMouseOut={onMouseOut}

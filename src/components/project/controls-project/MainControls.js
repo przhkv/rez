@@ -2,7 +2,9 @@ import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { CHANGE_VOLUME, MUTE, PLAY, STOP, UNMUTE } from '../../../constants/sequencer/elements';
 import { MUTE as buttonMute } from '../../../constants/sequencer/panelButtonTypes';
+import { FILLER } from '../../../constants/components/buttonStyles';
 import PanelButton from '../sequencer/common/PanelButton';
+import SubmitButton from '../../common/buttons/SubmitButton';
 
 const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut, setMouseOver, theme, updateProject}) => {
   const volume = project.getIn(['common', 'gain']);
@@ -41,14 +43,20 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
   return (
     <div className={`flex-none order-5 ${theme.bg}`}>
       <div className="w5 fl">
-        <div className="w-100 tc">
-          <input
-            onClick={play}
-            onMouseOut={setMouseOut}
-            onMouseOver={playing ? setOnMouseOverStop : setOnMouseOverPlay}
-            type="button"
-            value={playing ? 'stop' : 'play'}
-          />
+        <div className="w-100 flex pb2">
+          <div className="w-10">&nbsp;</div>
+          <div className="w-80 h2">
+            <SubmitButton
+              buttonStyle={FILLER}
+              inline={Boolean(true)}
+              onClick={play}
+              onMouseOut={setMouseOut}
+              onMouseOver={playing ? setOnMouseOverStop : setOnMouseOverPlay}
+              text={playing ? '■' : '►'}
+              theme={theme}
+            />
+          </div>
+          <div className="w-10">&nbsp;</div>
         </div>
         <div className="w-100 flex pb2">
           <div className="w-10">&nbsp;</div>
