@@ -31,7 +31,7 @@ const SubmitButton = ({buttonStyle, disabled, inline, onClick, onMouseOut, onMou
 };
 
 SubmitButton.propTypes = {
-  buttonStyle: PropTypes.oneOf([NEUTRAL_LIGHT, SUBMIT]),
+  buttonStyle: PropTypes.oneOf([FILLER, NEUTRAL_LIGHT, SUBMIT]),
   disabled: PropTypes.bool,
   inline: PropTypes.bool,
   onClick: PropTypes.func.isRequired,

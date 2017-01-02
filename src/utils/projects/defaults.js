@@ -12,7 +12,9 @@ const createDefaultProject = settings => fromJS({
     bpm: settings.getIn(['seq', 'defaultBPM']),
     gain: '0.8',
     muted: 'false'
-  }
+  },
+  editedChannelId: '',
+  soloChannelId: ''
 });
 
 export {
