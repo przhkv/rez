@@ -12,5 +12,7 @@ export default {
     bpm: '102',
     gain: '0.8',
     muted: 'true'
-  }
+  },
+  editedChannelId: '',
+  soloChannelId: ''
 };
