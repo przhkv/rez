@@ -43,7 +43,7 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
   return (
     <div className={`flex-none order-5 ${theme.bg}`}>
       <div className="w5 fl">
-        <div className="w-100 flex pb2">
+        <div className="w-100 flex pv2">
           <div className="w-10">&nbsp;</div>
           <div className="w-80 h2">
             <SubmitButton

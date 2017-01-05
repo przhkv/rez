@@ -1,4 +1,4 @@
-import { List, Map } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { uuid } from '../../../utils/generatorUtils';
 import { BLANK } from '../../../constants/sequencer/channelLayoutTypes';
@@ -7,11 +7,18 @@ import ToolbarButton from '../sequencer/common/ToolbarButton';
 
 const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, theme, updateProject, updateProjectFields}) => {
   const add = () =>
-    updateProject(['channels'], channels.push(Map({
+    updateProject(['channels'], channels.push(fromJS({
       channelId: uuid(),
-      pos: channels.size + 1,
+      pos: (channels.size + 1).toString(),
       name: 'untitled',
-      type: BLANK
+      type: BLANK,
+      payload: {
+        output: 'master',
+        state: {
+          expanded: 'false',
+          muted: 'false'
+        }
+      }
     })));
 
   const del = () => {
