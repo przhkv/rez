@@ -21,7 +21,10 @@ const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, 
     [FILE, NOISE, OSCILLATOR, ROUTE]
       .map(type => ({
         name: type,
-        onClick: () => updateChannelType(type),
+        onClick: () => {
+          setMouseOut();
+          updateChannelType(type);
+        },
         onMouseOver: () => mouseOver(type)
       }))
       .map((t, i) => (
