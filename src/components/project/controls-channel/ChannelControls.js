@@ -12,7 +12,7 @@ const ChannelControls = ({editedChannelId, i18n, project, setMouseOut, setMouseO
     <div className={`flex-none order-4 ${_display}`}>
       {channel &&
         <div className={`h4 w-100 bt bb ${theme.sectionBorder}`}>
-          {channel.get('name') + ' ' + channel.get('pos')}
+          {(channel.get('type') !== BLANK) && channel.get('name') + ' ' + channel.get('pos')}
           {(channel.get('type') === BLANK) &&
             <ControlsBlank
               i18n={i18n}

@@ -28,20 +28,19 @@ const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, 
         onMouseOver: () => mouseOver(type)
       }))
       .map((t, i) => (
-        <div key={i}>
-          <a
-            href="#"
-            onClick={t.onClick}
-            onMouseOut={setMouseOut}
-            onMouseOver={t.onMouseOver}
-          >
-            {t.name}
-          </a>
+        <div
+          key={i}
+          className="h3 w4 fl br4 pv4 mv4 mh2 tc bg-light-gray pointer"
+          onClick={t.onClick}
+          onMouseOut={setMouseOut}
+          onMouseOver={t.onMouseOver}
+        >
+          <span className="black-70">{t.name}</span>
         </div>
       ));
 
   return (
-    <div className="">
+    <div className="w-100">
       {typeLinks}
     </div>
   );
