@@ -69,6 +69,12 @@ export default {
     controls: {
       mute: 'ミュート',
       unmute: 'ミュートを解除する'
+    },
+    types: {
+      file: 'ファイル',
+      noise: 'ノイズ',
+      oscillator: '発振器',
+      route: 'ルート'
     }
   }
 };

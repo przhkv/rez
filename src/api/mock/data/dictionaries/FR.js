@@ -69,6 +69,12 @@ export default {
     controls: {
       mute: 'Muet',
       unmute: 'Annuler le mute'
+    },
+    types: {
+      file: 'Fichier',
+      noise: 'Bruit',
+      oscillator: 'Oscillateur',
+      route: 'Route'
     }
   }
 };

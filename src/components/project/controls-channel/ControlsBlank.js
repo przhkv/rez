@@ -30,12 +30,12 @@ const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, 
       .map((t, i) => (
         <div
           key={i}
-          className="h3 w4 fl br4 pv4 mv4 mh2 tc bg-light-gray pointer"
+          className="fl h3 w4 mv4 mh2 br3 tc v-mid bg-light-gray pointer rez-dim"
           onClick={t.onClick}
           onMouseOut={setMouseOut}
           onMouseOver={t.onMouseOver}
         >
-          <span className="black-70">{t.name}</span>
+          <span className="mv3 dib v-mid black-70">{i18n.seq.types[t.name]}</span>
         </div>
       ));
 

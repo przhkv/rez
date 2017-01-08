@@ -3,7 +3,7 @@ import { FILLER, NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/but
 
 const SubmitButton = ({buttonStyle, disabled, inline, onClick, onMouseOut, onMouseOver, text, theme}) => {
   const buttonClasses =  {
-    [FILLER]: `f5 i h-100 w-100 bn`,
+    [FILLER]: `f5 bn h-100 w-100`,
     [NEUTRAL_LIGHT]: `f6 ba ${theme.buttonNeutralLight}`,
     [SUBMIT]: `f6 bn ${theme.buttonSuccess}`
   };
