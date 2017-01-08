@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
-import { CHANGE_VOLUME, CHANGE_PANNING, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL,
+import { CHANGE_PANNING, CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL,
          MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';

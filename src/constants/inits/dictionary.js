@@ -17,6 +17,7 @@ export default {
   helpInfo: {
     addChannel: '',
     backToProjects: '',
+    changePanning: '',
     changeVolume: '',
     closeProject: '',
     decreaseBPM: '',

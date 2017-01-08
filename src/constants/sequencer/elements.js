@@ -1,8 +1,8 @@
 export const
   ADD_CHANNEL = 'addChannel',
   BACK = 'backToProjects',
-  CHANGE_VOLUME = 'changeVolume',
   CHANGE_PANNING = 'changePanning',
+  CHANGE_VOLUME = 'changeVolume',
   CLOSE = 'closeProject',
   DECREASE_BPM = 'decreaseBPM',
   DELETE_CHANNEL = 'deleteChannel',

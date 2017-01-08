@@ -17,6 +17,7 @@ export default {
   helpInfo: {
     addChannel: 'Ajouter un canal',
     backToProjects: 'Retourner aux projets',
+    changePanning: 'Changer le panoramique',
     changeVolume: 'Changer le volume',
     closeProject: 'Fermer le projet actuel',
     decreaseBPM: 'Diminuer la valeur BPM',
