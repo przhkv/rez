@@ -17,7 +17,9 @@ const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, th
         state: {
           expanded: 'false',
           muted: 'false'
-        }
+        },
+        gain: '1',
+        pan: '0'
       }
     })));
 

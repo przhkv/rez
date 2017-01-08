@@ -1,17 +1,19 @@
 import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
-import { CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL, MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
+import { CHANGE_VOLUME, CHANGE_PANNING, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL,
+         MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 import PanelButton from '../common/PanelButton';
-
 
 const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMouseOver, soloChannelId, theme, updateProject}) => {
   const chId = channel.get('channelId');
   const {expanded, muted} = channel.getIn(['payload', 'state']).toJS();
   const edited = (chId === editedChannelId);
   const solo = (chId === soloChannelId);
+  const gain = channel.getIn(['payload', 'gain']);
+  const pan = channel.getIn(['payload', 'pan']);
 
   const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);
   const clickExpanded = () => {
@@ -36,8 +38,12 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
     updateProject(['soloChannelId'], solo ? '': chId);
   };
 
+  const changeGain = e => updateProject(['channels', index, 'payload', 'gain'], e.target.value);
+  const changePanning = e => updateProject(['channels', index, 'payload', 'pan'], e.target.value);
+
   const
     overChangeVolume = () => setMouseOver(CHANGE_VOLUME),
+    overChangePanning = () => setMouseOver(CHANGE_PANNING),
     overEdit = () => setMouseOver(EDIT_CHANNEL),
     overExpand = () => setMouseOver(EXPAND_CHANNEL),
     overMinimize = () => setMouseOver(MINIMIZE_CHANNEL),
@@ -77,9 +83,13 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
         <div className="w-60 ph1">
           <input
             className="module-vol v-mid"
-            type="range"
+            onChange={changeGain}
             onMouseOut={setMouseOut}
             onMouseOver={overChangeVolume}
+            min="0" max="1"
+            step=".02"
+            type="range"
+            value={gain}
           />
         </div>
         <div className="w-10 tc">
@@ -109,9 +119,13 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
           <div className="w-60 ph1">
             <input
               className="module-pan v-mid"
-              type="range"
+              onChange={changePanning}
               onMouseOut={setMouseOut}
-              onMouseOver={overChangeVolume}
+              onMouseOver={overChangePanning}
+              min="-1" max="1"
+              step=".1"
+              type="range"
+              value={pan}
             />
           </div>
           <div className="w-20 tc f6 i">R</div>

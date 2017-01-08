@@ -23,10 +23,8 @@ export default {
           expanded: 'false',
           muted: 'false'
         },
-        volume: {
-          l: '1',
-          r: '1'
-        }
+        gain: '1',
+        pan: '0'
       }
     },
     {
@@ -40,10 +38,8 @@ export default {
           expanded: 'true',
           muted: 'true'
         },
-        volume: {
-          l: '.7',
-          r: '.1'
-        }
+        gain: '1',
+        pan: '.6'
       }
     }
   ],
