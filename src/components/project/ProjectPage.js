@@ -94,6 +94,8 @@ class ProjectPage extends Component {
           updateProject={updateProjectField}
         />
         <ChannelControls
+          audioCtx={this.audioCtx}
+          gainNode={this.gainNode}
           editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
           project={project}

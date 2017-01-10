@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import { FILE, NOISE, OSCILLATOR, ROUTE } from '../../../constants/sequencer/channelLayoutTypes';
+import { FILE, NOISE, OSCILLATOR, ROUTE } from '../../../../constants/sequencer/channelLayoutTypes';
 import {
   SELECT_FILE_TYPE,
   SELECT_NOISE_TYPE,
   SELECT_OSCILLATOR_TYPE,
   SELECT_ROUTE_TYPE
-} from '../../../constants/sequencer/elements';
+} from '../../../../constants/sequencer/elements';
 
 const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
   const typeHelp = {
