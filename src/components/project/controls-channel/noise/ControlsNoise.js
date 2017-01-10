@@ -1,6 +1,13 @@
+import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 
-const ControlsNoise = ({audioCtx, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
+
+const ControlsNoise = ({audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
+  const gain = Number(channel.getIn(['payload', 'gain']));
+  const pan = Number(channel.getIn(['payload', 'pan']));
+  const lGain = (pan > 0 ? (1-pan) : 1) * gain;
+  const rGain = (pan < 0 ? (1+pan) : 1) * gain;
+
   // Stereo
   const channels = 2;
   // Create an empty two second stereo buffer at the sample rate of the AudioContext
@@ -33,12 +40,12 @@ const ControlsNoise = ({audioCtx, gainNode, i18n, indexOfChannel, setMouseOut, s
 
     // Reduce the volume of the left channel only
     const lGainNode = audioCtx.createGain();
-    lGainNode.gain.value = 1;
+    lGainNode.gain.value = lGain;///1;
     splitter.connect(lGainNode, 0);
     lGainNode.connect(merger, 0, 0);
 
     const rGainNode = audioCtx.createGain();
-    rGainNode.gain.value = .1;
+    rGainNode.gain.value = rGain;//.1;
     splitter.connect(rGainNode, 1);
     rGainNode.connect(merger, 0, 1);
 
@@ -58,6 +65,7 @@ const ControlsNoise = ({audioCtx, gainNode, i18n, indexOfChannel, setMouseOut, s
 
 ControlsNoise.propTypes = {
   audioCtx: PropTypes.object.isRequired,
+  channel: PropTypes.instanceOf(Map).isRequired,
   gainNode: PropTypes.object.isRequired,
   i18n: PropTypes.object.isRequired,
   indexOfChannel: PropTypes.number.isRequired,

@@ -10,8 +10,8 @@ const ChannelControls = ({audioCtx, gainNode, editedChannelId, i18n, project, se
   const indexOfChannel = project.get('channels').findIndex(c => c.get('channelId') === editedChannelId);
   const channel = (indexOfChannel >= 0) ? project.getIn(['channels', indexOfChannel]) : null;
 
-  const controls = (type) => {
-    switch(type) {
+  const controls = channel => {
+    switch(channel.get('type')) {
       case BLANK:
         return (
           <ControlsBlank
@@ -22,7 +22,7 @@ const ChannelControls = ({audioCtx, gainNode, editedChannelId, i18n, project, se
       case NOISE:
         return (
           <ControlsNoise
-            {...{audioCtx, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
+            {...{audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
           />
         );
         break;
@@ -35,7 +35,7 @@ const ChannelControls = ({audioCtx, gainNode, editedChannelId, i18n, project, se
     <div className={`flex-none order-4 ${_display}`}>
       {channel &&
         <div className={`h4 w-100 bt bb ${theme.sectionBorder}`}>
-          {controls(channel.get('type'))}
+          {controls(channel)}
         </div>
       }
     </div>
