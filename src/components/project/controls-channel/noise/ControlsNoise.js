@@ -1,6 +1,5 @@
-import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
-
+import { Map } from 'immutable';
 
 const ControlsNoise = ({audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
   const gain = Number(channel.getIn(['payload', 'gain']));
@@ -18,9 +17,9 @@ const ControlsNoise = ({audioCtx, channel, gainNode, i18n, indexOfChannel, setMo
   const click = () => {
     // Fill the buffer with white noise;
     //just random values between -1.0 and 1.0
-    for (let channel = 0; channel < channels; channel++) {
+    for (let ch = 0; ch < channels; ch++) {
       // This gives us the actual ArrayBuffer that contains the data
-      const nowBuffering = myAudioBuffer.getChannelData(channel);
+      const nowBuffering = myAudioBuffer.getChannelData(ch);
       for (let i = 0; i < frameCount; i++) {
         // Math.random() is in [0; 1.0]
         // audio needs to be in [-1.0; 1.0]

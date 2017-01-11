@@ -9,33 +9,25 @@ const ChannelControls = ({audioCtx, gainNode, editedChannelId, i18n, project, se
   const _display = (editedChannelId && editedChannelId.length > 0) ? '' : 'dn';
   const indexOfChannel = project.get('channels').findIndex(c => c.get('channelId') === editedChannelId);
   const channel = (indexOfChannel >= 0) ? project.getIn(['channels', indexOfChannel]) : null;
-
-  const controls = channel => {
-    switch(channel.get('type')) {
-      case BLANK:
-        return (
-          <ControlsBlank
-            {...{i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
-          />
-        );
-        break;
-      case NOISE:
-        return (
-          <ControlsNoise
-            {...{audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
-          />
-        );
-        break;
-      default:
-        return channel.get('name') + ' ' + channel.get('pos');
-    }
-  };
+  const type = channel ? channel.get('type') : '';
 
   return (
     <div className={`flex-none order-4 ${_display}`}>
       {channel &&
         <div className={`h4 w-100 bt bb ${theme.sectionBorder}`}>
-          {controls(channel)}
+          {type === BLANK &&
+            <ControlsBlank
+              {...{i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
+            />
+          }
+          {type === NOISE &&
+            <ControlsNoise
+              {...{audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
+            />
+          }
+          {(type !== BLANK && type !== NOISE) &&
+            <div>channel.get('name') + ' ' + channel.get('pos')</div>
+          }
         </div>
       }
     </div>
