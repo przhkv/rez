@@ -13,7 +13,7 @@ import './assets/styles/main.scss';
 
 const history = createMemoryHistory('/');
 
-const store = configureStore();
+const store = configureStore(window.__INITIAL_STATE__);
 store.runSaga(rootSaga);
 store.dispatch(settingsActions.load());
 store.dispatch(projectListActions.load());
