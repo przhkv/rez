@@ -1,8 +1,9 @@
 import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
-import { BLANK, NOISE } from '../../../constants/sequencer/channelLayoutTypes';
+import { BLANK, NOISE, ROUTE } from '../../../constants/sequencer/channelLayoutTypes';
 import ControlsBlank from './blank/ControlsBlank';
 import ControlsNoise from './noise/ControlsNoise';
+import ContolsRoute from './route/ContolsRoute';
 
 const ChannelControls = ({audioCtx, gainNode, editedChannelId, i18n, project, setMouseOut, setMouseOver, theme,
                          updateProject}) => {
@@ -25,8 +26,13 @@ const ChannelControls = ({audioCtx, gainNode, editedChannelId, i18n, project, se
               {...{audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
             />
           }
-          {(type !== BLANK && type !== NOISE) &&
-            <div>channel.get('name') + ' ' + channel.get('pos')</div>
+          {(type === ROUTE) &&
+            <ContolsRoute
+              {...{channels: project.get('channels'), i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}}
+            />
+          }
+          {(![BLANK, NOISE, ROUTE].includes(type)) &&
+            channel.get('name') + ' ' + channel.get('pos')
           }
         </div>
       }
