@@ -1,4 +1,6 @@
 import { fromJS } from 'immutable';
+import { uuid } from '../generatorUtils';
+import { BLANK } from '../../constants/sequencer/channelLayoutTypes';
 
 const createDefaultProject = settings => fromJS({
   id: '',
@@ -17,6 +19,23 @@ const createDefaultProject = settings => fromJS({
   soloChannelId: ''
 });
 
+const createNewBlankChannel = channelsSize => fromJS({
+  channelId: uuid(),
+  pos: (channelsSize + 1).toString(),
+  name: 'untitled',
+  type: BLANK,
+  payload: {
+    output: 'master',
+    state: {
+      expanded: 'false',
+      muted: 'false'
+    },
+    gain: '1',
+    pan: '0'
+  }
+});
+
 export {
+  createNewBlankChannel,
   createDefaultProject
 };

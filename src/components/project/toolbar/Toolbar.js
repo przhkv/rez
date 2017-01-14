@@ -1,27 +1,12 @@
-import { fromJS, List, Map } from 'immutable';
+import { List, Map } from 'immutable';
 import React, { PropTypes } from 'react';
-import { uuid } from '../../../utils/generatorUtils';
-import { BLANK } from '../../../constants/sequencer/channelLayoutTypes';
+import { createNewBlankChannel } from '../../../utils/projects/defaults';
 import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../constants/sequencer/elements';
 import ToolbarButton from '../sequencer/common/ToolbarButton';
 
 const Toolbar = ({channels, editedChannelId, i18n, setMouseOut, setMouseOver, theme, updateProject, updateProjectFields}) => {
   const add = () =>
-    updateProject(['channels'], channels.push(fromJS({
-      channelId: uuid(),
-      pos: (channels.size + 1).toString(),
-      name: 'untitled',
-      type: BLANK,
-      payload: {
-        output: 'master',
-        state: {
-          expanded: 'false',
-          muted: 'false'
-        },
-        gain: '1',
-        pan: '0'
-      }
-    })));
+    updateProject(['channels'], channels.push(createNewBlankChannel(channels.size)));
 
   const del = () => {
     //find deleted channel index and position
