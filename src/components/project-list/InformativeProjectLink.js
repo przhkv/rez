@@ -12,7 +12,7 @@ const InformativeProjectLink = ({i18n, loadedProjectsIds, openProject, projectLi
           {projectListItem.title}
         </h1>
         <dd className={`f6 lh-title ml0 ${theme.informativeProjectLinkInfo}`}>
-          {i18n.project.created + ': ' + projectListItem.created}
+          {`${i18n.project.created}: ${projectListItem.created}`}
         </dd>
         <dl className="mt0 f6">
           <dt className="clip">{i18n.home.status}</dt>

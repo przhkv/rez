@@ -7,13 +7,25 @@ from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 import PanelButton from '../common/PanelButton';
 
-const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMouseOver, soloChannelId, theme, updateProject}) => {
+const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
+                       soloChannelId, theme, updateProject}) => {
   const chId = channel.get('channelId');
   const {expanded, muted} = channel.getIn(['payload', 'state']).toJS();
   const edited = (chId === editedChannelId);
   const solo = (chId === soloChannelId);
   const gain = channel.getIn(['payload', 'gain']);
   const pan = channel.getIn(['payload', 'pan']);
+
+  const
+    overChangeVolume = () => setMouseOver(CHANGE_VOLUME),
+    overChangePanning = () => setMouseOver(CHANGE_PANNING),
+    overEdit = () => setMouseOver(EDIT_CHANNEL),
+    overExpand = () => setMouseOver(EXPAND_CHANNEL),
+    overMinimize = () => setMouseOver(MINIMIZE_CHANNEL),
+    overMute = () => setMouseOver(MUTE_CHANNEL),
+    overSoloOff = () => setMouseOver(SOLO_OFF),
+    overSoloOn = () => setMouseOver(SOLO_ON),
+    overUnmute = () => setMouseOver(UNMUTE_CHANNEL);
 
   const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);
   const clickExpanded = () => {
@@ -35,22 +47,11 @@ const PanelModule = ({channel, editedChannelId, i18n, index, setMouseOut, setMou
       overSoloOn();
     else
       overSoloOff();
-    updateProject(['soloChannelId'], solo ? '': chId);
+    updateProject(['soloChannelId'], solo ? '' : chId);
   };
 
   const changeGain = e => updateProject(['channels', index, 'payload', 'gain'], e.target.value);
   const changePanning = e => updateProject(['channels', index, 'payload', 'pan'], e.target.value);
-
-  const
-    overChangeVolume = () => setMouseOver(CHANGE_VOLUME),
-    overChangePanning = () => setMouseOver(CHANGE_PANNING),
-    overEdit = () => setMouseOver(EDIT_CHANNEL),
-    overExpand = () => setMouseOver(EXPAND_CHANNEL),
-    overMinimize = () => setMouseOver(MINIMIZE_CHANNEL),
-    overMute = () => setMouseOver(MUTE_CHANNEL),
-    overSoloOff = () => setMouseOver(SOLO_OFF),
-    overSoloOn = () => setMouseOver(SOLO_ON),
-    overUnmute = () => setMouseOver(UNMUTE_CHANNEL);
 
   return (
     <div className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}>

@@ -1,4 +1,3 @@
-/*eslint-disable import/default */
 import 'babel-polyfill';
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -13,7 +12,7 @@ import './assets/styles/main.scss';
 
 const history = createMemoryHistory('/');
 
-const store = configureStore(window.__INITIAL_STATE__);
+const store = configureStore(window.__INITIAL_STATE__); // eslint-disable-line no-underscore-dangle
 store.runSaga(rootSaga);
 store.dispatch(settingsActions.load());
 store.dispatch(projectListActions.load());

@@ -7,14 +7,14 @@ import Wrapping from '../common/Wrapping';
 import CheckboxInput from '../common/inputs/CheckboxInput';
 import SelectInput from '../common/inputs/SelectInput';
 import SubmitButton from '../common/buttons/SubmitButton';
-import TextInput  from '../common/inputs/TextInput';
+import TextInput from '../common/inputs/TextInput';
 import { NUMBER } from '../../constants/components/inputTypes';
 import { langs, themes } from '../../constants/optionLists';
 import { extractInputData, formatSelectOptions } from '../../utils/mapUtils';
 
 class SettingsPage extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       errors: {},
       modified: false,

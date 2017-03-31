@@ -13,9 +13,8 @@ export const
 const getSelectedProjectSelector = (state, props) =>
   state.projects.find(p => p.get('idTitle') === props.params.id) || createDefaultProject(state.settings);
 
-export const makeGetSelectedProject = () => {
-  return createSelector(
+export const makeGetSelectedProject = () =>
+  createSelector(
     [getSelectedProjectSelector],
     selected => selected
   );
-};

@@ -25,7 +25,7 @@ ProjectListConnector.propTypes = {
 const mapStateToProps = state => ({
   i18n: i18nSelector(state),
   loadedProjectsIds: loadedProjectsIdsSelector(state),
-  loading: false, //fixme
+  loading: false, // fixme
   page: pageSelector(state),
   projectList: projectListSelector(state),
   theme: themeSelector(state)

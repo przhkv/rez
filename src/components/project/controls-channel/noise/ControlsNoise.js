@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-const ControlsNoise = ({audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
+const ControlsNoise = ({ audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut,
+                         setMouseOver, theme, updateProject}) => {
   const gain = Number(channel.getIn(['payload', 'gain']));
   const pan = Number(channel.getIn(['payload', 'pan']));
-  const lGain = (pan > 0 ? (1-pan) : 1) * gain;
-  const rGain = (pan < 0 ? (1+pan) : 1) * gain;
+  const lGain = (pan > 0 ? (1 - pan) : 1) * gain;
+  const rGain = (pan < 0 ? (1 + pan) : 1) * gain;
 
   // Stereo
   const channels = 2;
@@ -16,14 +17,14 @@ const ControlsNoise = ({audioCtx, channel, gainNode, i18n, indexOfChannel, setMo
 
   const click = () => {
     // Fill the buffer with white noise;
-    //just random values between -1.0 and 1.0
+    // just random values between -1.0 and 1.0
     for (let ch = 0; ch < channels; ch++) {
       // This gives us the actual ArrayBuffer that contains the data
       const nowBuffering = myAudioBuffer.getChannelData(ch);
       for (let i = 0; i < frameCount; i++) {
         // Math.random() is in [0; 1.0]
         // audio needs to be in [-1.0; 1.0]
-        nowBuffering[i] = Math.random() * 2 - 1;
+        nowBuffering[i] = (Math.random() * 2) - 1;
       }
     }
 
@@ -39,12 +40,12 @@ const ControlsNoise = ({audioCtx, channel, gainNode, i18n, indexOfChannel, setMo
 
     // Reduce the volume of the left channel only
     const lGainNode = audioCtx.createGain();
-    lGainNode.gain.value = lGain;///1;
+    lGainNode.gain.value = lGain; // 1;
     splitter.connect(lGainNode, 0);
     lGainNode.connect(merger, 0, 0);
 
     const rGainNode = audioCtx.createGain();
-    rGainNode.gain.value = rGain;//.1;
+    rGainNode.gain.value = rGain; // .1;
     splitter.connect(rGainNode, 1);
     rGainNode.connect(merger, 0, 1);
 

@@ -4,7 +4,8 @@
 import React, { PropTypes } from 'react';
 import { withRouter } from 'react-router';
 
-const NavigationLink = ({active, disabled, onMouseOver, onMouseOut, navigate, router, text, theme, title, url}) => {
+const NavigationLink = ({ active, disabled, onMouseOver, onMouseOut, navigate, router, text, theme,
+                          title, url}) => {
   const click = () => {
     if (!disabled) {
       router.push(url);
@@ -12,9 +13,9 @@ const NavigationLink = ({active, disabled, onMouseOver, onMouseOut, navigate, ro
     }
   };
   const
-    _activeClass = active ? theme.linkActive : theme.linkInactive,
-    _pointerClass = !disabled ? 'pointer' : '',
-    linkClasses = `no-underline f4 dib ${theme.linkHover} ${_activeClass} ${_pointerClass}`;
+    activeClass = active ? theme.linkActive : theme.linkInactive,
+    pointerClass = !disabled ? 'pointer' : '',
+    linkClasses = `no-underline f4 dib ${theme.linkHover} ${activeClass} ${pointerClass}`;
 
   return (
     <span

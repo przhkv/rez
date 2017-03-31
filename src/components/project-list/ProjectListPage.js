@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import SubmitButton from '../common/buttons/SubmitButton';
 import InformativeProjectLink from './InformativeProjectLink';
 import { NEUTRAL_LIGHT } from '../../constants/components/buttonStyles';
@@ -7,14 +7,15 @@ import Header from '../common/Header';
 import MainSection from '../common/MainSection';
 import Wrapping from '../common/Wrapping';
 
-const ProjectListPage = ({i18n, loadedProjectsIds, load, loading, navigate, open, page, projectList, theme}, context) => {
+const ProjectListPage = ({ i18n, loadedProjectsIds, load, loading, navigate, open, page,
+                           projectList, theme }, { router }) => {
   const openProject = (id, idTitle) => {
     const payload = {
       projectId: id
     };
     const meta = {
       redirect: () => {
-        context.router.push('/seq/' + idTitle);
+        router.push(`/seq/${idTitle}`);
         navigate(idTitle);
       }
     };
@@ -22,8 +23,8 @@ const ProjectListPage = ({i18n, loadedProjectsIds, load, loading, navigate, open
   };
 
   const create = () => {
-    context.router.push('/seq/');
-    navigate('Untitled'); //fixme
+    router.push('/seq/');
+    navigate('Untitled'); // fixme
   };
 
   return (

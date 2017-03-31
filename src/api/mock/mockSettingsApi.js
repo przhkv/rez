@@ -1,10 +1,9 @@
 import delay from './delay';
+import settingsValidation from '../../utils/validation/settingsValidation';
 import _mockSettingsData from './data/settingsData';
 
-const USERNAME_MIN_LENGTH = 3;
-
 export const fetchSettings = () =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     setTimeout(() => {
       resolve(Object.assign({}, _mockSettingsData));
     }, delay);
@@ -13,9 +12,11 @@ export const fetchSettings = () =>
 export const changeSettings = settings =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
-      //if(settings.username.length >= USERNAME_MIN_LENGTH)
+      const validation = settingsValidation(settings);
+      if (validation.ok) {
         resolve(settings);
-      //else
-      //  reject(`Please use ${USERNAME_MIN_LENGTH} characters at minimum in username`);
+      } else {
+        reject(validation.err);
+      }
     }, delay);
   });

@@ -44,8 +44,8 @@ class ProjectPage extends Component {
 
     const clickPlay = () => this.setState({playing: !playing});
 
+    const setMouseOver = mouseOver => this.setState({ mouseOver }); // eslint-disable-line no-shadow
     const setMouseOut = () => setMouseOver('');
-    const setMouseOver = mouseOver => this.setState({mouseOver});
 
     const updateProjectField = (field, val) =>
       this.setState({

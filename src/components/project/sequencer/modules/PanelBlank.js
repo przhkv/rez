@@ -3,7 +3,8 @@ import React, { PropTypes } from 'react';
 import { EDIT } from '../../../../constants/sequencer/panelButtonTypes';
 import PanelButton from '../common/PanelButton';
 
-const PanelBlank = ({channel, editedChannelId, i18n, setMouseOut, setMouseOver, theme, updateProject}) => {
+const PanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver, theme,
+                      updateProject }) => {
   const chId = channel.get('channelId');
   const edited = (chId === editedChannelId);
   const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);

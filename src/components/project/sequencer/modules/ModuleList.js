@@ -7,32 +7,31 @@ import { BLANK } from '../../../../constants/sequencer/channelLayoutTypes';
 const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
   <div className="w5 fl br b--light-gray">
     {project.get('channels').map((channel, key) =>
-      (channel.get('type') === BLANK) ? (
-          <PanelBlank
-            key={key}
-            channel={channel}
-            editedChannelId={project.get('editedChannelId')}
-            i18n={i18n}
-            setMouseOut={setMouseOut}
-            setMouseOver={setMouseOver}
-            theme={theme}
-            updateProject={updateProject}
-          />
-        ) : (
-          <PanelModule
-            key={key}
-            channel={channel}
-            editedChannelId={project.get('editedChannelId')}
-            i18n={i18n}
-            index={key}
-            setMouseOut={setMouseOut}
-            setMouseOver={setMouseOver}
-            soloChannelId={project.get('soloChannelId')}
-            theme={theme}
-            updateProject={updateProject}
-          />
-        )
-      )}
+      ((channel.get('type') === BLANK) ? (
+        <PanelBlank
+          key={key}
+          channel={channel}
+          editedChannelId={project.get('editedChannelId')}
+          i18n={i18n}
+          setMouseOut={setMouseOut}
+          setMouseOver={setMouseOver}
+          theme={theme}
+          updateProject={updateProject}
+        />
+      ) : (
+        <PanelModule
+          key={key}
+          channel={channel}
+          editedChannelId={project.get('editedChannelId')}
+          i18n={i18n}
+          index={key}
+          setMouseOut={setMouseOut}
+          setMouseOver={setMouseOver}
+          soloChannelId={project.get('soloChannelId')}
+          theme={theme}
+          updateProject={updateProject}
+        />
+      )))}
   </div>
 );
 

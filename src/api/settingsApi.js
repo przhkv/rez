@@ -1,5 +1,6 @@
-//if (process.env.NODE_ENV === 'production') {
-//  module.exports = require('./settingsApi.prod');
-//} else {
+/* eslint-disable global-require */
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./settingsApi.prod');
+} else {
   module.exports = require('./mock/mockSettingsApi');
-//}
+}

@@ -6,7 +6,8 @@ import { PROJECTS } from '../../../constants/pages';
 import { BACK, CLOSE, DECREASE_BPM, INCREASE_BPM } from '../../../constants/sequencer/elements';
 import { MAX_BPM, MIN_BPM } from '../../../constants/sequencer/limits';
 
-const HeaderControls = ({closeProject, i18n, loading, navigate, project, setMouseOut, setMouseOver, theme, updateProject}) => {
+const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMouseOut,
+                          setMouseOver, theme, updateProject}) => {
   const
     navigateToProjects = () => navigate(PROJECTS),
     setOnMouseOverBack = () => setMouseOver(BACK),
@@ -15,8 +16,15 @@ const HeaderControls = ({closeProject, i18n, loading, navigate, project, setMous
     setOnMouseOverIncreaseBPM = () => setMouseOver(INCREASE_BPM);
 
   const bpm = project.getIn(['common', 'bpm']);
-  const decreaseBPM = () => Number(bpm) > MIN_BPM ? updateProject(['common', 'bpm'], (Number(bpm) - 1)) : false;
-  const increaseBPM = () => Number(bpm) < MAX_BPM ? updateProject(['common', 'bpm'], (Number(bpm) + 1)) : false;
+
+  const decreaseBPM = () => {
+    if (Number(bpm) > MIN_BPM)
+      updateProject(['common', 'bpm'], (Number(bpm) - 1));
+  };
+  const increaseBPM = () => {
+    if (Number(bpm) < MAX_BPM)
+      updateProject(['common', 'bpm'], (Number(bpm) + 1));
+  };
 
   return (
     <header className={`flex-none order-1 w-100 bb db ${theme.sectionBorder} ${theme.bg}`}>
@@ -40,7 +48,7 @@ const HeaderControls = ({closeProject, i18n, loading, navigate, project, setMous
             onClick={decreaseBPM}
             onMouseOut={setMouseOut}
             onMouseOver={setOnMouseOverDecreaseBPM}
-            text={`-`}
+            text="-"
             theme={theme}
           />
           <span className={`mh3 ${theme.commonText}`}>{bpm}</span>
@@ -51,7 +59,7 @@ const HeaderControls = ({closeProject, i18n, loading, navigate, project, setMous
             onClick={increaseBPM}
             onMouseOut={setMouseOut}
             onMouseOver={setOnMouseOverIncreaseBPM}
-            text={`+`}
+            text="+"
             theme={theme}
           />
         </div>

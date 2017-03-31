@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 
 const ToolbarButton = ({disabled, onClick, onMouseOver, onMouseOut, text, theme}) => {
   const
-    _state = disabled ? 'o-50' : 'rez-weak-dim pointer',
-    _clear = 'outline-0 input-reset',
-    _colors = 'bg-white-90 black-70',
-    linkClasses = `f6 br-pill dib bn ph2 ${_state} ${_clear} ${_colors}`;
+    classesClear = 'outline-0 input-reset',
+    classesColors = 'bg-white-90 black-70',
+    classesState = disabled ? 'o-50' : 'rez-weak-dim pointer',
+    linkClasses = `f6 br-pill dib bn ph2 ${classesClear} ${classesColors} ${classesState}`;
 
   return (
     <input

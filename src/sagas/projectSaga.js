@@ -1,4 +1,3 @@
-/* eslint-disable import/default */
 /* eslint-disable no-constant-condition */
 import { call, fork, put, select, take } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
@@ -27,21 +26,21 @@ function* resolveProject(payload, meta) {
 }
 
 function* watchCloseProject() {
-  while(true) {
+  while (true) {
     const {payload, meta} = yield take(PROJECT_CLOSE);
     yield fork(closeProject, payload, meta);
   }
 }
 
 function* watchLoadProjectById() {
-  while(true) {
+  while (true) {
     const {payload, meta} = yield take(PROJECT_LOAD);
     yield fork(loadById, payload, meta);
   }
 }
 
 function* watchOpenProject() {
-  while(true) {
+  while (true) {
     const {payload, meta} = yield take(PROJECT_OPEN);
     yield fork(resolveProject, payload, meta);
   }

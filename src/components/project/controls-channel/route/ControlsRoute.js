@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react';
 import { List, Map } from 'immutable';
 import { ROUTE } from '../../../../constants/sequencer/channelLayoutTypes';
-//import {} from '../../../../constants/sequencer/elements';
+// import {} from '../../../../constants/sequencer/elements';
 import { extractInputData } from '../../../../utils/mapUtils';
 import SelectInput from '../../../common/inputs/SelectInput';
 
 
-const ControlsRoute = ({channels, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
-  //const mouseOverSelectOutput = () => setMouseOver('//todo');
+const ControlsRoute = ({ channels, i18n, indexOfChannel, setMouseOut, setMouseOver, theme,
+                         updateProject }) => {
+  // const mouseOverSelectOutput = () => setMouseOver('todo');
   const updateChannelOutput = output => updateProject(['channels', indexOfChannel, 'payload', 'output'], output);
   const updateSelectOption = e => updateChannelOutput(extractInputData(e).val);
 

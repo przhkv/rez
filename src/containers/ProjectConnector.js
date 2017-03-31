@@ -24,15 +24,13 @@ ProjectConnector.propTypes = {
 
 const makeMapStateToProps = () => {
   const getSelectedProject = makeGetSelectedProject();
-  const mapStateToProps = (state, props) => {
-    return {
-      i18n: i18nSelector(state),
-      loading: false, //fixme
-      project: getSelectedProject(state, props),
-      settings: settingsSelector(state),
-      theme: themeSelector(state)
-    };
-  };
+  const mapStateToProps = (state, props) => ({
+    i18n: i18nSelector(state),
+    loading: false, // fixme
+    project: getSelectedProject(state, props),
+    settings: settingsSelector(state),
+    theme: themeSelector(state),
+  });
   return mapStateToProps;
 };
 

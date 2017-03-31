@@ -22,7 +22,7 @@ SettingsConnector.propTypes = {
 
 const mapStateToProps = state => ({
   i18n: i18nSelector(state),
-  loading: false, //fixme
+  loading: false, // fixme
   page: pageSelector(state),
   settings: settingsSelector(state),
   theme: themeSelector(state)

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { Map } from 'immutable';
 import React, { PropTypes } from 'react';
 import { CHANGE_VOLUME, MUTE, PLAY, STOP, UNMUTE } from '../../../constants/sequencer/elements';
@@ -6,7 +7,8 @@ import { FILLER } from '../../../constants/components/buttonStyles';
 import PanelButton from '../sequencer/common/PanelButton';
 import SubmitButton from '../../common/buttons/SubmitButton';
 
-const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut, setMouseOver, theme, updateProject}) => {
+const MainControls = ({ clickPlay, gainNode, i18n, playing, project, save, setMouseOut,
+                        setMouseOver, theme, updateProject }) => {
   const volume = project.getIn(['common', 'gain']);
   const muted = project.getIn(['common', 'muted']) === 'true';
 
@@ -30,11 +32,11 @@ const MainControls = ({clickPlay, gainNode, i18n, playing, project, setMouseOut,
   };
 
   const play = () => {
-    playing ? setOnMouseOverPlay() : setOnMouseOverStop();
+    (playing ? setOnMouseOverPlay : setOnMouseOverStop)();
     clickPlay();
   };
 
-  const changeVolume = e => {
+  const changeVolume = (e) => {
     updateProject(['common', 'gain'], e.target.value);
     if (!muted)
       gainNode.gain.value = e.target.value;

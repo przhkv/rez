@@ -1,4 +1,3 @@
-/* eslint-disable import/default */
 /* eslint-disable no-constant-condition */
 import { takeEvery } from 'redux-saga';
 import { take, put, call, fork, select } from 'redux-saga/effects';
@@ -46,8 +45,8 @@ function* watchGetSettings() {
   yield* takeEvery(SETTINGS_LOAD, getSettings);
 }
 
-function* watchUpdateSettings () {
-  while(true) {
+function* watchUpdateSettings() {
+  while (true) {
     const {settings} = yield take(SETTINGS_UPDATE.REQUEST);
     yield fork(updateSettings, settings);
   }

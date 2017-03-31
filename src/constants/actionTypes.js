@@ -3,7 +3,7 @@ const
   SUCCESS = 'SUCCESS',
   FAILURE = 'FAILURE';
 
-const _createRequestTypes = base =>
+const createRequestActionTypes = base =>
   [REQUEST, SUCCESS, FAILURE]
     .reduce((acc, type) => Object.assign(acc, {[type]: `${base}_${type}`}), {});
 
@@ -14,11 +14,11 @@ export const
   NAVIGATION_UPDATE = 'NAVIGATION_UPDATE',
 
   PROJECT_CLOSE = 'PROJECT_CLOSE',
-  PROJECT_DELETE = _createRequestTypes('PROJECT_DELETE'),
+  PROJECT_DELETE = createRequestActionTypes('PROJECT_DELETE'),
   PROJECT_OPEN = 'PROJECT_OPEN',
   PROJECT_LOAD = 'PROJECT_LOAD',
   PROJECT_RECEIVE = 'PROJECT_RECEIVE',
-  PROJECT_SAVE = _createRequestTypes('PROJECT_SAVE'),
+  PROJECT_SAVE = createRequestActionTypes('PROJECT_SAVE'),
   PROJECT_UNLOAD = 'PROJECT_UNLOAD',
 
   PROJECT_LIST_LOAD = 'PROJECT_LIST_LOAD',
@@ -31,7 +31,7 @@ export const
 
   SETTINGS_LOAD = 'SETTINGS_LOAD',
   SETTINGS_RECEIVE = 'SETTINGS_RECEIVE',
-  SETTINGS_UPDATE = _createRequestTypes('SETTINGS_UPDATE'),
+  SETTINGS_UPDATE = createRequestActionTypes('SETTINGS_UPDATE'),
 
   THEME_LOAD = 'THEME_LOAD',
   THEME_RECEIVE = 'THEME_RECEIVE';

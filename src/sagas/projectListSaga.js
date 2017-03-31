@@ -1,5 +1,3 @@
-/* eslint-disable import/default */
-/* eslint-disable no-constant-condition */
 import { throttle } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 import * as projectListActions from '../actions/projectListActions';

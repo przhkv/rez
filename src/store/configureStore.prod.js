@@ -4,7 +4,7 @@ import rootReducer from '../reducers';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default initialState => {
+export default (initialState) => {
   const store = createStore(
     rootReducer,
     initialState,

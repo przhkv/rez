@@ -1,3 +1,3 @@
 export const
   NUMBER = 'number',
-  TEXT ='text';
+  TEXT = 'text';

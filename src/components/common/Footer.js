@@ -4,13 +4,14 @@ const Footer = ({i18n, theme}) => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={'bt pv2 ' + theme.sectionBorder + ' ' + theme.footerText + ' ' + theme.bg}>
+    <footer className={`bt pv2 ${theme.sectionBorder} ${theme.footerText} ${theme.bg}`}>
       <small className="db tc f6">
         {i18n.footer.copyright}&nbsp;&copy;&nbsp;
         <a
+          className={`no-underline ${theme.footerLink}`}
           href="https://github.com/przhkv"
+          rel="noreferrer noopener"
           target="_blank"
-          className={'no-underline ' + theme.footerLink}
         >
           przhkv
         </a>

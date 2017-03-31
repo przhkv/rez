@@ -1,20 +1,26 @@
+/* eslint-disable eqeqeq */
 import React, { PropTypes } from 'react';
+import { uuid } from '../../../utils/generatorUtils';
 
-const CheckboxInput = ({disabled, name, label, onChange, theme, value}) => (
-  <div className="mt2">
-    <label className={`db fw6 lh-copy f6 ${theme.commonText}`}>
-      <input
-        className="checkbox"
-        disabled={disabled}
-        type="checkbox"
-        name={name}
-        checked={value == 'true'}
-        onChange={onChange}
-      />
-      <span className="pl2">{label}</span>
-    </label>
-  </div>
-);
+const CheckboxInput = ({disabled, name, label, onChange, theme, value}) => {
+  const id = uuid(6);
+  return (
+    <div className="mt2">
+      <label className={`db fw6 lh-copy f6 ${theme.commonText}`} htmlFor={id}>
+        <input
+          checked={value == 'true'}
+          className="checkbox"
+          disabled={disabled}
+          id={id}
+          name={name}
+          onChange={onChange}
+          type="checkbox"
+        />
+        <span className="pl2">{label}</span>
+      </label>
+    </div>
+  );
+};
 
 CheckboxInput.propTypes = {
   disabled: PropTypes.bool,
@@ -22,7 +28,7 @@ CheckboxInput.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 export default CheckboxInput;

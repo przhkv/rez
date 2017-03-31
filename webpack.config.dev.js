@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import path from 'path';
 
 export default {
   devtool: 'cheap-module-eval-source-map',
@@ -8,7 +9,7 @@ export default {
   ],
   target: 'web',
   output: {
-    path: __dirname + './static',
+    path: path.join(__dirname, '/static'),
     publicPath: '/',
     filename: 'bundle.js'
   },

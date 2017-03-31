@@ -10,7 +10,7 @@ export default {
   entry: './src/index',
   target: 'web',
   output: {
-    path: __dirname + '/static',
+    path: path.join(__dirname, '/static'),
     publicPath: '/rez/',
     filename: 'bundle.js',
   },

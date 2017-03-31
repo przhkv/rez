@@ -1,5 +1,3 @@
-/* eslint-disable import/default */
-/* eslint-disable no-constant-condition */
 import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 import * as i18nActions from '../actions/i18nActions';
