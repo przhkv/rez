@@ -3,11 +3,14 @@ import React, { PropTypes } from 'react';
 
 const Timeline = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
   <div className="overflow-x-scroll nowrap">
-    {project.get('channels').map((c, i) => (
-      <div key={i} className="bb b--light-gray">
-        <span className="ml2 light-gray i">todo timeline</span>
-      </div>
-    ))}
+    {
+      project.get('channels')
+        .map(c => (
+          <div key={c.channelId} className="bb b--light-gray">
+            <span className="ml2 light-gray i">todo timeline</span>
+          </div>
+        ))
+    }
   </div>
 );
 

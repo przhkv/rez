@@ -27,9 +27,9 @@ const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, 
         },
         onMouseOver: () => mouseOver(type)
       }))
-      .map((t, i) => (
+      .map(t => (
         <div
-          key={i}
+          key={t.name}
           className="fl h3 w4 mv4 mh2 br3 tc v-mid bg-light-gray pointer rez-dim"
           onClick={t.onClick}
           onMouseOut={setMouseOut}

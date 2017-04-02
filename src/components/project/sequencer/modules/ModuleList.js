@@ -6,10 +6,10 @@ import { BLANK } from '../../../../constants/sequencer/channelLayoutTypes';
 
 const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
   <div className="w5 fl br b--light-gray">
-    {project.get('channels').map((channel, key) =>
+    {project.get('channels').map((channel, i) =>
       ((channel.get('type') === BLANK) ? (
         <PanelBlank
-          key={key}
+          key={channel.channelId}
           channel={channel}
           editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
@@ -20,11 +20,11 @@ const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProj
         />
       ) : (
         <PanelModule
-          key={key}
+          key={channel.channelId}
           channel={channel}
           editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
-          index={key}
+          index={i}
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           soloChannelId={project.get('soloChannelId')}
