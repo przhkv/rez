@@ -6,7 +6,7 @@ const Timeline = ({i18n, project, setMouseOut, setMouseOver, theme, updateProjec
     {
       project.get('channels')
         .map(c => (
-          <div key={c.channelId} className="bb b--light-gray">
+          <div key={c.get('channelId')} className="bb b--light-gray">
             <span className="ml2 light-gray i">todo timeline</span>
           </div>
         ))

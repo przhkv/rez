@@ -9,7 +9,7 @@ const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProj
     {project.get('channels').map((channel, i) =>
       ((channel.get('type') === BLANK) ? (
         <PanelBlank
-          key={channel.channelId}
+          key={channel.get('channelId')}
           channel={channel}
           editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
@@ -20,7 +20,7 @@ const ModuleList = ({i18n, project, setMouseOut, setMouseOver, theme, updateProj
         />
       ) : (
         <PanelModule
-          key={channel.channelId}
+          key={channel.get('channelId')}
           channel={channel}
           editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
