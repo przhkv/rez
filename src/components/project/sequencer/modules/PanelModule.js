@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
 import { CHANGE_PANNING, CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL,
          MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }

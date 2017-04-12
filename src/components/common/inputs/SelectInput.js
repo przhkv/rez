@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const SelectInput = ({defaultOption, disabled, label, name, onChange, options, theme, value}) => (
   <div className="mt2 mw5">

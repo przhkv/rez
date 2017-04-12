@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import history from '../../history';
 import { initAudioContext } from '../../utils/audio/inits';
 import FooterInfoBar from './footer/FooterInfoBar';
@@ -11,7 +12,7 @@ import Toolbar from './toolbar/Toolbar';
 import Wrapping from '../common/Wrapping';
 import { PROJECTS } from '../../constants/pages';
 
-class ProjectPage extends Component {
+class ProjectPage extends React.Component {
   constructor(props) {
     super();
     this.state = {

@@ -1,5 +1,6 @@
 import { List, Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { createNewBlankChannel } from '../../../utils/projects/defaults';
 import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../constants/sequencer/elements';
 import ToolbarButton from '../sequencer/common/ToolbarButton';

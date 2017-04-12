@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { NUMBER, TEXT } from '../../../constants/components/inputTypes';
 
 const TextInput = ({disabled, error, label, name, onChange, type, theme, value}) => (

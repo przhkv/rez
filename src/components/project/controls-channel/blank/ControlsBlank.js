@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { FILE, NOISE, OSCILLATOR, ROUTE } from '../../../../constants/sequencer/channelLayoutTypes';
 import {
   SELECT_FILE_TYPE,

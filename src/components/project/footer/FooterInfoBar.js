@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const FooterInfoBar = ({i18n, mouseOver, theme}) => (
   <footer className={`flex-none order-6 db h2 bt pv2 ${theme.sectionBorder} ${theme.footerText} ${theme.bg}`}>

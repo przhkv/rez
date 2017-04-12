@@ -1,5 +1,6 @@
 /* eslint-disable eqeqeq */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { uuid } from '../../../utils/generatorUtils';
 
 const CheckboxInput = ({disabled, name, label, onChange, theme, value}) => {

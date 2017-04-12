@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-indent */
 import { Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ModuleList from './modules/ModuleList';
 import Timeline from './timeline/Timeline';
 

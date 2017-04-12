@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const InformativeProjectLink = ({i18n, loadedProjectsIds, openProject, projectListItem, theme}) => {
   const click = () => openProject(projectListItem.id, projectListItem.idTitle);

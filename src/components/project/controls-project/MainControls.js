@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { CHANGE_VOLUME, MUTE, PLAY, STOP, UNMUTE } from '../../../constants/sequencer/elements';
 import { MUTE as buttonMute } from '../../../constants/sequencer/panelButtonTypes';
 import { FILLER } from '../../../constants/components/buttonStyles';

@@ -1,7 +1,8 @@
 /**
  * Use NavigationLink to prevent displaying of the link in browser's status bar.
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import history from '../../../history';
 
 const NavigationLink = ({ active, disabled, onMouseOver, onMouseOut, navigate, text, theme,

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Wrapping = ({children, fixedHeight}) => (
   <div className={`w-100 flex flex-column min-vh-100 ${fixedHeight ? 'vh-100' : ''}`}>

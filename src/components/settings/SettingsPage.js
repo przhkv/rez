@@ -1,5 +1,6 @@
 import { Map, is as immIs } from 'immutable';
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 import MainSection from '../common/MainSection';
@@ -12,7 +13,7 @@ import { NUMBER } from '../../constants/components/inputTypes';
 import { langs, themes } from '../../constants/optionLists';
 import { extractInputData, formatSelectOptions } from '../../utils/mapUtils';
 
-class SettingsPage extends Component {
+class SettingsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

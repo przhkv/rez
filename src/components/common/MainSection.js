@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const MainSection = ({children, theme}) => (
   <main className={`w-100 flex-auto ${theme.bg}`}>

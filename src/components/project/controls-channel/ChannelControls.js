@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { BLANK, NOISE, ROUTE } from '../../../constants/sequencer/channelLayoutTypes';
 import ControlsBlank from './blank/ControlsBlank';
 import ControlsNoise from './noise/ControlsNoise';

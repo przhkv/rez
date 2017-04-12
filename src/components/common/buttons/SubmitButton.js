@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { FILLER, NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/buttonStyles';
 
 const SubmitButton = ({ buttonStyle = SUBMIT, disabled, inline, onClick, onMouseOut, onMouseOver,

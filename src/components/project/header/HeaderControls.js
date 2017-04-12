@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import NavigationLink from '../../common/links/NavigationLink';
 import SubmitButton from '../../common/buttons/SubmitButton';
 import { NEUTRAL_LIGHT } from '../../../constants/components/buttonStyles';

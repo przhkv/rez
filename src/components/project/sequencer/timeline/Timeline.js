@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Timeline = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
   <div className="overflow-x-scroll nowrap">

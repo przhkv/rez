@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import PanelModule from './PanelModule';
 import PanelBlank from './PanelBlank';
 import { BLANK } from '../../../../constants/sequencer/channelLayoutTypes';
