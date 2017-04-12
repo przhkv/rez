@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import toRegex from 'path-to-regexp';
+import history from '../../history';
 import SubmitButton from '../common/buttons/SubmitButton';
 import InformativeProjectLink from './InformativeProjectLink';
 import { NEUTRAL_LIGHT } from '../../constants/components/buttonStyles';
@@ -8,14 +10,14 @@ import MainSection from '../common/MainSection';
 import Wrapping from '../common/Wrapping';
 
 const ProjectListPage = ({ i18n, loadedProjectsIds, load, loading, navigate, open, page,
-                           projectList, theme }, { router }) => {
+                           projectList, theme }) => {
   const openProject = (id, idTitle) => {
     const payload = {
       projectId: id
     };
     const meta = {
       redirect: () => {
-        router.push(`/seq/${idTitle}`);
+        history.push(`/seq/${idTitle}`);
         navigate(idTitle);
       }
     };
@@ -23,7 +25,7 @@ const ProjectListPage = ({ i18n, loadedProjectsIds, load, loading, navigate, ope
   };
 
   const create = () => {
-    router.push('/seq/');
+    history.push('/seq');
     navigate('Untitled'); // fixme
   };
 
@@ -63,10 +65,6 @@ const ProjectListPage = ({ i18n, loadedProjectsIds, load, loading, navigate, ope
       <Footer i18n={i18n} theme={theme} />
     </Wrapping>
   );
-};
-
-ProjectListPage.contextTypes = {
-  router: PropTypes.object
 };
 
 ProjectListPage.propTypes = {

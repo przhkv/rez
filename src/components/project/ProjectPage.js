@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
 import React, { Component, PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import history from '../../history';
 import { initAudioContext } from '../../utils/audio/inits';
 import FooterInfoBar from './footer/FooterInfoBar';
 import HeaderControls from './header/HeaderControls';
@@ -29,10 +29,10 @@ class ProjectPage extends Component {
 
   render() {
     const {mouseOver, playing, project} = this.state;
-    const {close, purge, i18n, loading, navigate, router, save, settings, theme} = this.props;
+    const {close, purge, i18n, loading, navigate, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
-      router.push('/');
+      history.push('/');
       navigate(PROJECTS);
     };
 
@@ -133,10 +133,9 @@ ProjectPage.propTypes = {
   loading: PropTypes.bool.isRequired,
   navigate: PropTypes.func.isRequired,
   project: PropTypes.instanceOf(Map).isRequired,
-  router: PropTypes.shape({push: PropTypes.func.isRequired}).isRequired,
   save: PropTypes.func.isRequired,
   settings: PropTypes.instanceOf(Map).isRequired,
   theme: PropTypes.object.isRequired
 };
 
-export default withRouter(ProjectPage);
+export default ProjectPage;

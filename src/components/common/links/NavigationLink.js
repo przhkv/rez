@@ -2,13 +2,17 @@
  * Use NavigationLink to prevent displaying of the link in browser's status bar.
  */
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import history from '../../../history';
 
-const NavigationLink = ({ active, disabled, onMouseOver, onMouseOut, navigate, router, text, theme,
+const NavigationLink = ({ active, disabled, onMouseOver, onMouseOut, navigate, text, theme,
                           title, url}) => {
-  const click = () => {
+  const click = (event) => {
+    if (event.button !== 0 /* left click */) {
+      return;
+    }
+
     if (!disabled) {
-      router.push(url);
+      history.push(url);
       navigate();
     }
   };
@@ -37,11 +41,10 @@ NavigationLink.propTypes = {
   onMouseOver: PropTypes.func,
   onMouseOut: PropTypes.func,
   navigate: PropTypes.func.isRequired,
-  router: PropTypes.shape({push: PropTypes.func.isRequired}),
   text: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired,
   title: PropTypes.string,
   url: PropTypes.string.isRequired,
 };
 
-export default withRouter(NavigationLink);
+export default NavigationLink;
