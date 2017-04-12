@@ -8,8 +8,8 @@ const Wrapping = ({children, fixedHeight}) => (
 );
 
 Wrapping.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  fixedHeight: PropTypes.bool
+  children: PropTypes.node.isRequired,
+  fixedHeight: PropTypes.bool,
 };
 
 export default Wrapping;

@@ -6,6 +6,9 @@ export default {
     save: '',
     saving: '',
   },
+  errors: {
+    pageNotFound: '',
+  },
   footer: {
     copyright: ''
   },

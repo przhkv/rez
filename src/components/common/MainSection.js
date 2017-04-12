@@ -8,8 +8,8 @@ const MainSection = ({children, theme}) => (
 );
 
 MainSection.propTypes = {
-  children: PropTypes.element.isRequired,
-  theme: PropTypes.object.isRequired
+  children: PropTypes.node.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default MainSection;

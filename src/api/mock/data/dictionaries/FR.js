@@ -6,6 +6,9 @@ export default {
     save: 'Enregistrer',
     saving: 'Enregistrement...',
   },
+  errors: {
+    pageNotFound: 'Page Non Trouvée',
+  },
   footer: {
     copyright: 'Copyright'
   },

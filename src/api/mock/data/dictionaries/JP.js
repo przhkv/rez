@@ -6,6 +6,9 @@ export default {
     save: 'セーブ',
     saving: '保存...',
   },
+  errors: {
+    pageNotFound: 'ページが見つかりません',
+  },
   footer: {
     copyright: '日本語'
   },
