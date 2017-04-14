@@ -41,12 +41,6 @@ export default {
           { loader: 'url-loader', options: { mimetype: 'image/png' } },
         ],
       },
-      {
-        test: /\.wav$/,
-        use: [
-          { loader: 'url-loader', options: {mimetype: 'audio/wav'} },
-        ],
-      },
     ],
   },
 };
