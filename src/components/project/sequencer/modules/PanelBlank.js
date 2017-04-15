@@ -9,11 +9,18 @@ const PanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver,
   const chId = channel.get('channelId');
   const edited = (chId === editedChannelId);
   const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);
+  const startEdit = () => {
+    if (!edited)
+      updateProject(['editedChannelId'], chId);
+  };
 
   const overEdit = () => setMouseOver('');
 
   return (
-    <div className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}>
+    <div
+      className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}
+      onClick={startEdit}
+    >
       <div className="w-100">
         <div className="ph2 pv1 tc">
           <span className={`i f6 tl ${theme.commonText}`}>{channel.get('name')}</span>

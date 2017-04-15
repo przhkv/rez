@@ -50,13 +50,17 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
       overSoloOff();
     updateProject(['soloChannelId'], solo ? '' : chId);
   };
+  const startEdit = () => {
+    if (!edited)
+      updateProject(['editedChannelId'], chId);
+  };
 
   const changeGain = e => updateProject(['channels', index, 'payload', 'gain'], e.target.value);
   const changePanning = e => updateProject(['channels', index, 'payload', 'pan'], e.target.value);
 
   return (
     <div className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}>
-      <div className="w-100">
+      <div className="w-100" onClick={startEdit}>
         <div className="ph2 pv1 tc">
           <span className={`i f6 tl ${theme.commonText}`}>{channel.get('name')}</span>
         </div>

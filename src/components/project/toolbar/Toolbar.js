@@ -1,14 +1,14 @@
 import { List, Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createNewBlankChannel } from '../../../utils/projects/defaults';
+import { createNewChannel } from '../../../utils/projects/defaults';
 import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../constants/sequencer/elements';
 import ToolbarButton from '../sequencer/common/ToolbarButton';
 
 const Toolbar = ({ channels, editedChannelId, i18n, setMouseOut, setMouseOver, theme,
                    updateProject, updateProjectFields }) => {
   const add = () =>
-    updateProject(['channels'], channels.push(createNewBlankChannel(channels.size)));
+    updateProject(['channels'], channels.push(createNewChannel(channels.size)));
 
   const del = () => {
     // find deleted channel index and position

@@ -19,7 +19,7 @@ const createDefaultProject = settings => fromJS({
   soloChannelId: ''
 });
 
-const createNewBlankChannel = channelsSize => fromJS({
+const createNewChannel = channelsSize => fromJS({
   channelId: uuid(),
   pos: (channelsSize + 1).toString(),
   name: 'untitled',
@@ -36,6 +36,6 @@ const createNewBlankChannel = channelsSize => fromJS({
 });
 
 export {
-  createNewBlankChannel,
+  createNewChannel,
   createDefaultProject
 };
