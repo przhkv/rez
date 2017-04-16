@@ -13,4 +13,6 @@ export default {
   linkInactive: '',
   linkHover: '',
   sectionBorder: '',
+  seqPanel: '',
+  seqPanelSelected: '',
 };

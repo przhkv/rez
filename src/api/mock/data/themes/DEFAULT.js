@@ -13,4 +13,6 @@ export default {
   linkInactive: 'light-silver',
   linkHover: 'hover-dark-green',
   sectionBorder: 'b--black-10',
+  seqPanel: 'bg-near-white',
+  seqPanelSelected: 'bg-light-yellow',
 };

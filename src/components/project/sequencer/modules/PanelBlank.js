@@ -18,7 +18,7 @@ const PanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver,
 
   return (
     <div
-      className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}
+      className={`bb b--light-gray ${edited ? theme.seqPanelSelected : theme.seqPanel}`}
       onClick={startEdit}
     >
       <div className="w-100">

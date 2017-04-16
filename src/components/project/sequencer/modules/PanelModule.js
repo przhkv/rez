@@ -59,7 +59,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
   const changePanning = e => updateProject(['channels', index, 'payload', 'pan'], e.target.value);
 
   return (
-    <div className={`bb b--light-gray ${edited ? 'bg-washed-blue' : 'bg-near-white'}`}>
+    <div className={`bb b--light-gray ${edited ? theme.seqPanelSelected : theme.seqPanel}`}>
       <div className="w-100" onClick={startEdit}>
         <div className="ph2 pv1 tc">
           <span className={`i f6 tl ${theme.commonText}`}>{channel.get('name')}</span>
