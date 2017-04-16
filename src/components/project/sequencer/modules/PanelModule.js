@@ -1,12 +1,15 @@
 import { Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
 import { CHANGE_PANNING, CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL,
          MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 import PanelButton from '../common/PanelButton';
+
+const ChSide = styled.em`cursor: default;`;
 
 const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
                        soloChannelId, theme, updateProject}) => {
@@ -121,7 +124,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
       </div>
       {isTrue(expanded) &&
         <div className="w-100 flex mv1">
-          <div className="w-20 tc f6 i">L</div>
+          <ChSide className="w-20 tc f6 i">L</ChSide>
           <div className="w-60 ph1">
             <input
               className="module-pan v-mid"
@@ -134,7 +137,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
               value={pan}
             />
           </div>
-          <div className="w-20 tc f6 i">R</div>
+          <ChSide className="w-20 tc f6 i">R</ChSide>
         </div>
       }
     </div>
