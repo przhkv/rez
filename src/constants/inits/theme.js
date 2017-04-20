@@ -15,4 +15,6 @@ export default {
   sectionBorder: '',
   seqPanel: '',
   seqPanelSelected: '',
+  seqTimelineBg: '',
+  seqTimelineSelectedBg: '',
 };

@@ -1,15 +1,23 @@
-import { Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Map } from 'immutable';
+import ChannelTimeline from './ChannelTimeline';
 
 const Timeline = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
   <div className="overflow-x-scroll nowrap">
     {
       project.get('channels')
         .map(c => (
-          <div key={c.get('channelId')} className="bb b--light-gray">
-            <span className="ml2 light-gray i">todo timeline</span>
-          </div>
+          <ChannelTimeline
+            key={c.get('channelId')}
+            channel={c}
+            editedChannelId={project.get('editedChannelId')}
+            i18n={i18n}
+            setMouseOut={setMouseOut}
+            setMouseOver={setMouseOver}
+            theme={theme}
+            updateProject={updateProject}
+          />
         ))
     }
   </div>

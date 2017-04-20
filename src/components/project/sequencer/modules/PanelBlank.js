@@ -1,6 +1,6 @@
-import { Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 import { EDIT } from '../../../../constants/sequencer/panelButtonTypes';
 import PanelButton from '../common/PanelButton';
 

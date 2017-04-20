@@ -15,4 +15,6 @@ export default {
   sectionBorder: 'b--black-10',
   seqPanel: 'bg-near-white',
   seqPanelSelected: 'bg-light-yellow',
+  seqTimelineBg: 'bg-near-white',
+  seqTimelineSelectedBg: 'bg-washed-yellow',
 };
