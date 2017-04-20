@@ -4,7 +4,7 @@ import { Map } from 'immutable';
 import ChannelTimeline from './ChannelTimeline';
 
 const Timeline = ({i18n, project, setMouseOut, setMouseOver, theme, updateProject}) => (
-  <div className="overflow-x-scroll nowrap">
+  <div className="overflow-x-hidden nowrap">
     {
       project.get('channels')
         .map(c => (
