@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ToolbarButton = ({disabled, onClick, onMouseOver, onMouseOut, text, theme}) => {
+const TinyButton = ({disabled, onClick, onMouseOver, onMouseOut, text, theme}) => {
   const
     classesClear = 'outline-0 input-reset',
     classesColors = 'bg-white-90 black-70',
@@ -21,7 +21,7 @@ const ToolbarButton = ({disabled, onClick, onMouseOver, onMouseOut, text, theme}
   );
 };
 
-ToolbarButton.propTypes = {
+TinyButton.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   onMouseOver: PropTypes.func,
@@ -30,4 +30,4 @@ ToolbarButton.propTypes = {
   theme: PropTypes.object.isRequired
 };
 
-export default ToolbarButton;
+export default TinyButton;

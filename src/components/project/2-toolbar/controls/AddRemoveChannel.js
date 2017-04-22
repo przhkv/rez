@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
 import { createNewChannel } from '../../../../utils/projects/defaults';
 import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../../constants/sequencer/elements';
-import ToolbarButton from '../../sequencer/common/ToolbarButton';
+import TinyButton from './TinyButton';
 
 class AddRemoveChannel extends React.Component {
   constructor() {
@@ -61,7 +61,7 @@ class AddRemoveChannel extends React.Component {
     return (
       <div className="w5 fl">
         <div className="fl w-third tc">
-          <ToolbarButton
+          <TinyButton
             onClick={this.addChannel}
             onMouseOut={setMouseOut}
             onMouseOver={overAdd}
@@ -71,7 +71,7 @@ class AddRemoveChannel extends React.Component {
         </div>
         <div className="fl w-third">&nbsp;</div>
         <div className="fl w-third tc">
-          <ToolbarButton
+          <TinyButton
             disabled={editedChannelId.length === 0}
             onClick={this.deleteChannel}
             onMouseOut={setMouseOut}

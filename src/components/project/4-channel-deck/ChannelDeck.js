@@ -7,7 +7,7 @@ import ControlsBlank from './blank/ControlsBlank';
 import ControlsNoise from './noise/ControlsNoise';
 import ControlsRoute from './route/ControlsRoute';
 
-const ChannelControls = ({ audioCtx, gainNode, editedChannelId, i18n, project, setMouseOut,
+const ChannelDeck = ({ audioCtx, gainNode, editedChannelId, i18n, project, setMouseOut,
                            setMouseOver, theme, updateProject }) => {
   const displayClass = (editedChannelId && editedChannelId.length > 0) ? '' : 'dn';
   const indexOfChannel =
@@ -44,7 +44,7 @@ const ChannelControls = ({ audioCtx, gainNode, editedChannelId, i18n, project, s
   );
 };
 
-ChannelControls.propTypes = {
+ChannelDeck.propTypes = {
   audioCtx: PropTypes.object.isRequired,
   gainNode: PropTypes.object.isRequired,
   editedChannelId: PropTypes.string.isRequired,
@@ -56,4 +56,4 @@ ChannelControls.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default ChannelControls;
+export default ChannelDeck;

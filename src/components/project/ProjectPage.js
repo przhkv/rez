@@ -1,16 +1,16 @@
-import { Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 import history from '../../history';
 import { initAudioContext } from '../../utils/audio/inits';
-import FooterInfoBar from './footer/FooterInfoBar';
-import HeaderControls from './header/HeaderControls';
-import ChannelControls from './controls-channel/ChannelControls';
-import MainControls from './controls-project/MainControls';
-import Sequencer from './sequencer/Sequencer';
-import Toolbar from './toolbar/Toolbar';
-import Wrapping from '../common/Wrapping';
 import { PROJECTS } from '../../constants/pages';
+import Wrapping from '../common/Wrapping';
+import HeaderControls from './1-header/HeaderControls';
+import Toolbar from './2-toolbar/Toolbar';
+import ChannelsGrid from './3-channels-grid/ChannelsGrid';
+import ChannelDeck from './4-channel-deck/ChannelDeck';
+import MasterDeck from './5-master-deck/MasterDeck';
+import FooterInfoBar from './6-footer/FooterInfoBar';
 
 class ProjectPage extends React.Component {
   constructor(props) {
@@ -83,7 +83,7 @@ class ProjectPage extends React.Component {
           updateProjectItem={updateProjectField}
           updateProjectMerge={updateProjectFields}
         />
-        <Sequencer
+        <ChannelsGrid
           audioCtx={this.audioCtx}
           gainNode={this.gainNode}
           i18n={i18n}
@@ -94,7 +94,7 @@ class ProjectPage extends React.Component {
           theme={theme}
           updateProject={updateProjectField}
         />
-        <ChannelControls
+        <ChannelDeck
           audioCtx={this.audioCtx}
           gainNode={this.gainNode}
           editedChannelId={project.get('editedChannelId')}
@@ -105,7 +105,7 @@ class ProjectPage extends React.Component {
           theme={theme}
           updateProject={updateProjectField}
         />
-        <MainControls
+        <MasterDeck
           clickPlay={clickPlay}
           gainNode={this.gainNode}
           i18n={i18n}

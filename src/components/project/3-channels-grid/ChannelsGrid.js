@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ModuleList from './modules/ModuleList';
 import Timeline from './timeline/Timeline';
 
-const Sequencer = ({ audioCtx, gainNode, i18n, project, save, setMouseOut, setMouseOver, theme,
+const ChannelsGrid = ({ audioCtx, gainNode, i18n, project, save, setMouseOut, setMouseOver, theme,
                      updateProject }) => (
   <main id="seq" className={`flex-auto order-3 overflow-y-auto w-100 ${theme.bg}`}>
     <div className="fl w-100">
@@ -15,7 +15,7 @@ const Sequencer = ({ audioCtx, gainNode, i18n, project, save, setMouseOut, setMo
   </main>
 );
 
-Sequencer.propTypes = {
+ChannelsGrid.propTypes = {
   audioCtx: PropTypes.object.isRequired,
   gainNode: PropTypes.object.isRequired,
   i18n: PropTypes.object.isRequired,
@@ -27,4 +27,4 @@ Sequencer.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default Sequencer;
+export default ChannelsGrid;

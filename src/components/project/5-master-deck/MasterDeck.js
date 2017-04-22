@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
-import { Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 import { CHANGE_VOLUME, MUTE, PLAY, STOP, UNMUTE } from '../../../constants/sequencer/elements';
 import { MUTE as buttonMute } from '../../../constants/sequencer/panelButtonTypes';
 import { FILLER } from '../../../constants/components/buttonStyles';
-import PanelButton from '../sequencer/common/PanelButton';
+import PanelButton from '../3-channels-grid/common/PanelButton';
 import SubmitButton from '../../common/buttons/SubmitButton';
 
-const MainControls = ({ clickPlay, gainNode, i18n, playing, project, save, setMouseOut,
+const MasterDeck = ({ clickPlay, gainNode, i18n, playing, project, save, setMouseOut,
                         setMouseOver, theme, updateProject }) => {
   const volume = project.getIn(['common', 'gain']);
   const muted = project.getIn(['common', 'muted']) === 'true';
@@ -92,7 +92,7 @@ const MainControls = ({ clickPlay, gainNode, i18n, playing, project, save, setMo
   );
 };
 
-MainControls.propTypes = {
+MasterDeck.propTypes = {
   clickPlay: PropTypes.func.isRequired,
   gainNode: PropTypes.object.isRequired,
   i18n: PropTypes.object.isRequired,
@@ -105,4 +105,4 @@ MainControls.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default MainControls;
+export default MasterDeck;
