@@ -5,7 +5,7 @@ import { Map } from 'immutable';
 import { CHANGE_VOLUME, MUTE, PLAY, STOP, UNMUTE } from '../../../constants/sequencer/elements';
 import { MUTE as buttonMute } from '../../../constants/sequencer/panelButtonTypes';
 import { FILLER } from '../../../constants/components/buttonStyles';
-import PanelButton from '../3-channels-grid/common/PanelButton';
+import ChannelButton from '../0-common/ChannelButton';
 import SubmitButton from '../../common/buttons/SubmitButton';
 
 const MasterDeck = ({ clickPlay, gainNode, i18n, playing, project, save, setMouseOut,
@@ -64,7 +64,7 @@ const MasterDeck = ({ clickPlay, gainNode, i18n, playing, project, save, setMous
         <div className="w-100 flex pb2">
           <div className="w-10">&nbsp;</div>
           <div className="w-10">
-            <PanelButton
+            <ChannelButton
               active={muted}
               onClick={mute}
               onMouseOut={setMouseOut}

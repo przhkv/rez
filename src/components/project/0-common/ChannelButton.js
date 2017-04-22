@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
+import { EDIT, EXPAND, MUTE, SOLO } from '../../../constants/sequencer/panelButtonTypes';
 
-const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) => {
+const ChannelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) => {
   const button = {
     [EDIT]: {
       color: active ? 'washed-red bg-dark-pink' : 'dark-pink bg-washed-red',
@@ -36,7 +36,7 @@ const PanelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) =>
   );
 };
 
-PanelButton.propTypes = {
+ChannelButton.propTypes = {
   active: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   onMouseOut: PropTypes.func,
@@ -45,4 +45,4 @@ PanelButton.propTypes = {
   type: PropTypes.oneOf([EDIT, EXPAND, MUTE, SOLO]).isRequired
 };
 
-export default PanelButton;
+export default ChannelButton;

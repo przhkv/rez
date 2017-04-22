@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import { EDIT } from '../../../../constants/sequencer/panelButtonTypes';
-import PanelButton from '../common/PanelButton';
+import ChannelButton from '../../0-common/ChannelButton';
 
-const PanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver, theme,
+const ControlPanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver, theme,
                       updateProject }) => {
   const chId = channel.get('channelId');
   const edited = (chId === editedChannelId);
@@ -29,7 +29,7 @@ const PanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver,
       <div className="w-100 flex mv1">
         <div className="w-80">&nbsp;</div>
         <div className="w-10 tc">
-          <PanelButton
+          <ChannelButton
             active={edited}
             onClick={clickEdited}
             onMouseOut={setMouseOut}
@@ -44,7 +44,7 @@ const PanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver,
   );
 };
 
-PanelBlank.propTypes = {
+ControlPanelBlank.propTypes = {
   channel: PropTypes.instanceOf(Map).isRequired,
   editedChannelId: PropTypes.string.isRequired,
   i18n: PropTypes.object.isRequired,
@@ -54,4 +54,4 @@ PanelBlank.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default PanelBlank;
+export default ControlPanelBlank;

@@ -1,12 +1,12 @@
-import { Map } from 'immutable';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 import { elemScrollToBottom } from '../../../../utils/dom/scrolling';
-import PanelModule from './PanelModule';
-import PanelBlank from './PanelBlank';
+import ControlPanelModule from './ControlPanelModule';
+import ControlPanelBlank from './ControlPanelBlank';
 import { BLANK } from '../../../../constants/sequencer/channelLayoutTypes';
 
-class ModuleList extends React.Component {
+class ChannelControlsList extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.project.get('channels').size < this.props.project.get('channels').size) {
       const channels = this.props.project.get('channels');
@@ -23,7 +23,7 @@ class ModuleList extends React.Component {
       <div className="w5 fl br b--light-gray">
         {project.get('channels').map((channel, i) =>
           ((channel.get('type') === BLANK) ? (
-            <PanelBlank
+            <ControlPanelBlank
               key={channel.get('channelId')}
               channel={channel}
               editedChannelId={project.get('editedChannelId')}
@@ -34,7 +34,7 @@ class ModuleList extends React.Component {
               updateProject={updateProject}
             />
           ) : (
-            <PanelModule
+            <ControlPanelModule
               key={channel.get('channelId')}
               channel={channel}
               editedChannelId={project.get('editedChannelId')}
@@ -52,7 +52,7 @@ class ModuleList extends React.Component {
   }
 }
 
-ModuleList.propTypes = {
+ChannelControlsList.propTypes = {
   i18n: PropTypes.object.isRequired,
   project: PropTypes.instanceOf(Map).isRequired,
   setMouseOut: PropTypes.func.isRequired,
@@ -61,4 +61,4 @@ ModuleList.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default ModuleList;
+export default ChannelControlsList;

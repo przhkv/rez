@@ -7,11 +7,11 @@ import { CHANGE_PANNING, CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_C
          MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
-import PanelButton from '../common/PanelButton';
+import ChannelButton from '../../0-common/ChannelButton';
 
 const ChSide = styled.em`cursor: default;`;
 
-const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
+const ControlPanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
                        soloChannelId, theme, updateProject}) => {
   const chId = channel.get('channelId');
   const {expanded, muted} = channel.getIn(['payload', 'state']).toJS();
@@ -70,7 +70,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
       </div>
       <div className="w-100 flex mv1">
         <div className="w-10 tc">
-          <PanelButton
+          <ChannelButton
             active={solo}
             onClick={clickSolo}
             onMouseOut={setMouseOut}
@@ -80,7 +80,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
           />
         </div>
         <div className="w-10 tc">
-          <PanelButton
+          <ChannelButton
             active={isTrue(muted)}
             onClick={clickMute}
             onMouseOut={setMouseOut}
@@ -102,7 +102,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
           />
         </div>
         <div className="w-10 tc">
-          <PanelButton
+          <ChannelButton
             active={edited}
             onClick={clickEdited}
             onMouseOut={setMouseOut}
@@ -112,7 +112,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
           />
         </div>
         <div className="w-10 tc">
-          <PanelButton
+          <ChannelButton
             active={isTrue(expanded)}
             onClick={clickExpanded}
             onMouseOut={setMouseOut}
@@ -144,7 +144,7 @@ const PanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMo
   );
 };
 
-PanelModule.propTypes = {
+ControlPanelModule.propTypes = {
   channel: PropTypes.instanceOf(Map).isRequired,
   editedChannelId: PropTypes.string.isRequired,
   i18n: PropTypes.object.isRequired,
@@ -156,4 +156,4 @@ PanelModule.propTypes = {
   updateProject: PropTypes.func.isRequired
 };
 
-export default PanelModule;
+export default ControlPanelModule;
