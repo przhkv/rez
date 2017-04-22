@@ -80,8 +80,8 @@ class ProjectPage extends React.Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectField}
-          updateProjectFields={updateProjectFields}
+          updateProjectItem={updateProjectField}
+          updateProjectMerge={updateProjectFields}
         />
         <Sequencer
           audioCtx={this.audioCtx}
