@@ -7,6 +7,9 @@ export default {
   credits: {
     originalArtists: ['Material']
   },
+  view: {
+    timeScale: 'false',
+  },
   channels: [],
   common: {
     bpm: '102',

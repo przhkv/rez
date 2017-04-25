@@ -4,7 +4,7 @@ class TimelineRuler extends React.Component {
   componentDidMount() {
     const c = document.getElementById('timelineScale');
     c.height = 16;
-    c.width = window.innerWidth - 256;
+    c.width = window.innerWidth - 256 - 40;
     const ctx = c.getContext('2d');
     ctx.strokeStyle = 'DimGray';
     for (let i = 0; i < 100; i++) {

@@ -74,9 +74,8 @@ class ProjectPage extends React.Component {
           updateProject={updateProjectField}
         />
         <Toolbar
-          channels={project.get('channels')}
-          editedChannelId={project.get('editedChannelId')}
           i18n={i18n}
+          project={project}
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}

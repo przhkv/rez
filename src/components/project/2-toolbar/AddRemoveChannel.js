@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List, Map } from 'immutable';
-import { createNewChannel } from '../../../../utils/projects/defaults';
-import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../../constants/sequencer/elements';
+import { createNewChannel } from '../../../utils/projects/defaults';
+import { ADD_CHANNEL, DELETE_CHANNEL } from '../../../constants/sequencer/elements';
 import TinyButton from './TinyButton';
 
 class AddRemoveChannel extends React.Component {

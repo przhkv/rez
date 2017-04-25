@@ -7,6 +7,9 @@ export default {
   credits: {
     originalArtists: ['Death Comet Crew']
   },
+  view: {
+    timeScale: 'true',
+  },
   channels: [
     {
       channelId: '2F68DA16B2454A0D866966955F284C73',
