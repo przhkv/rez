@@ -4,16 +4,17 @@ class TimeRuler extends React.Component {
   componentDidMount() {
     const c = document.getElementById('timeRuler');
     c.height = 16;
-    c.width = window.innerWidth - 256;
+    const spaceOnLeft = 256;
+    c.width = window.innerWidth;
     const ctx = c.getContext('2d');
     ctx.strokeStyle = 'DimGray';
     for (let i = 0; i < 100; i++) {
-      const coef = 70;
-      const x1 = (i * coef) + 0.5;
+      const coef = 90;
+      const x1 = spaceOnLeft + (i * coef) + 0.5;
       ctx.moveTo(x1, 0);
       ctx.lineTo(x1, 6);
       ctx.stroke();
-      const x2 = (i * coef) + (coef / 2) + 0.5;
+      const x2 = spaceOnLeft + (i * coef) + (coef / 2) + 0.5;
       ctx.moveTo(x2, 0);
       ctx.lineTo(x2, 4);
       ctx.stroke();
@@ -25,8 +26,7 @@ class TimeRuler extends React.Component {
 
   render() {
     return (
-      <div className="bg-white-60 w-100">
-        <div className="w5 fl">time</div>
+      <div className="w-100">
         <canvas id="timeRuler" />
       </div>
     );
