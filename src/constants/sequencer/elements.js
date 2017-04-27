@@ -20,5 +20,7 @@ export const
   SOLO_OFF = 'soloOff',
   SOLO_ON = 'soloOn',
   STOP = 'stop',
+  TIME_RULER_HIDE = 'timeRulerHide',
+  TIME_RULER_SHOW = 'timeRulerShow',
   UNMUTE = 'unmute',
   UNMUTE_CHANNEL = 'unmuteChannel';

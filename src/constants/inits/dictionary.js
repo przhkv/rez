@@ -39,6 +39,8 @@ export default {
     soloOff: '',
     soloOn: '',
     stop: '',
+    timeRulerHide: '',
+    timeRulerShow: '',
     unmute: '',
     unmuteChannel: '',
   },

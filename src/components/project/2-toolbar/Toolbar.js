@@ -29,6 +29,8 @@ const Toolbar = ({ i18n, project, setMouseOut, setMouseOver, theme, updateProjec
     <ShowHideTimeButton
       i18n={i18n}
       showTimeScale={isTrue(project.getIn(['view', 'timeScale']))}
+      setMouseOut={setMouseOut}
+      setMouseOver={setMouseOver}
       theme={theme}
       updateProjectItem={updateProjectItem}
     />

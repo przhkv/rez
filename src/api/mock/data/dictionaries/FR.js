@@ -39,6 +39,8 @@ export default {
     soloOff: 'Pas en solo',
     soloOn: 'En solo',
     stop: 'Arrêter de jouer',
+    timeRulerHide: 'Masquer la règle du temps',
+    timeRulerShow: 'Regarder la règle du temps',
     unmute: 'Activer le son',
     unmuteChannel: 'Activer le canal',
   },

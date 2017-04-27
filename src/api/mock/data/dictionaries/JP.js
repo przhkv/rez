@@ -39,6 +39,8 @@ export default {
     soloOff: 'ソロオフ',
     soloOn: 'ソロ',
     stop: '演奏を停止する',
+    timeRulerHide: '時間スケールを隠す',
+    timeRulerShow: '時間スケールを表示する',
     unmute: 'サウンドのミュート解除',
     unmuteChannel: 'チャンネルのミュート解除',
   },
