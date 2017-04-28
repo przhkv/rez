@@ -14,6 +14,7 @@ const ShowHideTimeButton = ({ i18n, showTimeScale, setMouseOut, setMouseOver, th
   return (
     <div className="tc fr" style={{ width: '40px' }}>
       <TinyButton
+        active={showTimeScale}
         text="τ"
         theme={theme}
         onClick={onClick}
