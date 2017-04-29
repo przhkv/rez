@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import ChannelTimeline from './ChannelTimeline';
 import { isTrue } from '../../../../utils/stringBoolUtils';
+import { findPlaybackPosition } from '../../../../utils/sequencer/zooming';
 
 const chHeight = expanded => (isTrue(expanded) ? 75 : 53);
 
@@ -37,7 +38,8 @@ class Timeline extends React.Component {
   }
 
   render() {
-    const { i18n, project, setMouseOut, setMouseOver, theme, updateProject } = this.props;
+    const { i18n, moment, project, setMouseOut, setMouseOver, theme, updateProject } = this.props;
+    const playbackX = findPlaybackPosition(moment, 10); // todo migrate to project zoom
 
     return (
       <div className="overflow-x-hidden nowrap">
@@ -60,6 +62,15 @@ class Timeline extends React.Component {
               ))
           }
         </div>
+        <svg width="500" height="225">
+          <line
+            x1={playbackX}
+            y1="0"
+            x2={playbackX}
+            y2="130"
+            style={{ stroke: '#555555', strokeWidth: 1 }}
+          />
+        </svg>
       </div>
     );
   }
@@ -67,11 +78,12 @@ class Timeline extends React.Component {
 
 Timeline.propTypes = {
   i18n: PropTypes.object.isRequired,
+  moment: PropTypes.number.isRequired,
   project: PropTypes.instanceOf(Map).isRequired,
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
-  updateProject: PropTypes.func.isRequired
+  updateProject: PropTypes.func.isRequired,
 };
 
 export default Timeline;

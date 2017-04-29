@@ -4,6 +4,7 @@ import { Map } from 'immutable';
 import history from '../../history';
 import { initAudioContext } from '../../utils/audio/inits';
 import { PROJECTS } from '../../constants/pages';
+import PlaybackControl from '../../utils/sequencer/PlaybackControl';
 import Wrapping from '../common/Wrapping';
 import HeaderControls from './1-header/HeaderControls';
 import Toolbar from './2-toolbar/Toolbar';
@@ -19,13 +20,35 @@ class ProjectPage extends React.Component {
       modified: false,
       mouseOver: '',
       playing: false,
-      project: props.project
+      project: props.project,
+      moment: 0, // todo migrate to project property
     };
+
+    this.playback = new PlaybackControl(moment => this.setState({ moment }), this.state.moment);
     this.audioCtx = initAudioContext();
     this.gainNode = this.audioCtx.createGain();
     this.gainNode.connect(this.audioCtx.destination);
     this.gainNode.gain.value =
       (props.project.getIn(['common', 'muted']) === 'true') ? 0 : props.project.getIn(['common', 'gain']);
+
+    this.clickPlay = this.clickPlay.bind(this);
+  }
+
+  componentWillUnmount() {
+    const { playing } = this.state;
+    if (playing) {
+      this.playback.stop();
+    }
+  }
+
+  clickPlay() {
+    const { playing } = this.state;
+    if (playing) {
+      this.playback.stop();
+    } else {
+      this.playback.start();
+    }
+    this.setState({ playing: !playing });
   }
 
   render() {
@@ -42,8 +65,6 @@ class ProjectPage extends React.Component {
       const meta = {redirect: redirectToProjects};
       close(payload, meta);
     };
-
-    const clickPlay = () => this.setState({playing: !playing});
 
     const setMouseOver = mouseOver => this.setState({ mouseOver }); // eslint-disable-line no-shadow
     const setMouseOut = () => setMouseOver('');
@@ -86,6 +107,7 @@ class ProjectPage extends React.Component {
           audioCtx={this.audioCtx}
           gainNode={this.gainNode}
           i18n={i18n}
+          moment={this.state.moment}
           project={project}
           save={save}
           setMouseOut={setMouseOut}
@@ -105,7 +127,7 @@ class ProjectPage extends React.Component {
           updateProject={updateProjectField}
         />
         <MasterDeck
-          clickPlay={clickPlay}
+          clickPlay={this.clickPlay}
           gainNode={this.gainNode}
           i18n={i18n}
           playing={playing}
