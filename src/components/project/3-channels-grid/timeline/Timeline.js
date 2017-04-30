@@ -4,6 +4,7 @@ import { Map } from 'immutable';
 import ChannelTimeline from './ChannelTimeline';
 import { isTrue } from '../../../../utils/stringBoolUtils';
 import { findPlaybackPosition } from '../../../../utils/sequencer/zooming';
+import { msToTimeString } from '../../../../utils/sequencer/timeFormat';
 
 const chHeight = expanded => (isTrue(expanded) ? 75 : 53);
 
@@ -40,6 +41,7 @@ class Timeline extends React.Component {
   render() {
     const { i18n, moment, project, setMouseOut, setMouseOver, theme, updateProject } = this.props;
     const playbackX = findPlaybackPosition(moment, 10); // todo migrate to project zoom
+    const timeStr = msToTimeString(moment);
 
     return (
       <div className="overflow-x-hidden nowrap">
@@ -62,7 +64,7 @@ class Timeline extends React.Component {
               ))
           }
         </div>
-        <svg width="500" height="225">
+        <svg width="500" height="225" className="absolute">
           <line
             x1={playbackX}
             y1="0"
@@ -71,6 +73,7 @@ class Timeline extends React.Component {
             style={{ stroke: '#555555', strokeWidth: 1 }}
           />
         </svg>
+        <span className="o-20">{timeStr}</span>
       </div>
     );
   }
