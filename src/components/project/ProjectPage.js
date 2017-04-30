@@ -33,6 +33,9 @@ class ProjectPage extends React.Component {
       (props.project.getIn(['common', 'muted']) === 'true') ? 0 : props.project.getIn(['common', 'gain']);
 
     this.clickPlay = this.clickPlay.bind(this);
+    this.updateProjectItem = this.updateProjectItem.bind(this);
+    this.updateProjectMerge = this.updateProjectMerge.bind(this);
+    this.updZoom = this.updZoom.bind(this);
   }
 
   componentWillUnmount() {
@@ -50,6 +53,24 @@ class ProjectPage extends React.Component {
       this.playback.start();
     }
     this.setState({ playing: !playing });
+  }
+
+  updateProjectItem(accessor, value) {
+    this.setState({
+      modified: true,
+      project: this.props.project.updateIn(accessor, () => value),
+    });
+  }
+
+  updateProjectMerge(project) {
+    this.setState({
+      modified: true,
+      project: this.props.project.merge(project),
+    });
+  }
+
+  updZoom(zoom) {
+    this.setState({ zoom });
   }
 
   render() {
@@ -70,18 +91,6 @@ class ProjectPage extends React.Component {
     const setMouseOver = mouseOver => this.setState({ mouseOver }); // eslint-disable-line no-shadow
     const setMouseOut = () => setMouseOver('');
 
-    const updateProjectField = (field, val) =>
-      this.setState({
-        modified: true,
-        project: project.updateIn(field, () => val)
-      });
-
-    const updateProjectFields = map =>
-      this.setState({
-        modified: true,
-        project: project.merge(map)
-      });
-
     return (
       <Wrapping fixedHeight={Boolean(true)}>
         <HeaderControls
@@ -93,7 +102,7 @@ class ProjectPage extends React.Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectField}
+          updateProject={this.updateProjectItem}
         />
         <Toolbar
           i18n={i18n}
@@ -101,8 +110,8 @@ class ProjectPage extends React.Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProjectItem={updateProjectField}
-          updateProjectMerge={updateProjectFields}
+          updateProjectItem={this.updateProjectItem}
+          updateProjectMerge={this.updateProjectMerge}
           zoom={zoom}
         />
         <ChannelsGrid
@@ -115,7 +124,7 @@ class ProjectPage extends React.Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectField}
+          updateProject={this.updateProjectItem}
           zoom={zoom}
         />
         <ChannelDeck
@@ -127,7 +136,7 @@ class ProjectPage extends React.Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectField}
+          updateProject={this.updateProjectItem}
         />
         <MasterDeck
           clickPlay={this.clickPlay}
@@ -139,7 +148,9 @@ class ProjectPage extends React.Component {
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
-          updateProject={updateProjectField}
+          updateProjectItem={this.updateProjectItem}
+          updZoom={this.updZoom}
+          zoom={zoom}
         />
         <FooterInfoBar
           i18n={i18n}
