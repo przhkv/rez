@@ -39,8 +39,10 @@ class Timeline extends React.Component {
   }
 
   render() {
-    const { i18n, moment, project, setMouseOut, setMouseOver, theme, updateProject } = this.props;
-    const playbackX = findPlaybackPosition(moment, 1); // todo migrate to project zoom
+    const { i18n, moment, project, setMouseOut, setMouseOver, theme, updateProject,
+      zoom } = this.props;
+
+    const playbackX = findPlaybackPosition(moment, zoom);
     const timeStr = msToTimeString(moment);
 
     return (
@@ -87,6 +89,7 @@ Timeline.propTypes = {
   setMouseOver: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
   updateProject: PropTypes.func.isRequired,
+  zoom: PropTypes.number.isRequired,
 };
 
 export default Timeline;

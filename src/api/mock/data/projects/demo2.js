@@ -5,7 +5,7 @@ export default {
   created: '2016-10-04 02:13:19',
   updated: '2016-10-05 11:32:01',
   credits: {
-    originalArtists: ['Material']
+    originalArtists: ['Material'],
   },
   view: {
     timeScale: 'false',
@@ -14,8 +14,10 @@ export default {
   common: {
     bpm: '102',
     gain: '0.8',
-    muted: 'true'
+    moment: '0',
+    muted: 'true',
+    zoom: '10',
   },
   editedChannelId: '',
-  soloChannelId: ''
+  soloChannelId: '',
 };

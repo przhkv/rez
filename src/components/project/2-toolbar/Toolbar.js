@@ -8,12 +8,12 @@ import ShowHideTimeButton from './ShowHideTimeButton';
 import { isTrue } from '../../../utils/stringBoolUtils';
 
 const Toolbar = ({ i18n, project, setMouseOut, setMouseOver, theme, updateProjectItem,
-                   updateProjectMerge }) =>
+                   updateProjectMerge, zoom }) =>
 (
   <div className={`flex-none order-2 w-100 bg-near-white ${theme.bg}`}>
     {
       isTrue(project.getIn(['view', 'timeScale'])) &&
-      <RulerTime />
+      <RulerTime zoom={zoom} />
     }
     <AddRemoveChannel
       channels={project.get('channels')}
@@ -44,7 +44,8 @@ Toolbar.propTypes = {
   setMouseOver: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
   updateProjectItem: PropTypes.func.isRequired,
-  updateProjectMerge: PropTypes.func.isRequired
+  updateProjectMerge: PropTypes.func.isRequired,
+  zoom: PropTypes.number.isRequired,
 };
 
 export default Toolbar;

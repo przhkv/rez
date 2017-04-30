@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class TimeRuler extends React.Component {
   componentDidMount() {
@@ -9,12 +10,12 @@ class TimeRuler extends React.Component {
     const ctx = c.getContext('2d');
     ctx.strokeStyle = 'DimGray';
     for (let i = 0; i < 100; i++) {
-      const coef = 60 * 10; // sec * default pixels per second (* zoom)
-      const x1 = spaceOnLeft + (i * coef) + 0.5;
+      const minuteWidth = 60 * this.props.zoom;
+      const x1 = spaceOnLeft + (i * minuteWidth) + 0.5;
       ctx.moveTo(x1, 0);
       ctx.lineTo(x1, 6);
       ctx.stroke();
-      const x2 = spaceOnLeft + (i * coef) + (coef / 2) + 0.5;
+      const x2 = spaceOnLeft + (i * minuteWidth) + (minuteWidth / 2) + 0.5;
       ctx.moveTo(x2, 0);
       ctx.lineTo(x2, 4);
       ctx.stroke();
@@ -34,7 +35,7 @@ class TimeRuler extends React.Component {
 }
 
 TimeRuler.propTypes = {
-
+  zoom: PropTypes.number.isRequired,
 };
 
 export default TimeRuler;

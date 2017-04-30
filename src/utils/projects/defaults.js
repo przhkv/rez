@@ -13,10 +13,12 @@ const createDefaultProject = settings => fromJS({
   common: {
     bpm: settings.getIn(['seq', 'defaultBPM']),
     gain: '0.8',
-    muted: 'false'
+    moment: '0',
+    muted: 'false',
+    zoom: '10',
   },
   editedChannelId: '',
-  soloChannelId: ''
+  soloChannelId: '',
 });
 
 const createNewChannel = channelsSize => fromJS({

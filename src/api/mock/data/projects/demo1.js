@@ -5,7 +5,7 @@ export default {
   created: '2016-10-04 02:12:39',
   updated: '2016-10-04 02:12:39',
   credits: {
-    originalArtists: ['Death Comet Crew']
+    originalArtists: ['Death Comet Crew'],
   },
   view: {
     timeScale: 'true',
@@ -20,15 +20,15 @@ export default {
         output: 'master',
         src: {
           lib: 'def',
-          name: 'atom_hh.wav'
+          name: 'atom_hh.wav',
         },
         state: {
           expanded: 'false',
-          muted: 'false'
+          muted: 'false',
         },
         gain: '1',
-        pan: '0'
-      }
+        pan: '0',
+      },
     },
     {
       channelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
@@ -39,18 +39,20 @@ export default {
         output: 'master',
         state: {
           expanded: 'true',
-          muted: 'true'
+          muted: 'true',
         },
         gain: '1',
-        pan: '.6'
-      }
-    }
+        pan: '.6',
+      },
+    },
   ],
   common: {
     bpm: '118',
     gain: '0.6',
-    muted: 'false'
+    moment: '0',
+    muted: 'false',
+    zoom: '10',
   },
   editedChannelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
-  soloChannelId: '2F68DA16B2454A0D866966955F284C73'
+  soloChannelId: '2F68DA16B2454A0D866966955F284C73',
 };

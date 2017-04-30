@@ -21,7 +21,8 @@ class ProjectPage extends React.Component {
       mouseOver: '',
       playing: false,
       project: props.project,
-      moment: 0, // todo migrate to project property
+      moment: Number(props.project.getIn(['common', 'moment'])),
+      zoom: Number(props.project.getIn(['common', 'zoom'])),
     };
 
     this.playback = new PlaybackControl(moment => this.setState({ moment }), this.state.moment);
@@ -52,7 +53,7 @@ class ProjectPage extends React.Component {
   }
 
   render() {
-    const {mouseOver, playing, project} = this.state;
+    const { moment, mouseOver, playing, project, zoom } = this.state;
     const {close, purge, i18n, loading, navigate, save, settings, theme} = this.props;
 
     const redirectToProjects = () => {
@@ -102,18 +103,20 @@ class ProjectPage extends React.Component {
           theme={theme}
           updateProjectItem={updateProjectField}
           updateProjectMerge={updateProjectFields}
+          zoom={zoom}
         />
         <ChannelsGrid
           audioCtx={this.audioCtx}
           gainNode={this.gainNode}
           i18n={i18n}
-          moment={this.state.moment}
+          moment={moment}
           project={project}
           save={save}
           setMouseOut={setMouseOut}
           setMouseOver={setMouseOver}
           theme={theme}
           updateProject={updateProjectField}
+          zoom={zoom}
         />
         <ChannelDeck
           audioCtx={this.audioCtx}
@@ -157,7 +160,7 @@ ProjectPage.propTypes = {
   project: PropTypes.instanceOf(Map).isRequired,
   save: PropTypes.func.isRequired,
   settings: PropTypes.instanceOf(Map).isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default ProjectPage;
