@@ -9,7 +9,7 @@ class TimeRuler extends React.Component {
     const ctx = c.getContext('2d');
     ctx.strokeStyle = 'DimGray';
     for (let i = 0; i < 100; i++) {
-      const coef = 90;
+      const coef = 60 * 10; // sec * default pixels per second (* zoom)
       const x1 = spaceOnLeft + (i * coef) + 0.5;
       ctx.moveTo(x1, 0);
       ctx.lineTo(x1, 6);

@@ -40,7 +40,7 @@ class Timeline extends React.Component {
 
   render() {
     const { i18n, moment, project, setMouseOut, setMouseOver, theme, updateProject } = this.props;
-    const playbackX = findPlaybackPosition(moment, 10); // todo migrate to project zoom
+    const playbackX = findPlaybackPosition(moment, 1); // todo migrate to project zoom
     const timeStr = msToTimeString(moment);
 
     return (
