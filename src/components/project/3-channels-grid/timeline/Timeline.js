@@ -15,7 +15,7 @@ class Timeline extends React.Component {
   }
 
   componentDidMount() {
-    this.timelineWidth = window.innerWidth - 256; // recalculate on resize
+    this.timelineWidth = window.innerWidth - 256; // fixme recalculate on resize
 
     const c = document.getElementById('channelsTimeline');
     c.width = this.timelineWidth;
@@ -45,6 +45,8 @@ class Timeline extends React.Component {
     const playbackX = findPlaybackPosition(moment, zoom);
     const timeStr = msToTimeString(moment);
 
+    const svgWidth = window.innerWidth - 256; // fixme recalculate on resize
+
     return (
       <div className="overflow-x-hidden nowrap">
         <canvas id="channelsTimeline" className="absolute o-20" />
@@ -66,7 +68,7 @@ class Timeline extends React.Component {
               ))
           }
         </div>
-        <svg width="500" height="225" className="absolute">
+        <svg width={svgWidth} height="225" className="absolute">
           <line
             x1={playbackX}
             y1="0"
