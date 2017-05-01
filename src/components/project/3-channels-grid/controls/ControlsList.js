@@ -28,6 +28,7 @@ class ChannelControlsList extends React.Component {
               channel={channel}
               editedChannelId={project.get('editedChannelId')}
               i18n={i18n}
+              index={i}
               setMouseOut={setMouseOut}
               setMouseOver={setMouseOver}
               theme={theme}

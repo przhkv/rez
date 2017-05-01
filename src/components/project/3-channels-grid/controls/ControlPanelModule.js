@@ -8,6 +8,7 @@ import { CHANGE_PANNING, CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_C
 from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 import ChannelButton from '../../0-common/ChannelButton';
+import ChannelName from './ChannelName';
 
 const ChSide = styled.em`cursor: default;`;
 
@@ -65,7 +66,14 @@ const ControlPanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut
     <div className={`bb b--light-gray ${edited ? theme.seqPanelSelected : theme.seqPanel}`}>
       <div className="w-100" onClick={startEdit}>
         <div className="ph2 pv1 tc">
-          <span className={`i f6 tl ${theme.commonText}`}>{channel.get('name')}</span>
+          <ChannelName
+            channelName={channel.get('name')}
+            index={index}
+            setMouseOut={setMouseOut}
+            setMouseOver={setMouseOver}
+            theme={theme}
+            updateProject={updateProject}
+          />
         </div>
       </div>
       <div className="w-100 flex mv1">

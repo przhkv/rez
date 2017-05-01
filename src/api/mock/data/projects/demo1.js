@@ -51,7 +51,7 @@ export default {
     gain: '0.6',
     moment: '0',
     muted: 'false',
-    zoom: '10',
+    zoom: '15',
   },
   editedChannelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',
   soloChannelId: '2F68DA16B2454A0D866966955F284C73',

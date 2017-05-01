@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import { EDIT } from '../../../../constants/sequencer/panelButtonTypes';
 import ChannelButton from '../../0-common/ChannelButton';
+import ChannelName from './ChannelName';
 
-const ControlPanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMouseOver, theme,
-                      updateProject }) => {
+const ControlPanelBlank = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
+                             theme, updateProject }) => {
   const chId = channel.get('channelId');
   const edited = (chId === editedChannelId);
   const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);
@@ -23,7 +24,14 @@ const ControlPanelBlank = ({ channel, editedChannelId, i18n, setMouseOut, setMou
     >
       <div className="w-100">
         <div className="ph2 pv1 tc">
-          <span className={`i f6 tl ${theme.commonText}`}>{channel.get('name')}</span>
+          <ChannelName
+            channelName={channel.get('name')}
+            index={index}
+            setMouseOut={setMouseOut}
+            setMouseOver={setMouseOver}
+            theme={theme}
+            updateProject={updateProject}
+          />
         </div>
       </div>
       <div className="w-100 flex mv1">
@@ -48,6 +56,7 @@ ControlPanelBlank.propTypes = {
   channel: PropTypes.instanceOf(Map).isRequired,
   editedChannelId: PropTypes.string.isRequired,
   i18n: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
