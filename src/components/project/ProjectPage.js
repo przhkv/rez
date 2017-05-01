@@ -58,14 +58,14 @@ class ProjectPage extends React.Component {
   updateProjectItem(accessor, value) {
     this.setState({
       modified: true,
-      project: this.props.project.updateIn(accessor, () => value),
+      project: this.state.project.updateIn(accessor, () => value),
     });
   }
 
   updateProjectMerge(project) {
     this.setState({
       modified: true,
-      project: this.props.project.merge(project),
+      project: this.state.project.merge(project),
     });
   }
 
