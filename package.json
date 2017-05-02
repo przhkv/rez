@@ -40,7 +40,7 @@
     "react-redux": "5.0.4",
     "redux": "3.6.0",
     "redux-immutable-state-invariant": "2.0.0",
-    "redux-saga": "0.15.0",
+    "redux-saga": "0.15.1",
     "reselect": "3.0.0",
     "styled-components": "2.0.0-15",
     "webpack": "2.4.1",
@@ -56,7 +56,7 @@
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-2": "6.24.1",
     "chai": "3.5.0",
-    "css-loader": "0.28.0",
+    "css-loader": "0.28.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
@@ -69,7 +69,7 @@
     "npm-run-all": "4.0.2",
     "rimraf": "2.6.1",
     "sass-loader": "6.0.3",
-    "style-loader": "0.16.1",
+    "style-loader": "0.17.0",
     "tachyons-sass": "4.7.1",
     "url-loader": "0.5.8"
   }
