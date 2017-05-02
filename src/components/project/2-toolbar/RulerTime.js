@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const redrawTimeRuler = (zoom) => {
+const drawTimeScale = (zoom) => {
   const c = document.getElementById('timeRuler');
   c.height = 16;
   const spaceOnLeft = 256;
@@ -26,12 +26,15 @@ const redrawTimeRuler = (zoom) => {
 
 class TimeRuler extends React.Component {
   componentDidMount() {
-    redrawTimeRuler(this.props.zoom);
+    const draw = () => drawTimeScale(this.props.zoom);
+
+    window.addEventListener('resize', draw);
+    draw();
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.zoom !== this.props.zoom) {
-      redrawTimeRuler(nextProps.zoom);
+      drawTimeScale(nextProps.zoom);
     }
   }
 

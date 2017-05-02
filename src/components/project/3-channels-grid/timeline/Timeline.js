@@ -8,34 +8,44 @@ import { msToTimeString } from '../../../../utils/sequencer/timeFormat';
 
 const chHeight = expanded => (isTrue(expanded) ? 75 : 53);
 
+const drawChannelsGrid = (channels) => {
+  const c = document.getElementById('channelsTimeline');
+  c.width = window.innerWidth - 256;
+  const canvasHeight =
+    channels
+      .map(ch => chHeight(ch.getIn(['payload', 'state', 'expanded'])))
+      .reduce(((a, b) => a + b), 0);
+  c.height = canvasHeight;
+  const ctx = c.getContext('2d');
+  ctx.strokeStyle = 'DimGray';
+  for (let i = 0; i < 100; i++) {
+    const x1 = (i * 40) + 0.5;
+    ctx.moveTo(x1, 0);
+    ctx.lineTo(x1, canvasHeight);
+    ctx.stroke();
+    const x2 = (i * 40) + 20.5;
+    ctx.moveTo(x2, 0);
+    ctx.lineTo(x2, canvasHeight);
+    ctx.stroke();
+  }
+};
+
 class Timeline extends React.Component {
   constructor() {
     super();
-    this.timelineWidth = 0;
+    this.state = {
+      timelineWidth: 0,
+    };
   }
 
   componentDidMount() {
-    this.timelineWidth = window.innerWidth - 256; // fixme recalculate on resize
+    const setWidthDrawGrid = () => {
+      this.setState({ timelineWidth: window.innerWidth - 256 });
+      drawChannelsGrid(this.props.project.get('channels'));
+    };
 
-    const c = document.getElementById('channelsTimeline');
-    c.width = this.timelineWidth;
-    const canvasHeight =
-      this.props.project.get('channels')
-        .map(ch => chHeight(ch.getIn(['payload', 'state', 'expanded'])))
-        .reduce(((a, b) => a + b), 0);
-    c.height = canvasHeight;
-    const ctx = c.getContext('2d');
-    ctx.strokeStyle = 'DimGray';
-    for (let i = 0; i < 100; i++) {
-      const x1 = (i * 40) + 0.5;
-      ctx.moveTo(x1, 0);
-      ctx.lineTo(x1, canvasHeight);
-      ctx.stroke();
-      const x2 = (i * 40) + 20.5;
-      ctx.moveTo(x2, 0);
-      ctx.lineTo(x2, canvasHeight);
-      ctx.stroke();
-    }
+    window.addEventListener('resize', setWidthDrawGrid);
+    setWidthDrawGrid();
   }
 
   render() {
@@ -50,7 +60,7 @@ class Timeline extends React.Component {
     return (
       <div className="overflow-x-hidden nowrap">
         <canvas id="channelsTimeline" className="absolute o-20" />
-        <div className="absolute" style={{ width: this.timelineWidth }}>
+        <div className="absolute" style={{ width: this.state.timelineWidth }}>
           {
             project.get('channels')
               .map(c => (
