@@ -6,6 +6,7 @@ import { NEUTRAL_LIGHT } from '../../../constants/components/buttonStyles';
 import { PROJECTS } from '../../../constants/pages';
 import { BACK, CLOSE, DECREASE_BPM, INCREASE_BPM } from '../../../constants/sequencer/elements';
 import { MAX_BPM, MIN_BPM } from '../../../constants/sequencer/limits';
+import TimeSignatureInput from './TimeSignatureInput';
 
 const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMouseOut,
                           setMouseOver, theme, updateProject}) => {
@@ -30,7 +31,7 @@ const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMou
   return (
     <header className={`flex-none order-1 w-100 bb db ${theme.sectionBorder} ${theme.bg}`}>
       <nav className="w-100 db dt-ns border-box pa2 ph4-ns" role="navigation">
-        <div className="w-100 w-25-ns db dtc-ns v-mid tc tl-ns">
+        <div className="w-100 w-20-ns db dtc-ns v-mid tc tl-ns">
           <NavigationLink
             onMouseOver={setOnMouseOverBack}
             onMouseOut={setMouseOut}
@@ -41,7 +42,10 @@ const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMou
             url="/"
           />
         </div>
-        <div className="w-100 w-50-ns db dtc-ns v-mid tc">
+        <div className="w-100 w-20-ns db dtc-ns v-mid tc tl-ns">
+          &nbsp;
+        </div>
+        <div className="w-100 w-20-ns db dtc-ns v-mid tc">
           <SubmitButton
             buttonStyle={NEUTRAL_LIGHT}
             disabled={bpm <= MIN_BPM}
@@ -64,7 +68,16 @@ const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMou
             theme={theme}
           />
         </div>
-        <div className="w-100 w-25-ns db dtc-ns v-mid tc tr-ns">
+        <div className="w-100 w-20-ns db dtc-ns v-mid tc tr-ns">
+          <TimeSignatureInput
+            i18n={i18n}
+            theme={theme}
+            timeSigMeasure={4}
+            timeSigNotes={4}
+            updateProject={updateProject}
+          />
+        </div>
+        <div className="w-100 w-20-ns db dtc-ns v-mid tc tr-ns">
           <SubmitButton
             buttonStyle={NEUTRAL_LIGHT}
             inline={Boolean(true)}
