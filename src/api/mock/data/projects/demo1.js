@@ -51,6 +51,10 @@ export default {
     gain: '0.6',
     moment: '0',
     muted: 'false',
+    timeSignature: {
+      notes: '4',
+      measure: '4',
+    },
     zoom: '15',
   },
   editedChannelId: 'A3A7669BE6B0473D83BEB07ABBB6D3E7',

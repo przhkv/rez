@@ -72,8 +72,8 @@ const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMou
           <TimeSignatureInput
             i18n={i18n}
             theme={theme}
-            timeSigMeasure={4}
-            timeSigNotes={4}
+            timeSignatureMeasure={project.getIn(['common', 'timeSignature', 'measure'])}
+            timeSignatureNotes={project.getIn(['common', 'timeSignature', 'notes'])}
             updateProject={updateProject}
           />
         </div>

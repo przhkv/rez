@@ -15,6 +15,10 @@ const createDefaultProject = settings => fromJS({
     gain: '0.8',
     moment: '0',
     muted: 'false',
+    timeSignature: {
+      notes: '4',
+      measure: '4',
+    },
     zoom: '10',
   },
   editedChannelId: '',
