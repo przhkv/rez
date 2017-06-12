@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import AddRemoveChannel from './AddRemoveChannel';
-import RulerGrid from './RulerGrid';
+import RulerMetre from './RulerMetre';
 import RulerTime from './RulerTime';
 import ShowHideTimeButton from './ShowHideTimeButton';
 import { isTrue } from '../../../utils/stringBoolUtils';
@@ -25,7 +25,12 @@ const Toolbar = ({ i18n, project, setMouseOut, setMouseOver, theme, updateProjec
       updateProjectItem={updateProjectItem}
       updateProjectMerge={updateProjectMerge}
     />
-    <RulerGrid />
+    <RulerMetre
+      bpm={Number(project.getIn(['common', 'bpm']))}
+      measure={Number(project.getIn(['common', 'timeSignature', 'measure']))}
+      notes={Number(project.getIn(['common', 'timeSignature', 'notes']))}
+      zoom={zoom}
+    />
     <ShowHideTimeButton
       i18n={i18n}
       showTimeScale={isTrue(project.getIn(['view', 'timeScale']))}

@@ -75,7 +75,7 @@ class ProjectPage extends React.Component {
 
   render() {
     const { moment, mouseOver, playing, project, zoom } = this.state;
-    const {close, purge, i18n, loading, navigate, save, settings, theme} = this.props;
+    const { close, purge, i18n, loading, navigate, save, settings, theme } = this.props;
 
     const redirectToProjects = () => {
       history.push('/');

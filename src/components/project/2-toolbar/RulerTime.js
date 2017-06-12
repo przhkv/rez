@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const drawTimeScale = (zoom) => {
-  const windowWidth = window.innerWidth;
+  const WINDOW_WIDTH = window.innerWidth;
+  const SPACE_ON_LEFT = 256;
+  // set canvas size
   const c = document.getElementById('timeRuler');
   c.height = 16;
-  const spaceOnLeft = 256;
-  c.width = windowWidth;
+  c.width = WINDOW_WIDTH;
+
+  // draw the marks
   const ctx = c.getContext('2d');
   ctx.strokeStyle = 'DimGray';
   for (let i = 0; i < 100; i++) {
     const minuteWidth = 60 * zoom;
-    const x1 = spaceOnLeft + (i * minuteWidth) + 0.5;
+    const x1 = SPACE_ON_LEFT + (i * minuteWidth) + 0.5;
 
-    if (x1 > windowWidth) {
+    if (x1 > WINDOW_WIDTH) {
       break;
     }
 
@@ -25,7 +28,7 @@ const drawTimeScale = (zoom) => {
     ctx.fillText(`${i}:00`, (i > 0) ? (x1 - 10) : x1, 16);
 
     // half minute
-    const x2 = spaceOnLeft + (i * minuteWidth) + (minuteWidth / 2) + 0.5;
+    const x2 = SPACE_ON_LEFT + (i * minuteWidth) + (minuteWidth / 2) + 0.5;
     ctx.moveTo(x2, 0);
     ctx.lineTo(x2, 4);
     ctx.stroke();
@@ -36,7 +39,7 @@ const drawTimeScale = (zoom) => {
     if (zoom > 3) {
       for (let k = 0; k < 10; k++) {
         if (k !== 0 || k !== 5) {
-          const xk = spaceOnLeft + (i * minuteWidth) + ((minuteWidth * k) / 10) + 0.5;
+          const xk = SPACE_ON_LEFT + (i * minuteWidth) + ((minuteWidth * k) / 10) + 0.5;
           ctx.moveTo(xk, 0);
           ctx.lineTo(xk, 2);
           ctx.stroke();
