@@ -85,7 +85,8 @@ const MasterDeck = ({ clickPlay, gainNode, i18n, playing, project, save, setMous
                 onChange={changeVolume}
                 onMouseOut={setMouseOut}
                 onMouseOver={setOnMouseOverChangeVolume}
-                min="0" max="1"
+                min="0"
+                max="1"
                 step=".02"
                 type="range"
                 value={volume}

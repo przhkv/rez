@@ -30,7 +30,7 @@ const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMou
 
   return (
     <header className={`flex-none order-1 w-100 bb db ${theme.sectionBorder} ${theme.bg}`}>
-      <nav className="w-100 db dt-ns border-box pa2 ph4-ns" role="navigation">
+      <nav className="w-100 db dt-ns border-box pa2 ph4-ns">
         <div className="w-100 w-20-ns db dtc-ns v-mid tc tl-ns">
           <NavigationLink
             onMouseOver={setOnMouseOverBack}

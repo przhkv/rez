@@ -103,7 +103,8 @@ const ControlPanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut
             onChange={changeGain}
             onMouseOut={setMouseOut}
             onMouseOver={overChangeVolume}
-            min="0" max="1"
+            min="0"
+            max="1"
             step=".02"
             type="range"
             value={gain}
@@ -139,7 +140,8 @@ const ControlPanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut
               onChange={changePanning}
               onMouseOut={setMouseOut}
               onMouseOver={overChangePanning}
-              min="-1" max="1"
+              min="-1"
+              max="1"
               step=".1"
               type="range"
               value={pan}

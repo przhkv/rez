@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getCode, ENTER, ESC } from '../../../../utils/keyEvents';
