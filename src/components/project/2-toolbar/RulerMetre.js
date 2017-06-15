@@ -13,7 +13,7 @@ const drawTimeSignatureScale = (bpm, notes, measure, zoom) => {
   const ctx = c.getContext('2d');
   ctx.strokeStyle = 'DimGray';
   for (let i = 0; i < 100; i++) {
-    const beatWidth = 60 * (zoom / bpm);
+    const beatWidth = (60 * zoom) / bpm;
     const x1 = (i * beatWidth * notes) + 0.5;
 
     if (x1 > WINDOW_WIDTH) {
@@ -24,8 +24,8 @@ const drawTimeSignatureScale = (bpm, notes, measure, zoom) => {
     ctx.lineTo(x1, 16);
     ctx.stroke();
 
-    if (measure !== notes) {
-      const x2 = (i * beatWidth * measure) + 0.5;
+    if ((i * measure) % notes !== 0) {
+      const x2 = (i * beatWidth * measure);
       ctx.moveTo(x2, 14);
       ctx.lineTo(x2, 16);
       ctx.stroke();
