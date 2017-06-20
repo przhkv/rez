@@ -19,16 +19,19 @@ store.dispatch(projectListActions.load());
 const renderComponent = (component) => {
   ReactDOM.render(
     <Provider store={store}>{component}</Provider>,
-    document.getElementById('app')
+    document.getElementById('app'),
   );
 };
 
 const render = (location) => {
   router.resolve(routes, location)
     .then(renderComponent)
-    .catch(error =>
-      router.resolve(routes, { ...location, error }).then(renderComponent)
-    );
+    .catch((error) => {
+      console.log(error); // eslint-disable-line no-console
+      return router
+        .resolve(routes, { ...location, error })
+        .then(renderComponent);
+    });
 };
 
 history.listen(render);

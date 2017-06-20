@@ -14,7 +14,8 @@
     "lint:watch": "yarn run lint -- --watch",
     "test": "mocha --reporter progress dev-tools/tests.js \"./{,!(node_modules)/**/}*.spec.js\"",
     "test:watch": "yarn run test -- --watch",
-    "upg": "yarn upgrade-interactive --exact"
+    "upg": "yarn upgrade-interactive --exact",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -64,6 +65,8 @@
     "eslint-plugin-react": "7.1.0",
     "eslint-watch": "3.1.2",
     "extract-text-webpack-plugin": "2.1.2",
+    "husky": "0.13.4",
+    "lint-staged": "4.0.0",
     "mocha": "3.4.2",
     "node-sass": "4.5.3",
     "npm-run-all": "4.0.2",
@@ -72,5 +75,11 @@
     "style-loader": "0.18.2",
     "tachyons-sass": "4.7.1",
     "url-loader": "0.5.9"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
