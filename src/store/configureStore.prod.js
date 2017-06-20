@@ -8,7 +8,7 @@ export default (initialState) => {
   const store = createStore(
     rootReducer,
     initialState,
-    applyMiddleware(sagaMiddleware)
+    applyMiddleware(sagaMiddleware),
   );
 
   store.runSaga = sagaMiddleware.run;

@@ -5,16 +5,16 @@ export default {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './src/index',
   ],
   target: 'web',
   output: {
     path: path.join(__dirname, '/static'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './src'
+    contentBase: './src',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -48,5 +48,5 @@ export default {
         ],
       },
     ],
-  }
+  },
 };

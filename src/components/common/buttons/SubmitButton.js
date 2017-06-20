@@ -7,7 +7,7 @@ const SubmitButton = ({ buttonStyle = SUBMIT, disabled, inline, onClick, onMouse
   const buttonClasses = {
     [FILLER]: 'f5 bn h-100 w-100',
     [NEUTRAL_LIGHT]: `f6 ba ${theme.buttonNeutralLight}`,
-    [SUBMIT]: `f6 bn ${theme.buttonSuccess}`
+    [SUBMIT]: `f6 bn ${theme.buttonSuccess}`,
   };
 
   const click = (e) => {

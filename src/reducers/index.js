@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   projects,
   projectList,
   settings,
-  theme
+  theme,
 });
 
 export default rootReducer;

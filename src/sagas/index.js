@@ -14,6 +14,6 @@ export default function* root() {
     fork(watchLoadProjectById),
     fork(watchOpenProject),
     fork(watchGetSettings),
-    fork(watchUpdateSettings)
+    fork(watchUpdateSettings),
   ];
 }

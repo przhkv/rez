@@ -16,5 +16,5 @@ const getSelectedProjectSelector = (state, props) =>
 export const makeGetSelectedProject = () =>
   createSelector(
     [getSelectedProjectSelector],
-    selected => selected
+    selected => selected,
   );

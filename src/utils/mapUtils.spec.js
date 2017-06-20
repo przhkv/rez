@@ -8,8 +8,8 @@ describe('Map Utils', () => {
         target: {
           name: 'email',
           type: 'email',
-          value: '123@example.com'
-        }
+          value: '123@example.com',
+        },
       };
 
       const actual = extractInputData(mockEmailInputEvent);
@@ -23,14 +23,14 @@ describe('Map Utils', () => {
       const optionsDictionary = {
         EN: 'English',
         FR: 'French',
-        JP: 'Japanese'
+        JP: 'Japanese',
       };
 
       const actual = formatSelectOptions(options, optionsDictionary);
       const expected = [
         {value: 'EN', text: 'English'},
         {value: 'FR', text: 'French'},
-        {value: 'JP', text: 'Japanese'}
+        {value: 'JP', text: 'Japanese'},
       ];
       expect(actual).to.deep.equal(expected);
     });

@@ -31,7 +31,7 @@ InformativeProjectLink.propTypes = {
   loadedProjectsIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   openProject: PropTypes.func.isRequired,
   projectListItem: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default InformativeProjectLink;

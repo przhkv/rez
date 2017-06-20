@@ -39,7 +39,7 @@ Header.propTypes = {
   loading: PropTypes.bool.isRequired,
   page: PropTypes.string.isRequired,
   navigate: PropTypes.func.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Header;

@@ -49,5 +49,5 @@ function* watchOpenProject() {
 export {
   watchCloseProject,
   watchLoadProjectById,
-  watchOpenProject
+  watchOpenProject,
 };

@@ -20,7 +20,7 @@ ProjectConnector.propTypes = {
   purge: PropTypes.func.isRequired,
   save: PropTypes.func.isRequired,
   settings: PropTypes.instanceOf(Immutable.Map).isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 const makeMapStateToProps = () => {

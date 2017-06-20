@@ -32,7 +32,7 @@ SelectInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.object),
   theme: PropTypes.object.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 export default SelectInput;

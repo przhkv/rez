@@ -14,6 +14,6 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
   $('head').prepend('<link rel="stylesheet" href="styles.css">');
 
   fs.writeFile('static/index.html', $.html(), 'utf8', er =>
-    console.log(er || 'index.html written to static'.green)
+    console.log(er || 'index.html written to static'.green),
   );
 });

@@ -13,13 +13,13 @@ const ProjectListPage = ({ i18n, loadedProjectsIds, load, loading, navigate, ope
                            projectList, theme }) => {
   const openProject = (id, idTitle) => {
     const payload = {
-      projectId: id
+      projectId: id,
     };
     const meta = {
       redirect: () => {
         history.push(`/seq/${idTitle}`);
         navigate(idTitle);
-      }
+      },
     };
     open(payload, meta);
   };
@@ -76,7 +76,7 @@ ProjectListPage.propTypes = {
   open: PropTypes.func.isRequired,
   page: PropTypes.string.isRequired,
   projectList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default ProjectListPage;

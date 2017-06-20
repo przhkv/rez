@@ -14,5 +14,5 @@ function* watchGetDictionary() {
 }
 
 export {
-  watchGetDictionary
+  watchGetDictionary,
 };

@@ -1,6 +1,6 @@
 const extractInputData = e => ({
   field: e.target.name,
-  val: (e.target.type === 'checkbox') ? e.target.checked.toString() : e.target.value
+  val: (e.target.type === 'checkbox') ? e.target.checked.toString() : e.target.value,
 });
 
 const formatSelectOptions = (options, optionsDictionary) =>
@@ -8,5 +8,5 @@ const formatSelectOptions = (options, optionsDictionary) =>
 
 export {
   extractInputData,
-  formatSelectOptions
+  formatSelectOptions,
 };

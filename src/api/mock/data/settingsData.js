@@ -1,10 +1,10 @@
 export default {
   general: {
     language: 'EN',
-    theme: 'DEFAULT'
+    theme: 'DEFAULT',
   },
   seq: {
     defaultBPM: '125',
-    enableKeyboardShortcut: 'true'
-  }
+    enableKeyboardShortcut: 'true',
+  },
 };

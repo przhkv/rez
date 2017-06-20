@@ -7,7 +7,7 @@ const createDefaultProject = settings => fromJS({
   idTitle: '',
   title: 'Untitled',
   credits: {
-    originalArtists: []
+    originalArtists: [],
   },
   channels: [],
   common: {
@@ -34,14 +34,14 @@ const createNewChannel = channelsSize => fromJS({
     output: 'master',
     state: {
       expanded: 'false',
-      muted: 'false'
+      muted: 'false',
     },
     gain: '1',
-    pan: '0'
-  }
+    pan: '0',
+  },
 });
 
 export {
   createNewChannel,
-  createDefaultProject
+  createDefaultProject,
 };

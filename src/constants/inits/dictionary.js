@@ -10,12 +10,12 @@ export default {
     pageNotFound: '',
   },
   footer: {
-    copyright: ''
+    copyright: '',
   },
   headNav: {
     back: '',
     projects: '',
-    settings: ''
+    settings: '',
   },
   helpInfo: {
     addChannel: '',
@@ -46,22 +46,22 @@ export default {
   },
   home: {
     demo: '',
-    status: ''
+    status: '',
   },
   options: {
     language: {
       EN: '',
       FR: '',
-      JP: ''
+      JP: '',
     },
     theme: {
       DEFAULT: '',
-      VESPERTINE: ''
-    }
+      VESPERTINE: '',
+    },
   },
   project: {
     created: '',
-    updated: ''
+    updated: '',
   },
   settings: {
     defaultBPM: '',
@@ -69,18 +69,18 @@ export default {
     general: '',
     language: '',
     sequencer: '',
-    theme: ''
+    theme: '',
   },
   seq: {
     controls: {
       mute: '',
-      unmute: ''
+      unmute: '',
     },
     types: {
       file: '',
       noise: '',
       oscillator: '',
-      route: ''
-    }
-  }
+      route: '',
+    },
+  },
 };

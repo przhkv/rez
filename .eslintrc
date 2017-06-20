@@ -3,21 +3,14 @@
     "airbnb"
   ],
   "parserOptions": {
-    "ecmaVersion": 2017,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    }
+    "ecmaVersion": 2017
   },
   "env": {
-    "es6": true,
     "browser": true,
     "node": true,
     "mocha": true
   },
   "rules": {
-    "comma-dangle": 0,
     "curly": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "import/prefer-default-export": 0,
@@ -26,7 +19,7 @@
     "no-unused-vars": 0,
     "object-curly-spacing": 0,
     "one-var": 0,
-    "react/forbid-prop-types": 0,
+    "react/forbid-prop-types": [1, { "forbid": ["any", "array"] }],
     "react/jsx-filename-extension": 0,
     "react/no-unused-prop-types": 0,
     "react/require-default-props": 0

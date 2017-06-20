@@ -5,7 +5,7 @@ import {
   SELECT_FILE_TYPE,
   SELECT_NOISE_TYPE,
   SELECT_OSCILLATOR_TYPE,
-  SELECT_ROUTE_TYPE
+  SELECT_ROUTE_TYPE,
 } from '../../../../constants/sequencer/elements';
 
 const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject}) => {
@@ -13,7 +13,7 @@ const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, 
     [FILE]: SELECT_FILE_TYPE,
     [NOISE]: SELECT_NOISE_TYPE,
     [OSCILLATOR]: SELECT_OSCILLATOR_TYPE,
-    [ROUTE]: SELECT_ROUTE_TYPE
+    [ROUTE]: SELECT_ROUTE_TYPE,
   };
   const mouseOver = type => setMouseOver(typeHelp[type]);
   const updateChannelType = type => updateProject(['channels', indexOfChannel, 'type'], type);
@@ -26,7 +26,7 @@ const ControlsBlank = ({i18n, indexOfChannel, setMouseOut, setMouseOver, theme, 
           setMouseOut();
           updateChannelType(type);
         },
-        onMouseOver: () => mouseOver(type)
+        onMouseOver: () => mouseOver(type),
       }))
       .map(t => (
         <div
@@ -53,7 +53,7 @@ ControlsBlank.propTypes = {
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
-  updateProject: PropTypes.func.isRequired
+  updateProject: PropTypes.func.isRequired,
 };
 
 export default ControlsBlank;

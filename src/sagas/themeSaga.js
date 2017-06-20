@@ -14,5 +14,5 @@ function* watchGetTheme() {
 }
 
 export {
-  watchGetTheme
+  watchGetTheme,
 };

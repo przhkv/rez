@@ -20,7 +20,7 @@ ProjectListConnector.propTypes = {
   open: PropTypes.func.isRequired,
   page: PropTypes.string.isRequired,
   projectList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -29,7 +29,7 @@ const mapStateToProps = state => ({
   loading: false, // fixme
   page: pageSelector(state),
   projectList: projectListSelector(state),
-  theme: themeSelector(state)
+  theme: themeSelector(state),
 });
 
 export default connect(mapStateToProps, {load, navigate, open})(ProjectListConnector);

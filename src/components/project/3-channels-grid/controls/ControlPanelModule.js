@@ -163,7 +163,7 @@ ControlPanelModule.propTypes = {
   setMouseOver: PropTypes.func.isRequired,
   soloChannelId: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired,
-  updateProject: PropTypes.func.isRequired
+  updateProject: PropTypes.func.isRequired,
 };
 
 export default ControlPanelModule;

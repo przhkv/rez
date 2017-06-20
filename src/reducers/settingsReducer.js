@@ -11,7 +11,7 @@ const reducers = {
   [SETTINGS_UPDATE.SUCCESS]:
     (currentState, action) => currentState.merge(action.settings),
   [SETTINGS_UPDATE.ERROR]:
-    (currentState, error) => currentState.merge({error})
+    (currentState, error) => currentState.merge({error}),
 };
 
 export default _reducerConstructor(initState, reducers);

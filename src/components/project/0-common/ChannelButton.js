@@ -6,20 +6,20 @@ const ChannelButton = ({active, onClick, onMouseOut, onMouseOver, theme, type}) 
   const button = {
     [EDIT]: {
       color: active ? 'washed-red bg-dark-pink' : 'dark-pink bg-washed-red',
-      text: 'e'
+      text: 'e',
     },
     [EXPAND]: {
       color: 'light-yellow bg-orange',
-      text: active ? '-' : '+'
+      text: active ? '-' : '+',
     },
     [MUTE]: {
       color: active ? 'washed-red bg-red' : 'red bg-washed-red',
-      text: 'm'
+      text: 'm',
     },
     [SOLO]: {
       color: active ? 'lightest-blue bg-dark-blue' : 'dark-blue bg-lightest-blue',
-      text: 's'
-    }
+      text: 's',
+    },
   };
 
   const clear = 'bn br-pill outline-0 input-reset rez-weak-dim pointer';
@@ -42,7 +42,7 @@ ChannelButton.propTypes = {
   onMouseOut: PropTypes.func,
   onMouseOver: PropTypes.func,
   theme: PropTypes.object.isRequired,
-  type: PropTypes.oneOf([EDIT, EXPAND, MUTE, SOLO]).isRequired
+  type: PropTypes.oneOf([EDIT, EXPAND, MUTE, SOLO]).isRequired,
 };
 
 export default ChannelButton;

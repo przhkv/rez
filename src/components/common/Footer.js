@@ -24,7 +24,7 @@ const Footer = ({i18n, theme}) => {
 
 Footer.propTypes = {
   i18n: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Footer;

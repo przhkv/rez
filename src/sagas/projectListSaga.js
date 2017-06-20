@@ -14,5 +14,5 @@ function* watchGetProjectList() {
 }
 
 export {
-  watchGetProjectList
+  watchGetProjectList,
 };

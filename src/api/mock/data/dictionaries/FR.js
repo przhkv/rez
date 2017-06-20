@@ -10,12 +10,12 @@ export default {
     pageNotFound: 'Page Non Trouvée',
   },
   footer: {
-    copyright: 'Copyright'
+    copyright: 'Copyright',
   },
   headNav: {
     back: 'Retour',
     projects: 'Projets',
-    settings: 'Paramètres'
+    settings: 'Paramètres',
   },
   helpInfo: {
     addChannel: 'Ajouter un canal',
@@ -46,22 +46,22 @@ export default {
   },
   home: {
     demo: 'démo',
-    status: 'Statut'
+    status: 'Statut',
   },
   options: {
     language: {
       EN: 'Anglaise (English)',
       FR: 'Français',
-      JP: 'Japonais (日本語)'
+      JP: 'Japonais (日本語)',
     },
     theme: {
       DEFAULT: 'Défaut',
-      VESPERTINE: 'Vespertine'
-    }
+      VESPERTINE: 'Vespertine',
+    },
   },
   project: {
     created: 'Créé',
-    updated: 'Actualisé'
+    updated: 'Actualisé',
   },
   settings: {
     defaultBPM: 'BPM par défaut',
@@ -69,18 +69,18 @@ export default {
     general: 'Général',
     language: 'Langue',
     sequencer: 'Séquenceur',
-    theme: 'Thème'
+    theme: 'Thème',
   },
   seq: {
     controls: {
       mute: 'Muet',
-      unmute: 'Annuler le mute'
+      unmute: 'Annuler le mute',
     },
     types: {
       file: 'Fichier',
       noise: 'Bruit',
       oscillator: 'Oscillateur',
-      route: 'Route'
-    }
-  }
+      route: 'Route',
+    },
+  },
 };

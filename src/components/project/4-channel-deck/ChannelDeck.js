@@ -53,7 +53,7 @@ ChannelDeck.propTypes = {
   setMouseOut: PropTypes.func.isRequired,
   setMouseOver: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
-  updateProject: PropTypes.func.isRequired
+  updateProject: PropTypes.func.isRequired,
 };
 
 export default ChannelDeck;

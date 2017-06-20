@@ -12,7 +12,7 @@ const FooterInfoBar = ({i18n, mouseOver, theme}) => (
 FooterInfoBar.propTypes = {
   i18n: PropTypes.object.isRequired,
   mouseOver: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default FooterInfoBar;

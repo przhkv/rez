@@ -54,5 +54,5 @@ function* watchUpdateSettings() {
 
 export {
   watchGetSettings,
-  watchUpdateSettings
+  watchUpdateSettings,
 };

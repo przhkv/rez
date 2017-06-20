@@ -9,7 +9,7 @@ export default (initialState) => {
   const store = createStore(
     rootReducer,
     initialState,
-    applyMiddleware(sagaMiddleware, reduxImmutableStateInvariant())
+    applyMiddleware(sagaMiddleware, reduxImmutableStateInvariant()),
   );
 
   store.runSaga = sagaMiddleware.run;

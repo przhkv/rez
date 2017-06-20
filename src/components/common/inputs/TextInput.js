@@ -29,7 +29,7 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.oneOf([NUMBER, TEXT]),
   theme: PropTypes.object.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 export default TextInput;

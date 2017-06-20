@@ -20,7 +20,7 @@ class SettingsPage extends React.Component {
       errors: {},
       modified: false,
       saving: false,
-      settings: props.settings
+      settings: props.settings,
     };
   }
 
@@ -29,7 +29,7 @@ class SettingsPage extends React.Component {
       this.setState({
         modified: false,
         saving: false,
-        settings: nextProps.settings
+        settings: nextProps.settings,
       });
   }
 
@@ -41,7 +41,7 @@ class SettingsPage extends React.Component {
     const updateSettingsState = ({field, val}, group) =>
       this.setState({
         modified: true,
-        settings: settings.updateIn([group, field], () => val)
+        settings: settings.updateIn([group, field], () => val),
       });
 
     const save = () => {
@@ -117,7 +117,7 @@ SettingsPage.propTypes = {
   page: PropTypes.string.isRequired,
   settings: PropTypes.instanceOf(Map).isRequired,
   updateRequest: PropTypes.func.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default SettingsPage;

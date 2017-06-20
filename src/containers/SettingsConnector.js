@@ -18,7 +18,7 @@ SettingsConnector.propTypes = {
   page: PropTypes.string.isRequired,
   settings: PropTypes.instanceOf(Immutable.Map).isRequired,
   theme: PropTypes.object.isRequired,
-  updateRequest: PropTypes.func.isRequired
+  updateRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
   loading: false, // fixme
   page: pageSelector(state),
   settings: settingsSelector(state),
-  theme: themeSelector(state)
+  theme: themeSelector(state),
 });
 
 export default connect(mapStateToProps, {navigate, updateRequest})(SettingsConnector);

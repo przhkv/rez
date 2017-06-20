@@ -28,7 +28,7 @@ TinyButton.propTypes = {
   onMouseOver: PropTypes.func,
   onMouseOut: PropTypes.func,
   text: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default TinyButton;

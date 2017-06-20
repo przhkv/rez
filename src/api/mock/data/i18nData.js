@@ -5,5 +5,5 @@ import _fr from './dictionaries/FR';
 export default {
   JP: _jp,
   EN: _en,
-  FR: _fr
+  FR: _fr,
 };

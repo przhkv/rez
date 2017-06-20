@@ -5,5 +5,5 @@ const reverse = string => (string !== 'true').toString();
 export {
   isFalse,
   isTrue,
-  reverse
+  reverse,
 };
