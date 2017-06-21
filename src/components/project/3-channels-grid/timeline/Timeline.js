@@ -2,68 +2,53 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 import ChannelTimeline from './ChannelTimeline';
+import TimelineGrid from './TimelineGrid';
 import { isTrue } from '../../../../utils/stringBoolUtils';
 import { findPlaybackPosition } from '../../../../utils/sequencer/zooming';
 import { msToTimeString } from '../../../../utils/sequencer/timeFormat';
 
 const chHeight = expanded => (isTrue(expanded) ? 75 : 53);
 
-const drawChannelsGrid = (timelineHeight) => {
-  const c = document.getElementById('channelsTimeline');
-  c.width = window.innerWidth - 256;
-  c.height = timelineHeight;
-  const ctx = c.getContext('2d');
-  ctx.strokeStyle = 'DimGray';
-  for (let i = 0; i < 100; i++) {
-    const x1 = (i * 40) + 0.5;
-    ctx.moveTo(x1, 0);
-    ctx.lineTo(x1, timelineHeight);
-    ctx.stroke();
-    const x2 = (i * 40) + 20.5;
-    ctx.moveTo(x2, 0);
-    ctx.lineTo(x2, timelineHeight);
-    ctx.stroke();
-  }
-};
-
 class Timeline extends React.Component {
   constructor() {
     super();
     this.state = {
-      timelineHeight: 0,
       timelineWidth: 0,
     };
   }
 
   componentDidMount() {
-    const setWidthDrawGrid = () => {
-      const timelineHeight =
-        this.props.project.get('channels')
-          .map(ch => chHeight(ch.getIn(['payload', 'state', 'expanded'])))
-          .reduce(((a, b) => a + b), 0);
+    const setTimelineSize = () => {
       this.setState({
-        timelineHeight,
         timelineWidth: window.innerWidth - 256,
       });
-      drawChannelsGrid(timelineHeight);
     };
 
-    window.addEventListener('resize', setWidthDrawGrid);
-    setWidthDrawGrid();
+    window.addEventListener('resize', setTimelineSize);
+    setTimelineSize();
   }
 
   render() {
     const { i18n, moment, project, setMouseOut, setMouseOver, theme, updateProject,
       zoom } = this.props;
-    const { timelineHeight, timelineWidth } = this.state;
-
+    const { timelineWidth } = this.state;
+    const timelineHeight =
+      this.props.project.get('channels')
+        .map(ch => chHeight(ch.getIn(['payload', 'state', 'expanded'])))
+        .reduce(((a, b) => a + b), 0);
 
     const playbackX = findPlaybackPosition(moment, zoom);
     const timeStr = msToTimeString(moment);
 
     return (
       <div className="overflow-x-hidden nowrap">
-        <canvas id="channelsTimeline" className="absolute o-20" />
+        <TimelineGrid
+          bpm={Number(project.getIn(['common', 'bpm']))}
+          measure={Number(project.getIn(['common', 'timeSignature', 'measure']))}
+          notes={Number(project.getIn(['common', 'timeSignature', 'notes']))}
+          timelineHeight={timelineHeight}
+          zoom={zoom}
+        />
         <div className="absolute" style={{ width: timelineWidth }}>
           {
             project.get('channels')
