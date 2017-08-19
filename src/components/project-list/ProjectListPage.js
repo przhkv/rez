@@ -9,8 +9,10 @@ import Header from '../common/Header';
 import MainSection from '../common/MainSection';
 import Wrapping from '../common/Wrapping';
 
-const ProjectListPage = ({ i18n, loadedProjectsIds, load, loading, navigate, open, page,
-                           projectList, theme }) => {
+const ProjectListPage = ({
+  i18n, loadedProjectsIds, load, loading, navigate, open, page, projectList,
+  theme,
+}) => {
   const openProject = (id, idTitle) => {
     const payload = {
       projectId: id,

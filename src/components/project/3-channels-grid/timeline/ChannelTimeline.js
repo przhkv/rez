@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 
-const ChannelTimeline = ({ channel, channelHeight, editedChannelId, i18n, setMouseOut,
-                           setMouseOver, theme, updateProject }) =>
-(
+const ChannelTimeline = ({
+  channel, channelHeight, editedChannelId, i18n, setMouseOut, setMouseOver,
+  theme, updateProject,
+}) => (
   <div className="bb b--light-gray" style={{ height: channelHeight }}>
     <span className="ml2 light-gray i">todo timeline</span>
   </div>

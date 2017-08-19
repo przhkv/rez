@@ -4,8 +4,9 @@ import { extractInputData } from '../../../utils/mapUtils';
 
 const AVAILABLE_VALIES_LIST = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 24];
 
-const TimeSignatureInput = ({ i18n, timeSignatureMeasure, timeSignatureNotes, theme,
-                              updateProject }) => {
+const TimeSignatureInput = ({
+  i18n, timeSignatureMeasure, timeSignatureNotes, theme, updateProject,
+}) => {
   const changeNotes = e =>
     updateProject(['common', 'timeSignature', 'notes'], extractInputData(e).val);
   const changeMeasure = e =>

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { TIME_RULER_HIDE, TIME_RULER_SHOW } from '../../../constants/sequencer/elements';
 import TinyButton from './TinyButton';
 
-const ShowHideTimeButton = ({ i18n, showTimeScale, setMouseOut, setMouseOver, theme,
-                              updateProjectItem }) => {
+const ShowHideTimeButton = ({
+  i18n, showTimeScale, setMouseOut, setMouseOver, theme, updateProjectItem,
+}) => {
   const onClick = () => {
     updateProjectItem(['view', 'timeScale'], showTimeScale ? 'false' : 'true');
     setMouseOver(showTimeScale ? TIME_RULER_SHOW : TIME_RULER_HIDE);

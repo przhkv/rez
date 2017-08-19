@@ -8,8 +8,10 @@ import { FILLER, NEUTRAL_LIGHT } from '../../../constants/components/buttonStyle
 import ChannelButton from '../0-common/ChannelButton';
 import SubmitButton from '../../common/buttons/SubmitButton';
 
-const MasterDeck = ({ clickPlay, gainNode, i18n, playing, project, save, setMouseOut,
-                        setMouseOver, theme, updateProjectItem, updZoom, zoom }) => {
+const MasterDeck = ({
+  clickPlay, gainNode, i18n, playing, project, save, setMouseOut, setMouseOver,
+  theme, updateProjectItem, updZoom, zoom,
+}) => {
   const volume = project.getIn(['common', 'gain']);
   const muted = project.getIn(['common', 'muted']) === 'true';
 

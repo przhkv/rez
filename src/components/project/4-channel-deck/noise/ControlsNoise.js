@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Map } from 'immutable';
 
-const ControlsNoise = ({ audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut,
-                         setMouseOver, theme, updateProject}) => {
+const ControlsNoise = ({
+  audioCtx, channel, gainNode, i18n, indexOfChannel, setMouseOut, setMouseOver,
+  theme, updateProject,
+}) => {
   const gain = Number(channel.getIn(['payload', 'gain']));
   const pan = Number(channel.getIn(['payload', 'pan']));
   const lGain = (pan > 0 ? (1 - pan) : 1) * gain;

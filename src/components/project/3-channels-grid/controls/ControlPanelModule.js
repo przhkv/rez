@@ -3,17 +3,27 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Map } from 'immutable';
 import { isTrue, reverse } from '../../../../utils/stringBoolUtils';
-import { CHANGE_PANNING, CHANGE_VOLUME, EDIT_CHANNEL, EXPAND_CHANNEL, MINIMIZE_CHANNEL,
-         MUTE_CHANNEL, SOLO_OFF, SOLO_ON, UNMUTE_CHANNEL }
-from '../../../../constants/sequencer/elements';
+import {
+  CHANGE_PANNING,
+  CHANGE_VOLUME,
+  EDIT_CHANNEL,
+  EXPAND_CHANNEL,
+  MINIMIZE_CHANNEL,
+  MUTE_CHANNEL,
+  SOLO_OFF,
+  SOLO_ON,
+  UNMUTE_CHANNEL,
+} from '../../../../constants/sequencer/elements';
 import { EDIT, EXPAND, MUTE, SOLO } from '../../../../constants/sequencer/panelButtonTypes';
 import ChannelButton from '../../0-common/ChannelButton';
 import ChannelName from './ChannelName';
 
 const ChSide = styled.em`cursor: default;`;
 
-const ControlPanelModule = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
-                       soloChannelId, theme, updateProject}) => {
+const ControlPanelModule = ({
+  channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
+  soloChannelId, theme, updateProject,
+}) => {
   const chId = channel.get('channelId');
   const {expanded, muted} = channel.getIn(['payload', 'state']).toJS();
   const edited = (chId === editedChannelId);

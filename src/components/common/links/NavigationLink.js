@@ -5,8 +5,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import history from '../../../history';
 
-const NavigationLink = ({ active, disabled, onMouseOver, onMouseOut, navigate, text, theme,
-                          title, url}) => {
+const NavigationLink = ({
+  active, disabled, onMouseOver, onMouseOut, navigate, text, theme, title, url,
+}) => {
   const click = (event) => {
     if (event.button !== 0 /* left click */) {
       return;

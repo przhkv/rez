@@ -8,8 +8,10 @@ import { BACK, CLOSE, DECREASE_BPM, INCREASE_BPM } from '../../../constants/sequ
 import { MAX_BPM, MIN_BPM } from '../../../constants/sequencer/limits';
 import TimeSignatureInput from './TimeSignatureInput';
 
-const HeaderControls = ({ closeProject, i18n, loading, navigate, project, setMouseOut,
-                          setMouseOver, theme, updateProject}) => {
+const HeaderControls = ({
+  closeProject, i18n, loading, navigate, project, setMouseOut, setMouseOver,
+  theme, updateProject,
+}) => {
   const
     navigateToProjects = () => navigate(PROJECTS),
     setOnMouseOverBack = () => setMouseOver(BACK),

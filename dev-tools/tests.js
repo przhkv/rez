@@ -1,4 +1,4 @@
-/** From Cory House: https://github.com/coryhouse/react-slingshot **/
+/** from Cory House: https://github.com/coryhouse/react-slingshot */
 // Tests are placed alongside files under test.
 // This file does the following:
 // 1. Sets the environment to 'test' so that

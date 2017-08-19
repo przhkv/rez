@@ -7,8 +7,9 @@ import { extractInputData } from '../../../../utils/mapUtils';
 import SelectInput from '../../../common/inputs/SelectInput';
 
 
-const ControlsRoute = ({ channels, i18n, indexOfChannel, setMouseOut, setMouseOver, theme,
-                         updateProject }) => {
+const ControlsRoute = ({
+  channels, i18n, indexOfChannel, setMouseOut, setMouseOver, theme, updateProject,
+}) => {
   // const mouseOverSelectOutput = () => setMouseOver('todo');
   const updateChannelOutput = output => updateProject(['channels', indexOfChannel, 'payload', 'output'], output);
   const updateSelectOption = e => updateChannelOutput(extractInputData(e).val);

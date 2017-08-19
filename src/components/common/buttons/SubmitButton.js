@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FILLER, NEUTRAL_LIGHT, SUBMIT } from '../../../constants/components/buttonStyles';
 
-const SubmitButton = ({ buttonStyle = SUBMIT, disabled, inline, onClick, onMouseOut, onMouseOver,
-                        text, theme }) => {
+const SubmitButton = ({
+  buttonStyle = SUBMIT, disabled, inline, onClick, onMouseOut, onMouseOver,
+  text, theme,
+}) => {
   const buttonClasses = {
     [FILLER]: 'f5 bn h-100 w-100',
     [NEUTRAL_LIGHT]: `f6 ba ${theme.buttonNeutralLight}`,

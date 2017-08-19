@@ -5,8 +5,10 @@ import { EDIT } from '../../../../constants/sequencer/panelButtonTypes';
 import ChannelButton from '../../0-common/ChannelButton';
 import ChannelName from './ChannelName';
 
-const ControlPanelBlank = ({ channel, editedChannelId, i18n, index, setMouseOut, setMouseOver,
-                             theme, updateProject }) => {
+const ControlPanelBlank = ({
+  channel, editedChannelId, i18n, index, setMouseOut, setMouseOver, theme,
+  updateProject,
+}) => {
   const chId = channel.get('channelId');
   const edited = (chId === editedChannelId);
   const clickEdited = () => updateProject(['editedChannelId'], edited ? '' : chId);

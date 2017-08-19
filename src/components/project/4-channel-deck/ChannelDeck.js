@@ -7,8 +7,10 @@ import ControlsBlank from './blank/ControlsBlank';
 import ControlsNoise from './noise/ControlsNoise';
 import ControlsRoute from './route/ControlsRoute';
 
-const ChannelDeck = ({ audioCtx, gainNode, editedChannelId, i18n, project, setMouseOut,
-                           setMouseOver, theme, updateProject }) => {
+const ChannelDeck = ({
+  audioCtx, gainNode, editedChannelId, i18n, project, setMouseOut,
+  setMouseOver, theme, updateProject,
+}) => {
   const displayClass = (editedChannelId && editedChannelId.length > 0) ? '' : 'dn';
   const indexOfChannel =
     project.get('channels').findIndex(c => c.get('channelId') === editedChannelId);

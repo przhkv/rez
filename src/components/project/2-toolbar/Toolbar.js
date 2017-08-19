@@ -7,9 +7,10 @@ import RulerTime from './RulerTime';
 import ShowHideTimeButton from './ShowHideTimeButton';
 import { isTrue } from '../../../utils/stringBoolUtils';
 
-const Toolbar = ({ i18n, project, setMouseOut, setMouseOver, theme, updateProjectItem,
-                   updateProjectMerge, zoom }) =>
-(
+const Toolbar = ({
+  i18n, project, setMouseOut, setMouseOver, theme, updateProjectItem,
+  updateProjectMerge, zoom,
+}) => (
   <div className={`flex-none order-2 w-100 bg-near-white ${theme.bg}`}>
     {
       isTrue(project.getIn(['view', 'timeScale'])) &&

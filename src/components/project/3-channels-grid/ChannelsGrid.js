@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import ControlsList from './controls/ControlsList';
 import Timeline from './timeline/Timeline';
 
-const ChannelsGrid = ({ audioCtx, gainNode, i18n, moment, project, save, setMouseOut, setMouseOver,
-                        theme, updateProject, zoom }) =>
-(
+const ChannelsGrid = ({
+  audioCtx, gainNode, i18n, moment, project, save, setMouseOut, setMouseOver,
+  theme, updateProject, zoom,
+}) => (
   <main id="seq" className={`flex-auto order-3 overflow-y-auto w-100 ${theme.bg}`}>
     <div className="fl w-100">
       <ControlsList {...{i18n, project, setMouseOut, setMouseOver, theme, updateProject}} />
