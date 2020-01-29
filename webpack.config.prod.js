@@ -2,11 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production'),
-};
-
 export default {
+  mode: 'production',
   entry: './src/index',
   target: 'web',
   output: {
@@ -17,11 +14,8 @@ export default {
   devServer: { contentBase: '/static' },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
   ],
   module: {
     rules: [
